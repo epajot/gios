@@ -15,7 +15,7 @@ DEPENDENCIES:
   - SwipeableTabBarController
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - BigInt
     - SipHash
     - Sodium
@@ -46,4 +46,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 47d023df1ea18ad9773d9bf92e6b3fc666698744
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.10.0
