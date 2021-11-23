@@ -15,20 +15,19 @@ class TransactionViewController: UIViewController {
     var transaction: ParsedTransaction?
     var currency: String = "g1"
     var loginView: LoginViewController?
-    @IBOutlet weak var senderAvatar: UIImageView!
-    @IBOutlet weak var close: UILabel!
-    @IBOutlet weak var receiverAvatar: UIImageView!
-    @IBOutlet weak var arrow: UIImageView!
-    @IBOutlet weak var amount: UILabel!
-    @IBOutlet weak var senderName: UILabel!
-    @IBOutlet weak var receiverName: UILabel!
-    @IBOutlet weak var txHash: UILabel!
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var comment: UITextView!
-    @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var topBarHeight: NSLayoutConstraint!
-    @IBOutlet weak var decryptCommentButton: UIButton!
-    
+    @IBOutlet var senderAvatar: UIImageView!
+    @IBOutlet var close: UILabel!
+    @IBOutlet var receiverAvatar: UIImageView!
+    @IBOutlet var arrow: UIImageView!
+    @IBOutlet var amount: UILabel!
+    @IBOutlet var senderName: UILabel!
+    @IBOutlet var receiverName: UILabel!
+    @IBOutlet var txHash: UILabel!
+    @IBOutlet var date: UILabel!
+    @IBOutlet var comment: UITextView!
+    @IBOutlet var closeButton: UIButton!
+    @IBOutlet var topBarHeight: NSLayoutConstraint!
+    @IBOutlet var decryptCommentButton: UIButton!
     
     var sender: Profile? {
         didSet {
@@ -40,6 +39,7 @@ class TransactionViewController: UIViewController {
             }
         }
     }
+
     var receiver: Profile? {
         didSet {
             print("got receiver")
@@ -86,13 +86,12 @@ class TransactionViewController: UIViewController {
         if let am = self.transaction?.amount {
             let currency = Currency.formattedCurrency(currency: self.currency)
             var a = Double(truncating: am as NSNumber)
-            if (a < 0) {
+            if a < 0 {
                 a *= -1
             }
             
-            self.amount.text = String(format: "%.2f %@", a / 100, currency)
+            self.amount.text = String(format: "%.2f %@", a/100, currency)
         }
-        
         
         if let tx = self.transaction {
             let date = Date(timeIntervalSince1970: Double(tx.time))
@@ -104,43 +103,41 @@ class TransactionViewController: UIViewController {
             let t = dateFormatter.string(from: date)
             self.date?.text = String(format: "transaction_view_date_format".localized(), d, t)
 
-            if (tx.comment.isEmpty) {
+            if tx.comment.isEmpty {
                 self.comment.text = "no_comment_placeholder".localized()
                 self.comment.textColor = .lightGray
             } else {
                 self.comment.text = tx.comment
-                
             }
             print(tx.pubKey)
             self.getSender(pubKey: tx.pubKey)
             
-            if ((tx.to.count > 0 && self.receiver == nil) || (tx.to.count > 0 && tx.amount < 0 && self.receiver?.kp == nil)) {
+            if (tx.to.count > 0 && self.receiver == nil) || (tx.to.count > 0 && tx.amount < 0 && self.receiver?.kp == nil) {
                 self.getReceiver(pubKey: tx.to[0])
             }
-            if (tx.comment.starts(with: "enc ")) {
+            if tx.comment.starts(with: "enc ") {
                 // Display decrypt comment button
                 if let receiver = self.receiver {
                     self.decryptCommentButton.setTitle("decrypt_comment_button_label".localized(), for: .normal)
-                    if (receiver.kp != nil || receiver.issuer != tx.to[0]) {
+                    if receiver.kp != nil || receiver.issuer != tx.to[0] {
                         self.decryptCommentButton.isHidden = true
                     }
                 }
             } else {
                 self.decryptCommentButton.isHidden = true
             }
-            
         }
     }
     
     @IBAction func decryptComment(_ sender: Any) {
         print("decryptComment")
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         self.loginView = storyBoard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController
         
         self.loginView?.loginDelegate = self
         self.loginView?.sendingTransaction = true
-        //loginView.isModalInPopover = true
+        // loginView.isModalInPopover = true
         if let v = self.loginView {
             self.present(v, animated: true, completion: nil)
         }
@@ -163,7 +160,7 @@ class TransactionViewController: UIViewController {
         print("decoding comment")
         if let tx = self.transaction {
             print("tx exists")
-            if (tx.comment.starts(with: "enc ")) {
+            if tx.comment.starts(with: "enc ") {
                 print("comment starts with enc")
                 if let seed = self.receiver?.kp, let senderPublicKey = self.sender?.issuer {
                     print("pk and seed exist")
@@ -185,7 +182,8 @@ class TransactionViewController: UIViewController {
                     if let decrypted: Bytes =
                         sodium.box.open(nonceAndAuthenticatedCipherText: Base58.bytesFromBase58(cipherText),
                                         senderPublicKey: senderPK,
-                                        recipientSecretKey: conv.secretKey) {
+                                        recipientSecretKey: conv.secretKey)
+                    {
                         self.comment.text = String(bytes: decrypted, encoding: .utf8)
                     }
                 }
@@ -198,20 +196,20 @@ class TransactionViewController: UIViewController {
         Profile.getRequirements(publicKey: pubKey, callback: { identity in
             // Force getting profile from public key
             var ident = identity
-            if (identity == nil) {
+            if identity == nil {
                 ident = Identity(pubkey: pubKey, uid: "")
             }
             Profile.getProfile(publicKey: pubKey, identity: ident, callback: { profile in
                 if let prof = profile, let am = self.transaction?.amount {
-                    //Reverse display if amount is negative
+                    // Reverse display if amount is negative
                     print("got profile, amount is", am)
-                    if (am < 0) {
+                    if am < 0 {
                         self.receiver = prof
                     } else {
                         self.sender = prof
                     }
                 } else {
-                   print("no profile for " + pubKey)
+                    print("no profile for " + pubKey)
                 }
             })
         })
@@ -222,12 +220,12 @@ class TransactionViewController: UIViewController {
         Profile.getRequirements(publicKey: pubKey, callback: { identity in
             // Force getting profile from public key
             var ident = identity
-            if (identity == nil) {
+            if identity == nil {
                 ident = Identity(pubkey: pubKey, uid: "")
             }
             Profile.getProfile(publicKey: pubKey, identity: ident, callback: { profile in
                 if let prof = profile, let am = self.transaction?.amount {
-                    if (am < 0) {
+                    if am < 0 {
                         self.sender = prof
                     } else {
                         self.receiver = prof
@@ -239,6 +237,7 @@ class TransactionViewController: UIViewController {
         })
     }
 }
+
 extension TransactionViewController: LoginDelegate {
     func login(profile: Profile) {
         self.receiver = profile
