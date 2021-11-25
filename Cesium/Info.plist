@@ -9,7 +9,7 @@
 			<string>sixpixels.gios</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>g1app</string>
+				<string>g1</string>
 			</array>
 		</dict>
 	</array>

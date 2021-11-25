@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 
       // this code will be replaced by code for handling the incoming URL
-      let message = url.host?.removingPercentEncoding
+      let message = url.absoluteString.removingPercentEncoding
       let alertController = UIAlertController(title: "Incoming Message", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
       alertController.addAction(okAction)
