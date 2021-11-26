@@ -39,6 +39,9 @@
 		ABE007D222A2CDA10077C9C3 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE007D122A2CDA10077C9C3 /* Currency.swift */; };
 		ABF6251A22B5AA60008D5087 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6251922B5AA60008D5087 /* KeyChain.swift */; };
 		ABF6252122B5CCCB008D5087 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABF6252322B5CCCB008D5087 /* InfoPlist.strings */; };
+		EA6AABB727512D51005C803A /* G1URLTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB627512D51005C803A /* G1URLTest.swift */; };
+		EA6AABB927512E02005C803A /* G1URLPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB827512E02005C803A /* G1URLPayment.swift */; };
+		EA6AABBA27512E46005C803A /* G1URLPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB827512E02005C803A /* G1URLPayment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,8 @@
 		ABF6252222B5CCCB008D5087 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ABF6252422B5CCD3008D5087 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B4A9576E045C516D7255FFE2 /* Pods_Cesium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cesium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA6AABB627512D51005C803A /* G1URLTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G1URLTest.swift; sourceTree = "<group>"; };
+		EA6AABB827512E02005C803A /* G1URLPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G1URLPayment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +212,7 @@
 		AB04BF41229F539600B1111E /* CesiumTests */ = {
 			isa = PBXGroup;
 			children = (
+				EA6AABB627512D51005C803A /* G1URLTest.swift */,
 				AB04BF42229F539600B1111E /* CesiumTests.swift */,
 				AB04BF44229F539600B1111E /* Info.plist */,
 			);
@@ -226,13 +232,13 @@
 			isa = PBXGroup;
 			children = (
 				AB1AC3BB22A05F1100CDEEB7 /* Base58.swift */,
-				AB1AC3C922A1575E00CDEEB7 /* Request.swift */,
-				AB1AC3CD22A1686F00CDEEB7 /* Image.swift */,
 				ABE007D122A2CDA10077C9C3 /* Currency.swift */,
+				AB1AC3CD22A1686F00CDEEB7 /* Image.swift */,
+				ABF6251922B5AA60008D5087 /* KeyChain.swift */,
+				AB1AC3C922A1575E00CDEEB7 /* Request.swift */,
+				AB7681AC22C16802004755C4 /* Sign.swift */,
 				AB168A7222A341A900952DDE /* TextField.swift */,
 				AB38A65A22A38309008D7215 /* Transactions.swift */,
-				ABF6251922B5AA60008D5087 /* KeyChain.swift */,
-				AB7681AC22C16802004755C4 /* Sign.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -240,6 +246,7 @@
 		AB996F1622A06D9A005966E2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EA6AABB827512E02005C803A /* G1URLPayment.swift */,
 				AB996F1722A06E02005966E2 /* Profile.swift */,
 				AB1AC3C522A1490B00CDEEB7 /* Source.swift */,
 				AB1AC3CB22A1600700CDEEB7 /* Identity.swift */,
@@ -492,6 +499,7 @@
 				AB38A65B22A38309008D7215 /* Transactions.swift in Sources */,
 				ABB3F0A722BC31F400188D45 /* QRCodeViewController.swift in Sources */,
 				AB1AC3CC22A1600700CDEEB7 /* Identity.swift in Sources */,
+				EA6AABB927512E02005C803A /* G1URLPayment.swift in Sources */,
 				ABE007D022A28D820077C9C3 /* TransactionViewController.swift in Sources */,
 				AB168A7122A3219E00952DDE /* NewTransactionViewController.swift in Sources */,
 				ABD2E1E422A9214D001A40CD /* Duniter.swift in Sources */,
@@ -507,6 +515,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB04BF43229F539600B1111E /* CesiumTests.swift in Sources */,
+				EA6AABBA27512E46005C803A /* G1URLPayment.swift in Sources */,
+				EA6AABB727512D51005C803A /* G1URLTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
