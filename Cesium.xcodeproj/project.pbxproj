@@ -212,8 +212,8 @@
 		AB04BF41229F539600B1111E /* CesiumTests */ = {
 			isa = PBXGroup;
 			children = (
-				EA6AABB627512D51005C803A /* G1URLTest.swift */,
 				AB04BF42229F539600B1111E /* CesiumTests.swift */,
+				EA6AABB627512D51005C803A /* G1URLTest.swift */,
 				AB04BF44229F539600B1111E /* Info.plist */,
 			);
 			path = CesiumTests;

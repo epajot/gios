@@ -1,5 +1,5 @@
 //
-//  g1URLTest.swift
+//  G1URLTest.swift
 //  shAreTests
 //
 //  Created by Eric PAJOT on 26.11.21.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class g1URLTest: XCTestCase {
+class G1URLTest: XCTestCase {
     override func setUpWithError() throws {}
 
     override func tearDownWithError() throws {}
