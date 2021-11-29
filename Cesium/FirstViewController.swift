@@ -6,17 +6,15 @@
 //  Copyright © 2019 Jonathan Foucher. All rights reserved.
 //
 
-import UIKit
-import Sodium
 import CryptoSwift
-
+import Sodium
+import UIKit
 
 class FirstViewController: UINavigationController, UINavigationBarDelegate {
     var loggedOut: Bool = false
 
     var selectedProfile: Profile?
     var profile: Profile?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,25 +26,22 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
         } else {
             self.loadLoginView()
         }
-        
-        
     }
     
     func loadLoginView() {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
         loginView.loginDelegate = self
         loginView.loginFailedDelegate = self
-        self.pushViewController(loginView, animated:true)
+        self.pushViewController(loginView, animated: true)
     }
     
-    func checkNode(num: Int, callback:@escaping () -> Void) {
+    func checkNode(num: Int, callback: @escaping () -> Void) {
         print(num, nodes.count)
         let request = Request(url: nodes[num] + "/")
-        request.jsonDecodeWithCallback(type: DuniterResponse.self) { (error, duniter) in
+        request.jsonDecodeWithCallback(type: DuniterResponse.self) { error, _ in
             if error != nil {
-                
-                if (num + 1 < nodes.count) {
+                if num + 1 < nodes.count {
                     print("error, next node will be", num + 1)
                     self.checkNode(num: num + 1, callback: callback)
                 } else {
@@ -70,17 +65,17 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
     }
     
     func handleLogin(profile: Profile) {
-        if (profile.kp != nil) {
+        if profile.kp != nil {
             let encoder = JSONEncoder()
             
             if let encoded = try? encoder.encode(profile) {
-                KeyChain.save(key: "profile", data: encoded)
+                _ = KeyChain.save(key: "profile", data: encoded)
                 UserDefaults.standard.set(profile.getName(), forKey: "lastUser")
             }
         }
         
         DispatchQueue.main.async {
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let profileView = storyBoard.instantiateViewController(withIdentifier: "ProfileView") as! ProfileViewController
             let backItem = UIBarButtonItem()
             backItem.title = "logout_button_label".localized()
@@ -95,13 +90,13 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
             profileView.changeUserDelegate = self
             profileView.profile = profile
             profileView.loginProfile = profile
-            self.pushViewController(profileView, animated:true)
+            self.pushViewController(profileView, animated: true)
         }
     }
     
     func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool {
         // Very ugly but works for now
-        if ((navigationBar.backItem?.backBarButtonItem?.title == nil || navigationBar.backItem?.backBarButtonItem?.title == "logout_button_label".localized()) && self.loggedOut == false) {
+        if navigationBar.backItem?.backBarButtonItem?.title == nil || navigationBar.backItem?.backBarButtonItem?.title == "logout_button_label".localized(), self.loggedOut == false {
             self.logout()
             return false
         }
@@ -110,10 +105,10 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
     }
     
     @objc func logout() {
-        print ("logout")
+        print("logout")
         let alert = UIAlertController(title: "logout_confirm_prompt".localized(), message: "", preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "confirm_label".localized(), style: .default, handler: {ac in
+        alert.addAction(UIAlertAction(title: "confirm_label".localized(), style: .default, handler: { _ in
             self.loggedOut = true
             print("removing profile")
             
@@ -125,20 +120,18 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
             
             self.profile = nil
             print(self.viewControllers.count)
-            if (self.viewControllers.count > 1) {
+            if self.viewControllers.count > 1 {
                 self.popViewController(animated: true)
             } else {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
                 loginView.loginDelegate = self
                 loginView.loginFailedDelegate = self
 
-                self.viewControllers.insert(loginView, at:0)
+                self.viewControllers.insert(loginView, at: 0)
                 self.popViewController(animated: true)
-                //self.setViewControllers(vc, animated: true)
-                
+                // self.setViewControllers(vc, animated: true)
             }
-            
             
         }))
         
@@ -148,8 +141,7 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
     }
 }
 
-
-protocol ViewUserDelegate: class {
+protocol ViewUserDelegate: AnyObject {
     func viewUser(profile: Profile)
 }
 
@@ -157,23 +149,22 @@ extension FirstViewController: ViewUserDelegate {
     func viewUser(profile: Profile) {
         print("in ViewUserDelegate")
         DispatchQueue.main.async {
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let profileView = storyBoard.instantiateViewController(withIdentifier: "ProfileView") as! ProfileViewController
             
             profileView.profile = profile
             profileView.loginProfile = self.profile
             profileView.changeUserDelegate = self
-            self.pushViewController(profileView, animated:true)
-            
+            self.pushViewController(profileView, animated: true)
         }
     }
 }
 
-protocol LoginDelegate: class {
+protocol LoginDelegate: AnyObject {
     func login(profile: Profile)
 }
 
-protocol LoginFailedDelegate: class {
+protocol LoginFailedDelegate: AnyObject {
     func loginFailed(error: String)
 }
 
@@ -185,28 +176,26 @@ extension FirstViewController: LoginDelegate {
     }
 }
 
-
 extension FirstViewController: LoginFailedDelegate {
     func loginFailed(error: String) {
         print("This account does not exist, do you want to create it or try again?")
-        //TODO display modal with signup
+        // TODO: display modal with signup
         DispatchQueue.main.async {
-            let alertController = UIAlertController( title: "account_does_not_exist_title".localized(),
-                                                     message: "account_does_not_exist_message".localized(),
-                                                     preferredStyle: .actionSheet)
+            let alertController = UIAlertController(title: "account_does_not_exist_title".localized(),
+                                                    message: "account_does_not_exist_message".localized(),
+                                                    preferredStyle: .actionSheet)
 
             let cancelAction = UIAlertAction(title: "account_does_not_exist_cancel".localized(), style: .cancel, handler: {
-                action in
+                _ in
                 print("Cancel pressed")
             })
             let saveAction = UIAlertAction(title: "account_does_not_exist_create".localized(), style: .default, handler: {
-                action in
+                _ in
                 
-
                 print("Save pressed.")
             })
             alertController.addAction(cancelAction)
-            //alertController.addAction(saveAction)
+            alertController.addAction(saveAction)
             self.present(alertController, animated: true, completion: nil)
         }
     }

@@ -106,7 +106,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func searchChanged(_ sender: UITextField) {
-        print("change", sender.text)
+        print("change", sender.text as Any)
         self.page = 0
         self.end = false
         self.profiles = []

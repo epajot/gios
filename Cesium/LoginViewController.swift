@@ -123,9 +123,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let context = LAContext()
         var error: NSError?
         let username = UserDefaults.standard.string(forKey: "lastUser")
-        print("username", username)
+        print("username", username as Any)
         let profile = Profile.load()
-        print("profile", profile)
+        print("profile", profile as Any)
         if username != nil && context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) && (profile == nil || sendingTransaction) {
 
             let blurEffect = UIBlurEffect(style: .light)

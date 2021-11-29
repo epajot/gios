@@ -434,7 +434,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     }
 }
 
-protocol ReceiverChangedDelegate: class {
+protocol ReceiverChangedDelegate: AnyObject {
     func receiverChanged(receiver: Profile)
 }
 

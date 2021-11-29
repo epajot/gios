@@ -178,7 +178,7 @@ class TransactionViewController: UIViewController {
                     let d = sodium.box.open(nonceAndAuthenticatedCipherText: Array(cipherText.utf8),
                                             senderPublicKey: senderPK,
                                             recipientSecretKey: conv.secretKey)
-                    print("decrypted", d)
+                    print("decrypted", d as Any)
                     if let decrypted: Bytes =
                         sodium.box.open(nonceAndAuthenticatedCipherText: Base58.bytesFromBase58(cipherText),
                                         senderPublicKey: senderPK,
