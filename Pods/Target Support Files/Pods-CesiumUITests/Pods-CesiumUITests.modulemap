@@ -1,0 +1,6 @@
+framework module Pods_CesiumUITests {
+  umbrella header "Pods-CesiumUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
