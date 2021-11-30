@@ -120,7 +120,7 @@ Inputs:
         }
 
         if let signature = sodium.sign.signature(message: Array(transaction.utf8), secretKey: kp) {
-            return signature.toBase64() ?? ""
+            return signature.toBase64() 
         }
         
         throw TransactionCreationError.couldNotSignTransaction

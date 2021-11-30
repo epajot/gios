@@ -6,14 +6,14 @@
 //  Copyright © 2019 Jonathan Foucher. All rights reserved.
 //
 
-import Foundation
-import UIKit
-import Sodium
 import CryptoSwift
+import Foundation
+import Sodium
+import UIKit
 
-struct TransactionSection : Comparable {
-    var type : String
-    var transactions : [ParsedTransaction]
+struct TransactionSection: Comparable {
+    var type: String
+    var transactions: [ParsedTransaction]
     
     static func < (lhs: TransactionSection, rhs: TransactionSection) -> Bool {
         return lhs.type < rhs.type
@@ -25,10 +25,10 @@ struct TransactionSection : Comparable {
 }
 
 class TransactionTableViewCell: UITableViewCell {
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var amount: UIButton!
-    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet var name: UILabel!
+    @IBOutlet var date: UILabel!
+    @IBOutlet var amount: UIButton!
+    @IBOutlet var avatar: UIImageView!
     var profile: Profile?
     
     var transaction: ParsedTransaction?
@@ -37,33 +37,33 @@ class TransactionTableViewCell: UITableViewCell {
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     weak var changeUserDelegate: ViewUserDelegate?
     var displayingAvatar: Bool = true
-    @IBOutlet weak var check: UIImageView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var balance: UILabel!
-    @IBOutlet weak var publicKey: UILabel!
-    @IBOutlet weak var keyImage: UIImageView!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var createTransaction: UIButton!
+    @IBOutlet var check: UIImageView!
+    @IBOutlet var name: UILabel!
+    @IBOutlet var balance: UILabel!
+    @IBOutlet var publicKey: UILabel!
+    @IBOutlet var keyImage: UIImageView!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var avatar: UIImageView!
+    @IBOutlet var createTransaction: UIButton!
     var loginProfile: Profile?
     
     var profile: Profile? {
         didSet {
             if let nav = self.navigationController as? FirstViewController {
-                nav.selectedProfile = profile
+                nav.selectedProfile = self.profile
             }
         }
     }
+
     var sections: [TransactionSection]?
     var currency: String = ""
     
     lazy var refreshControl: UIRefreshControl = {
-        
         let refreshControl = UIRefreshControl()
         
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControl.Event.valueChanged)
         
-        //refreshControl.tintColor = UIColor.red
+        // refreshControl.tintColor = UIColor.red
         
         return refreshControl
     }()
@@ -75,8 +75,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     refreshControl.endRefreshing()
                 }
             })
-            profile?.getBalance(callback: { total in
-                let str = String(format:"%@ %.2f %@", "balance_label".localized(), Double(total) / 100, Currency.formattedCurrency(currency: self.currency))
+            self.profile?.getBalance(callback: { total in
+                let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(total) / 100, Currency.formattedCurrency(currency: self.currency))
                 
                 DispatchQueue.main.async {
                     self.balance.text = str
@@ -84,8 +84,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             })
         }
-        
-        
     }
     
     override func viewDidLoad() {
@@ -100,12 +98,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.avatar.layer.borderWidth = 1
             self.avatar.layer.masksToBounds = false
             self.avatar.layer.borderColor = UIColor.white.cgColor
-            self.avatar.layer.cornerRadius = avatar.frame.width/2
+            self.avatar.layer.cornerRadius = self.avatar.frame.width / 2
             self.avatar.clipsToBounds = true
             
             profile.getAvatar(imageView: self.avatar)
             
-
             // make key image white
             self.keyImage.tintColor = .white
             self.keyImage.image = UIImage(named: "key")?.withRenderingMode(.alwaysTemplate)
@@ -123,8 +120,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             let ctrl = self.navigationController as! FirstViewController
             if let cnt = self.navigationController?.viewControllers.count {
-                if (cnt > 3) {
-                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "home_button_label".localized(), style: .plain, target: self, action: #selector(goToStart))
+                if cnt > 3 {
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "home_button_label".localized(), style: .plain, target: self, action: #selector(self.goToStart))
                     self.navigationItem.rightBarButtonItem?.tintColor = .white
                 }
             }
@@ -138,14 +135,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.check.isHidden = true
             if let ident = profile.identity {
                 if let certs = ident.certifications {
-                    if (certs.count >= 5) {
+                    if certs.count >= 5 {
                         self.check.isHidden = false
                     }
                 }
             }
             
             profile.getBalance(callback: { total in
-                let str = String(format:"%@ %.2f %@", "balance_label".localized(), Double(total) / 100, Currency.formattedCurrency(currency: self.currency))
+                let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(total) / 100, Currency.formattedCurrency(currency: self.currency))
                 self.profile?.balance = total
                 DispatchQueue.main.async {
                     self.balance.text = str
@@ -159,20 +156,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
-            tableView.addSubview(refreshControl)
+            self.tableView.addSubview(self.refreshControl)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped(tapGestureRecognizer:)))
         self.avatar.isUserInteractionEnabled = true
         self.avatar.addGestureRecognizer(tapGestureRecognizer)
-        
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         print("displaying avatar")
-        if (self.displayingAvatar) {
+        if self.displayingAvatar {
             self.displayingAvatar = false
             self.avatar.layer.borderWidth = 1
             self.avatar.layer.masksToBounds = false
@@ -193,7 +188,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     
                     if let output = filter.outputImage?.transformed(by: transform) {
                         tappedImage.image = UIImage(ciImage: output)
-                        
                     }
                 }
             }
@@ -207,10 +201,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
                 if #available(iOS 11, *) {
                     UIView.animate(withDuration: 0.15, animations: {
-                        self.avatar.layer.cornerRadius = self.avatar.frame.width/2
+                        self.avatar.layer.cornerRadius = self.avatar.frame.width / 2
                     })
                 } else {
-                    self.avatar.layer.cornerRadius = self.avatar.frame.width/2
+                    self.avatar.layer.cornerRadius = self.avatar.frame.width / 2
                 }
                 
                 self.avatar.clipsToBounds = true
@@ -218,9 +212,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    @objc func goToStart(){
+    @objc func goToStart() {
         if let cnt = self.navigationController?.viewControllers.count {
-            if (cnt >= 2) {
+            if cnt >= 2 {
                 if let secondViewController = self.navigationController?.viewControllers[1] {
                     self.navigationController?.popToViewController(secondViewController, animated: true)
                 }
@@ -229,7 +223,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func createTransaction(_ sender: UIButton) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         let newTransactionView = storyBoard.instantiateViewController(withIdentifier: "NewTransactionView") as! NewTransactionViewController
 
@@ -240,14 +234,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         newTransactionView.isModalInPopover = true
         
         self.navigationController?.present(newTransactionView, animated: true, completion: nil)
-        //self.navigationController?.pushViewController(transactionView, animated: true)
-        
+        // self.navigationController?.pushViewController(transactionView, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = self.sections {
-            //Only display sections with transactions
-            let sects = sections.filter { (section) -> Bool in
+            // Only display sections with transactions
+            let sects = sections.filter { section -> Bool in
                 section.transactions.count > 0
             }
             return sects.count
@@ -257,46 +250,44 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = self.sections {
-            let sects = sections.filter { (section) -> Bool in
+            let sects = sections.filter { section -> Bool in
                 section.transactions.count > 0
             }
             
             return sects[section].transactions.count
-            
         }
         return 1
-        
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let cell = self.tableView.cellForRow(at: indexPath) as! TransactionTableViewCell
-        //DispatchQueue.main.async {
-            //let transactionView = self.storyboard!.instantiateViewController(withIdentifier: "MyTransactionView")
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let transactionView = storyBoard.instantiateViewController(withIdentifier: "MyTransactionView") as! TransactionViewController
+        // DispatchQueue.main.async {
+        // let transactionView = self.storyboard!.instantiateViewController(withIdentifier: "MyTransactionView")
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let transactionView = storyBoard.instantiateViewController(withIdentifier: "MyTransactionView") as! TransactionViewController
             
-            if let tx = cell.transaction {
-                if (tx.pubKey == self.profile?.issuer) {
-                    print("sender set")
-                    transactionView.sender = self.profile
-                }
-                if (tx.to.count > 0 && tx.to[0] == self.profile?.issuer) {
-                    print("receiver set")
-                    transactionView.receiver = self.profile
-                }
-                if (tx.to.count > 0 && tx.to[0] == self.loginProfile?.issuer) {
-                    print("receiver set from login profile")
-                    transactionView.receiver = self.loginProfile
-                }
-                transactionView.transaction = tx
-                transactionView.currency = self.currency
-                transactionView.loginDelegate = self
-                transactionView.isModalInPopover = true
-                
-                self.navigationController?.present(transactionView, animated: true, completion: nil)
-                //self.navigationController?.pushViewController(transactionView, animated: true)
+        if let tx = cell.transaction {
+            if tx.pubKey == self.profile?.issuer {
+                print("sender set")
+                transactionView.sender = self.profile
             }
-        //}
+            if tx.to.count > 0, tx.to[0] == self.profile?.issuer {
+                print("receiver set")
+                transactionView.receiver = self.profile
+            }
+            if tx.to.count > 0, tx.to[0] == self.loginProfile?.issuer {
+                print("receiver set from login profile")
+                transactionView.receiver = self.loginProfile
+            }
+            transactionView.transaction = tx
+            transactionView.currency = self.currency
+            transactionView.loginDelegate = self
+            transactionView.isModalInPopover = true
+                
+            self.navigationController?.present(transactionView, animated: true, completion: nil)
+            // self.navigationController?.pushViewController(transactionView, animated: true)
+        }
+        // }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -304,7 +295,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         // [0, 0]
         if let sections = self.sections {
-            let sects = sections.filter { (section) -> Bool in
+            let sects = sections.filter { section -> Bool in
                 section.transactions.count > 0
             }
             
@@ -322,17 +313,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             let am = Double(truncating: transaction.amount as NSNumber)
             let currency = Currency.formattedCurrency(currency: self.currency)
             cell.amount?.setTitle(String(format: "%.2f \(currency)", am / 100), for: .normal)
-            if (am <= 0) {
+            if am <= 0 {
                 cell.amount?.backgroundColor = .none
                 cell.amount?.tintColor = .lightGray
             } else {
-                cell.amount?.backgroundColor = .init(red: 0, green: 132/255.0, blue: 100/255.0, alpha: 1)
+                cell.amount?.backgroundColor = .init(red: 0, green: 132 / 255.0, blue: 100 / 255.0, alpha: 1)
                 cell.amount?.tintColor = .white
                 if let frame = cell.amount?.frame {
                     cell.amount?.layer.cornerRadius = frame.height / 2
                 }
                 
-                //cell.amount?.titleEdgeInsets = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
+                // cell.amount?.titleEdgeInsets = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
             }
             let tmpProfile = Profile(issuer: pk)
             tmpProfile.getAvatar(imageView: cell.avatar)
@@ -340,7 +331,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             // This is two requests per cell, maybe we should get all the users and work with that instead
             Profile.getRequirements(publicKey: pk, callback: { identity in
                 var ident = identity
-                if (identity == nil) {
+                if identity == nil {
                     ident = Identity(pubkey: pk, uid: "")
                 }
 
@@ -369,31 +360,28 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let sections = self.sections {
-            let sects = sections.filter { (section) -> Bool in
+            let sects = sections.filter { section -> Bool in
                 section.transactions.count > 0
             }
             
             return sects[section].type.localized()
         }
         
-        
         return ""
     }
     
-
     func getTransactions(pubKey: String, callback: @escaping (() -> Void) = {}) {
-        //https://g1.nordstrom.duniter.org/tx/history/EEdwxSkAuWyHuYMt4eX5V81srJWVy7kUaEkft3CWLEiq
+        // https://g1.nordstrom.duniter.org/tx/history/EEdwxSkAuWyHuYMt4eX5V81srJWVy7kUaEkft3CWLEiq
         let url = String(format: "%@/tx/history/%@", currentNode, pubKey)
 
         let transactionRequest = Request(url: url)
-        
         transactionRequest.jsonDecodeWithCallback(type: TransactionResponse.self, callback: { err, transactionResponse in
             if let currency = transactionResponse?.currency, let history = transactionResponse?.history {
                 self.currency = currency
                 self.sections = self.parseHistory(history: history, pubKey: pubKey)
                 
                 DispatchQueue.main.async { self.tableView?.reloadData() }
-            } else if (err != nil) {
+            } else if err != nil {
                 self.errorAlert(title: "no_internet_title".localized(), message: "no_internet_message".localized())
             }
             callback()
@@ -411,28 +399,28 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func parseHistory(history: History, pubKey: String) -> [TransactionSection] {
-        var sent = history.sent.map{ return ParsedTransaction(tx: $0, pubKey: pubKey) }.filter { return $0.amount <= 0 }
-        var received = history.received.map{ return ParsedTransaction(tx: $0, pubKey: pubKey) }.filter { return $0.amount > 0 }
-        var sending = history.sending.map{ return ParsedTransaction(tx: $0, pubKey: pubKey) }.filter { return $0.amount <= 0 }
-        var receiving = history.receiving.map{ return ParsedTransaction(tx: $0, pubKey: pubKey) }.filter { return $0.amount > 0 }
+        var sent = history.sent.map { ParsedTransaction(tx: $0, pubKey: pubKey) }.filter { $0.amount <= 0 }
+        var received = history.received.map { ParsedTransaction(tx: $0, pubKey: pubKey) }.filter { $0.amount > 0 }
+        var sending = history.sending.map { ParsedTransaction(tx: $0, pubKey: pubKey) }.filter { $0.amount <= 0 }
+        var receiving = history.receiving.map { ParsedTransaction(tx: $0, pubKey: pubKey) }.filter { $0.amount > 0 }
         
-        sent.sort { (tr1, tr2) -> Bool in
-            return tr1.time > tr2.time
+        sent.sort { tr1, tr2 -> Bool in
+            tr1.time > tr2.time
         }
-        received.sort { (tr1, tr2) -> Bool in
-            return tr1.time > tr2.time
+        received.sort { tr1, tr2 -> Bool in
+            tr1.time > tr2.time
         }
-        sending.sort { (tr1, tr2) -> Bool in
-            return tr1.time > tr2.time
+        sending.sort { tr1, tr2 -> Bool in
+            tr1.time > tr2.time
         }
-        receiving.sort { (tr1, tr2) -> Bool in
-            return tr1.time > tr2.time
+        receiving.sort { tr1, tr2 -> Bool in
+            tr1.time > tr2.time
         }
         return [
-            TransactionSection.init(type: "sent", transactions: sent),
-            TransactionSection.init(type: "received", transactions: received),
-            TransactionSection.init(type: "sending", transactions: sending),
-            TransactionSection.init(type: "receiving", transactions: receiving)
+            TransactionSection(type: "sent", transactions: sent),
+            TransactionSection(type: "received", transactions: received),
+            TransactionSection(type: "sending", transactions: sending),
+            TransactionSection(type: "receiving", transactions: receiving)
         ]
     }
 }

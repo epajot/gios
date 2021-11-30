@@ -54,8 +54,23 @@ extension Data {
         var value = value
         self.init(buffer: UnsafeBufferPointer(start: &value, count: 1))
     }
-    
+
     func to<T>(type: T.Type) -> T {
         return self.withUnsafeBytes { $0.load(as: T.self) }
     }
+    
+    // https://stackoverflow.com/questions/60857760/warning-initialization-of-unsafebufferpointert-results-in-a-dangling-buffer
+    
+//    init<T>(value: T) {
+//           self = withUnsafePointer(to: value) { (ptr: UnsafePointer<T>) -> Data in
+//               return Data(buffer: UnsafeBufferPointer(start: ptr, count: 1))
+//           }
+//       }
+//
+//       mutating func append<T>(value: T) {
+//           withUnsafePointer(to: value) { (ptr: UnsafePointer<T>) in
+//               append(UnsafeBufferPointer(start: ptr, count: 1))
+//           }
+//       }
+    
 }
