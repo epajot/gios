@@ -10,6 +10,7 @@
 		04EAF88BCBF3BE0401382CDA /* Pods_CesiumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C75C4A288EACA9554B6CBD1 /* Pods_CesiumUITests.framework */; };
 		12CED1E29B13C80FAE10B024 /* Pods_Cesium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A9576E045C516D7255FFE2 /* Pods_Cesium.framework */; };
 		423EEC6332CFFBAC7BE0EA55 /* Pods_CesiumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9F18C04C898676C44F4926 /* Pods_CesiumTests.framework */; };
+		9D49F1F12757C4910050F3C8 /* DebugExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D49F1F02757C4910050F3C8 /* DebugExt.swift */; };
 		AB04BF2C229F539400B1111E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB04BF2B229F539400B1111E /* AppDelegate.swift */; };
 		AB04BF2E229F539400B1111E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB04BF2D229F539400B1111E /* FirstViewController.swift */; };
 		AB04BF33229F539400B1111E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB04BF31229F539400B1111E /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		6AF8A9565E5D11B7513ACCAB /* Pods-CesiumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CesiumTests.release.xcconfig"; path = "Target Support Files/Pods-CesiumTests/Pods-CesiumTests.release.xcconfig"; sourceTree = "<group>"; };
 		6C6D4DD590A64A108468EA72 /* Pods-CesiumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CesiumTests.debug.xcconfig"; path = "Target Support Files/Pods-CesiumTests/Pods-CesiumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C75C4A288EACA9554B6CBD1 /* Pods_CesiumUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CesiumUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D49F1F02757C4910050F3C8 /* DebugExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugExt.swift; sourceTree = "<group>"; };
 		9F4A2F125B45F703665A987C /* Pods-Cesium.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cesium.release.xcconfig"; path = "Target Support Files/Pods-Cesium/Pods-Cesium.release.xcconfig"; sourceTree = "<group>"; };
 		AB04BF28229F539400B1111E /* Cesium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cesium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB04BF2B229F539400B1111E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		AB1AC3C822A1574E00CDEEB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9D49F1F02757C4910050F3C8 /* DebugExt.swift */,
 				AB1AC3BB22A05F1100CDEEB7 /* Base58.swift */,
 				ABE007D122A2CDA10077C9C3 /* Currency.swift */,
 				AB1AC3CD22A1686F00CDEEB7 /* Image.swift */,
@@ -493,6 +496,7 @@
 				AB996F1822A06E02005966E2 /* Profile.swift in Sources */,
 				AB1AC3CA22A1575E00CDEEB7 /* Request.swift in Sources */,
 				AB1AC3C622A1490B00CDEEB7 /* Source.swift in Sources */,
+				9D49F1F12757C4910050F3C8 /* DebugExt.swift in Sources */,
 				AB1AC3CE22A1686F00CDEEB7 /* Image.swift in Sources */,
 				AB38A65D22A5AE65008D7215 /* ChangeReceiverViewController.swift in Sources */,
 				AB996F1C22A08452005966E2 /* LoginViewController.swift in Sources */,

@@ -21,9 +21,10 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
         self.checkNode(num: 0, callback: {})
         
         if let profile = Profile.load() {
+            printClassAndFunc("@ saved profile loaded")
             self.login(profile: profile)
-            
         } else {
+            printClassAndFunc("@ present LoginView")
             self.loadLoginView()
         }
     }
@@ -37,18 +38,19 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
     }
     
     func checkNode(num: Int, callback: @escaping () -> Void) {
-        print(num, nodes.count)
+        printClassAndFunc("@\(num), \(nodes.count)")
         let request = Request(url: nodes[num] + "/")
         request.jsonDecodeWithCallback(type: DuniterResponse.self) { error, _ in
             if error != nil {
                 if num + 1 < nodes.count {
-                    print("error, next node will be", num + 1)
+                    self.printClassAndFunc("@error, next node will be \(num + 1)")
                     self.checkNode(num: num + 1, callback: callback)
                 } else {
                     self.errorAlert(title: "no_internet_title".localized(), message: "no_internet_message".localized())
                 }
             } else {
                 currentNode = nodes[num]
+                self.printClassAndFunc("@success, node \(num) \(currentNode)")
                 callback()
             }
         }

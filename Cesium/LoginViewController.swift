@@ -50,7 +50,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.publicKey.text = ""
         
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
-            print("found")
+            printClassAndFunc("found UINavigationController")
             self.topbarHeight.constant = navigationController.navigationBar.frame.height
             self.view.layoutIfNeeded()
         }
@@ -123,9 +123,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let context = LAContext()
         var error: NSError?
         let username = UserDefaults.standard.string(forKey: "lastUser")
-        print("username", username as Any)
+        printClassAndFunc("username  \(String(describing: username))")
         let profile = Profile.load()
-        print("profile", profile as Any)
+        printClassAndFunc("profile  \(String(describing: profile))")
         if username != nil && context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) && (profile == nil || sendingTransaction) {
 
             let blurEffect = UIBlurEffect(style: .light)
