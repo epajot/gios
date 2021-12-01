@@ -118,7 +118,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.createTransaction.setTitle("transfer_button_label".localized(), for: .normal)
             self.createTransaction.layer.cornerRadius = 6
             
-            let ctrl = self.navigationController as! FirstViewController
+//            let ctrl = self.navigationController as! FirstViewController
             if let cnt = self.navigationController?.viewControllers.count {
                 if cnt > 3 {
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "home_button_label".localized(), style: .plain, target: self, action: #selector(self.goToStart))
