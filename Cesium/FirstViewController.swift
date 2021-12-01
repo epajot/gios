@@ -40,6 +40,7 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
     func checkNode(num: Int, callback: @escaping () -> Void) {
         printClassAndFunc("@\(num), \(nodes.count)")
         let request = Request(url: nodes[num] + "/")
+        currentNodeSearchAttmpts = num + 1
         request.jsonDecodeWithCallback(type: DuniterResponse.self) { error, _ in
             if error != nil {
                 if num + 1 < nodes.count {

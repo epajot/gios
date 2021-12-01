@@ -16,7 +16,8 @@ let nodes = [
     "https://g1.jfoucher.com",
 ]
 
-var currentNode = nodes[0];
+var currentNode = "";
+var currentNodeSearchAttmpts = 0
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
