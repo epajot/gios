@@ -72,6 +72,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let pubkey = self.profile?.issuer {
             self.getTransactions(pubKey: pubkey, callback: {
                 DispatchQueue.main.async {
+                    
+                    self.printClassAndFunc(info: "@----- Pubkey = \(pubkey)") // EP's Test
                     refreshControl.endRefreshing()
                 }
             })
@@ -81,6 +83,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 DispatchQueue.main.async {
                     self.balance.text = str
                     self.profile?.balance = total
+                    self.printClassAndFunc(info: "@----- Balance = \(str)")  // EP's Test
                 }
             })
         }
@@ -146,6 +149,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.profile?.balance = total
                 DispatchQueue.main.async {
                     self.balance.text = str
+                    self.printClassAndFunc(info: "@----- Balance Label = \(str)")
                 }
             })
             
@@ -233,6 +237,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         newTransactionView.currency = self.currency
         newTransactionView.isModalInPopover = true
         
+        self.printClassAndFunc(info: "@-----\(String(describing: newTransactionView.sender))")  // EP's Test
+        self.printClassAndFunc(info: "@-----\(String(describing: newTransactionView.receiver))")  // EP's Test
+        
         self.navigationController?.present(newTransactionView, animated: true, completion: nil)
         // self.navigationController?.pushViewController(transactionView, animated: true)
     }
@@ -269,14 +276,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let tx = cell.transaction {
             if tx.pubKey == self.profile?.issuer {
                 print("sender set")
+                printClassAndFunc(info: "sender set = \(tx.pubKey)")
                 transactionView.sender = self.profile
             }
             if tx.to.count > 0, tx.to[0] == self.profile?.issuer {
                 print("receiver set")
+                printClassAndFunc(info: "reciever set = \(tx.to.count)")
                 transactionView.receiver = self.profile
             }
             if tx.to.count > 0, tx.to[0] == self.loginProfile?.issuer {
                 print("receiver set from login profile")
+                printClassAndFunc(info: "reciever set from login = \(tx.to.count)")
                 transactionView.receiver = self.loginProfile
             }
             transactionView.transaction = tx

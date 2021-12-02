@@ -76,6 +76,7 @@ Inputs:
         let signedTx = tx + signature + "\n"
 
         print(tx)
+
         return signedTx
     }
     

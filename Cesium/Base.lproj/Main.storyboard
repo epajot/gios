@@ -11,7 +11,7 @@
         <!--New Transaction View Controller-->
         <scene sceneID="V4d-GE-pJz">
             <objects>
-                <viewController storyboardIdentifier="NewTransactionView" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2fi-Sn-62l" customClass="NewTransactionViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewTransactionView" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2fi-Sn-62l" customClass="NewTransactionViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QVB-l5-Bi3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -297,7 +297,7 @@
         <!--Transaction View Controller-->
         <scene sceneID="hZi-73-jc0">
             <objects>
-                <viewController storyboardIdentifier="MyTransactionView" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kZB-q6-wtU" customClass="TransactionViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyTransactionView" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kZB-q6-wtU" customClass="TransactionViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hNF-Ub-imk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -543,7 +543,7 @@
         <!--Change Receiver View Controller-->
         <scene sceneID="KtK-8J-ks1">
             <objects>
-                <viewController storyboardIdentifier="ChangeUserView" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2sy-to-o3P" customClass="ChangeReceiverViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeUserView" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2sy-to-o3P" customClass="ChangeReceiverViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b9i-hI-Dkn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -752,7 +752,7 @@
         <!--Profile View Controller-->
         <scene sceneID="ocT-Rk-yCn">
             <objects>
-                <viewController storyboardIdentifier="ProfileView" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aoc-97-fyh" customClass="ProfileViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileView" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aoc-97-fyh" customClass="ProfileViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iui-Kc-Y5g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -949,7 +949,7 @@
         <!--Login-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="LoginView" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="LoginViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="LoginViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1111,7 +1111,7 @@
         <!--First-->
         <scene sceneID="Qaz-mh-rwl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k8V-Yd-ltC" customClass="FirstViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="k8V-Yd-ltC" customClass="FirstViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
@@ -1131,7 +1131,7 @@
         <!--Code View Controller-->
         <scene sceneID="2ly-NF-ylm">
             <objects>
-                <viewController storyboardIdentifier="QRCodeView" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wmr-df-oY4" customClass="QRCodeViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRCodeView" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wmr-df-oY4" customClass="QRCodeViewController" customModule="Cesium" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iev-m9-aau">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
