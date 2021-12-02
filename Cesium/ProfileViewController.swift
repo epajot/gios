@@ -146,8 +146,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             profile.getBalance(callback: { total in
                 let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(total) / 100, Currency.formattedCurrency(currency: self.currency))
-                self.profile?.balance = total
+
                 DispatchQueue.main.async {
+                    self.profile?.balance = total
                     self.balance.text = str
                     self.printClassAndFunc(info: "@----- Balance Label = \(str)")
                 }
