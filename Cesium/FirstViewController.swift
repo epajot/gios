@@ -101,7 +101,7 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
             return false
         }
         self.popViewController(animated: true)
-        return true
+        return false
     }
     
     @objc func logout() {
