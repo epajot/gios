@@ -366,6 +366,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         if let profile = cell.profile {
             self.changeUserDelegate?.viewUser(profile: profile)
+            self.tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
