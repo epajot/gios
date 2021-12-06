@@ -16,6 +16,8 @@ class QRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     weak var profileSelectedDelegate: ReceiverChangedDelegate?
     
+    @IBOutlet var backBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +60,11 @@ class QRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         captureSession.startRunning()
     }
     
+    
+    @IBAction func backBtnTappped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func failed() {
         let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
@@ -67,6 +74,8 @@ class QRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        view.bringSubviewToFront(backBtn)
         
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
