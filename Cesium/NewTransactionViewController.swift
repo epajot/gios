@@ -84,6 +84,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
         if let g1PaymentRequested = AppDelegate.shared.g1PaymentRequested {
             logClassAndFunc(info: "payment= \(g1PaymentRequested), sender: \(String(describing: sender?.issuer)), receiver: \(String(describing: receiver?.issuer))")
+
+            // app was newly started with a URL payment request
+            // we should use g1PaymentRequested here
+
+            AppDelegate.shared.g1PaymentRequested = nil
         }
 
         if let sender = sender, let receiver = receiver {
@@ -135,6 +140,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         if let g1PaymentRequested = AppDelegate.shared.g1PaymentRequested {
             printClassAndFunc(info: "\(g1PaymentRequested)")
             logClassAndFunc(info: "payment= \(g1PaymentRequested), sender: \(String(describing: sender?.issuer)), receiver: \(String(describing: receiver?.issuer))")
+
+            // app returns from background, restarted with a URL payment request
+            // we should use g1PaymentRequested here
+
+            AppDelegate.shared.g1PaymentRequested = nil
         }
     }
 
