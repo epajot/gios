@@ -22,9 +22,10 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
         
         if let profile = Profile.load() {
             self.login(profile: profile)
-            
+            logClassAndFunc(info: "@ login")
         } else {
             self.loadLoginView()
+            logClassAndFunc(info: "@ LoadLoginView")
         }
     }
     
@@ -71,6 +72,7 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
             if let encoded = try? encoder.encode(profile) {
                 _ = KeyChain.save(key: "profile", data: encoded)
                 UserDefaults.standard.set(profile.getName(), forKey: "lastUser")
+                logClassAndFunc(info: "@ save userDefault")
             }
         }
         
@@ -91,6 +93,7 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
             profileView.profile = profile
             profileView.loginProfile = profile
             self.pushViewController(profileView, animated: true)
+            self.logClassAndFunc(info: "@ pushVC")
         }
     }
     

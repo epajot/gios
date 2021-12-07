@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //      window?.rootViewController?.present(alertController, animated: true, completion: nil)
 
-        presentAlert(alertController)
+//        presentAlert(alertController)
 
         return true
     }

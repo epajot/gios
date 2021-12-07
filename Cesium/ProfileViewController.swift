@@ -93,7 +93,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         self.tableView.rowHeight = 64.0
         
+        logClassAndFunc(info: "@ Enter")
+        
         if let profile = self.profile {
+            logClassAndFunc(info: "@ Profile")
             self.name.text = profile.getName()
             self.balance.text = "balance_label".localized()
             self.publicKey.text = profile.issuer
@@ -151,6 +154,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.profile?.balance = total
                     self.balance.text = str
                     self.printClassAndFunc(info: "@----- Balance Label = \(str)")
+                    self.logClassAndFunc(info: "@----- Balance Label = \(str)")
                 }
             })
             
