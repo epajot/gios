@@ -48,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 //        presentAlert(alertController)
 
+        g1PaymentRequested = G1URLPayment(g1URLString: url.absoluteString)
+
         return true
     }
 
