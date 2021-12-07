@@ -82,6 +82,10 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         receiverAvatar.layer.cornerRadius = receiverAvatar.frame.width / 2
         receiverAvatar.clipsToBounds = true
 
+        if let g1PaymentRequested = AppDelegate.shared.g1PaymentRequested {
+            logClassAndFunc(info: "payment= \(g1PaymentRequested), sender: \(String(describing: sender?.issuer)), receiver: \(String(describing: receiver?.issuer))")
+        }
+
         if let sender = sender, let receiver = receiver {
             print(sender.issuer, receiver.issuer)
             if sender.issuer == receiver.issuer {
@@ -123,6 +127,14 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                     }
                 })
             }
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let g1PaymentRequested = AppDelegate.shared.g1PaymentRequested {
+            printClassAndFunc(info: "\(g1PaymentRequested)")
+            logClassAndFunc(info: "payment= \(g1PaymentRequested), sender: \(String(describing: sender?.issuer)), receiver: \(String(describing: receiver?.issuer))")
         }
     }
 
