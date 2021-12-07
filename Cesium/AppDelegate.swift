@@ -9,7 +9,6 @@
 import UIKit
 
 let nodes = [
-
     "https://g1.duniter.fr",
     "https://g1.duniter.org",
     "https://g1.presles.fr",
@@ -19,30 +18,32 @@ let nodes = [
     "https://g1.nordstrom.duniter.org",
 ]
 
-var currentNode = nodes[0];
+var currentNode = nodes[0]
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-
-      // this code will be replaced by code for handling the incoming URL
-      let message = url.absoluteString.removingPercentEncoding
-      let alertController = UIAlertController(title: "Incoming Message", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-      alertController.addAction(okAction)
-
-      window?.rootViewController?.present(alertController, animated: true, completion: nil)
-
-      return true
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        printClassAndFunc(info: "@-----")
+        return true
     }
 
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        // Override point for customization after application launch.
-//        return true
-//    }
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        // this code will be replaced by code for handling the incoming URL
+        printClassAndFunc(info: "@-----")
+        let message = url.absoluteString.removingPercentEncoding
+        let alertController = UIAlertController(title: "Incoming Message", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+        alertController.addAction(okAction)
+
+//      window?.rootViewController?.present(alertController, animated: true, completion: nil)
+
+        presentAlert(alertController)
+
+        return true
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -65,10 +66,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+
+    // this works, keep it
+    private func presentAlert(_ alert: UIAlertController) {
+        if var controller = window?.rootViewController {
+            while controller.presentedViewController != nil {
+                // rudifa: I suppose that this should not happen, so I assert it
+                assert(controller != controller.presentedViewController)
+                controller = controller.presentedViewController!
+            }
+            controller.present(alert, animated: true)
+        } else {
+            printClassAndFunc(info: "*** window?.rootViewController == nil")
+        }
+    }
 }
 
 extension String {
-    
     func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
         return NSLocalizedString(self, tableName: tableName, value: "**\(self)**", comment: "")
     }
