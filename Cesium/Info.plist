@@ -11,14 +11,16 @@
 			<string>sixpixels.gios</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>g1</string>
+				<string>dup</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-    <key>UIFileSharingEnabled</key><true/>
-    <key>LSSupportsOpeningDocumentsInPlace</key><true/>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 	<key>CFBundleDisplayName</key>
 	<string>GiOS</string>
 	<key>CFBundleExecutable</key>
