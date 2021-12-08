@@ -9,8 +9,8 @@
 import UIKit
 
 let nodes = [
-    "https://g1.duniter.fr",
     "https://g1.duniter.org",
+    "https://g1.data.e-is.pro",
     "https://g1.presles.fr",
     "https://g1.jfoucher.com",
     "https://g1.data.adn.life",
