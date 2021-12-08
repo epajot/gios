@@ -88,6 +88,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             // app was newly started with a URL payment request
             // we should use g1PaymentRequested here
 
+            logClassAndFunc(info: "1 = \(g1PaymentRequested.g1Account)")
+            logClassAndFunc(info: "2 = \(g1PaymentRequested.g1AmountDue)")
+            logClassAndFunc(info: "3 = \(g1PaymentRequested.infoForRecipient)")
+
+            amount.text = "\(g1PaymentRequested.g1AmountDue)"
+            comment.text = "\(g1PaymentRequested.infoForRecipient)"
+
             AppDelegate.shared.g1PaymentRequested = nil
         }
 
@@ -144,9 +151,35 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             // app returns from background, restarted with a URL payment request
             // we should use g1PaymentRequested here
 
+            logClassAndFunc(info: "4 = \(g1PaymentRequested.g1Account)")
+            logClassAndFunc(info: "5 = \(g1PaymentRequested.g1AmountDue)")
+            logClassAndFunc(info: "6 = \(g1PaymentRequested.infoForRecipient)")
+
             AppDelegate.shared.g1PaymentRequested = nil
         }
     }
+
+//    func getReceiver(pubKey: String) {
+//        print("getting receiver for " + pubKey)
+//        Profile.getRequirements(publicKey: pubKey, callback: { identity in
+//            // Force getting profile from public key
+//            var ident = identity
+//            if identity == nil {
+//                ident = Identity(pubkey: pubKey, uid: "")
+//            }
+//            Profile.getProfile(publicKey: pubKey, identity: ident, callback: { profile in
+//                if let prof = profile, let am = self.transaction?.amount {
+//                    if am < 0 {
+//                        self.sender = prof
+//                    } else {
+//                        self.receiver = prof
+//                    }
+//                } else {
+//                    print("no profile for " + pubKey)
+//                }
+//            })
+//        })
+//    }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
         // move view up a bit

@@ -6,14 +6,14 @@
 //  Copyright © 2019 Jonathan Foucher. All rights reserved.
 //
 
-import XCTest
-import Sodium
 import CryptoSwift
+import Sodium
+import XCTest
 
-import Clibsodium
 @testable import Cesium
+import Clibsodium
 
-extension Sign {
+public extension Sign {
     /**
      Converts an Ed25519 public key used for signing into a Curve25519 public key usable for encryption.
      
@@ -21,11 +21,12 @@ extension Sign {
      
      - Returns: A Box.PublicKey is conversion succeeds, nil otherwise
      */
-    public func convertEd25519PkToCurve25519(publicKey: PublicKey) -> Box.PublicKey? {
-        var curve25519Bytes = Array<UInt8>(repeating: 0, count: crypto_box_publickeybytes())
-        if 0 == crypto_sign_ed25519_pk_to_curve25519(&curve25519Bytes, publicKey) {
+    func convertEd25519PkToCurve25519(publicKey: PublicKey) -> Box.PublicKey? {
+        var curve25519Bytes = [UInt8](repeating: 0, count: crypto_box_publickeybytes())
+        if crypto_sign_ed25519_pk_to_curve25519(&curve25519Bytes, publicKey) == 0 {
             return Box.PublicKey(curve25519Bytes)
-        } else {
+        }
+        else {
             return nil
         }
     }
@@ -37,9 +38,9 @@ extension Sign {
      
      - Returns: A Box.SecretKey is conversion succeeds, nil otherwise
      */
-    public func convertEd25519SkToCurve25519(secretKey: SecretKey) -> Box.SecretKey? {
+    func convertEd25519SkToCurve25519(secretKey: SecretKey) -> Box.SecretKey? {
         var curve25519Bytes = [UInt8](repeating: 0, count: crypto_box_secretkeybytes())
-        if 0 == crypto_sign_ed25519_sk_to_curve25519(&curve25519Bytes, secretKey) {
+        if crypto_sign_ed25519_sk_to_curve25519(&curve25519Bytes, secretKey) == 0 {
             return Box.SecretKey(curve25519Bytes)
         }
         else {
@@ -55,7 +56,7 @@ extension Sign {
      
      - Returns: a Box.KeyPair, nil if either key conversion fails
      */
-    public func convertEd25519KeyPairToCurve25519(keyPair: KeyPair) -> Box.KeyPair? {
+    func convertEd25519KeyPairToCurve25519(keyPair: KeyPair) -> Box.KeyPair? {
         let publicKeyResult = convertEd25519PkToCurve25519(publicKey: keyPair.publicKey)
         let secretKeyResult = convertEd25519SkToCurve25519(secretKey: keyPair.secretKey)
         
@@ -63,13 +64,12 @@ extension Sign {
             return Box.KeyPair(publicKey: publicKey, secretKey: secretKey)
         }
         else {
-            return nil;
+            return nil
         }
     }
 }
 
 class CesiumTests: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -91,16 +91,16 @@ class CesiumTests: XCTestCase {
     func testMessageEncryption() {
         let sodium = Sodium()
         
-        let salt: Array<UInt8> = Array("testes".utf8)
-        let password: Array<UInt8> = Array("ghgh".utf8)
+        let salt: [UInt8] = Array("testes".utf8)
+        let password: [UInt8] = Array("ghgh".utf8)
         
         guard let seed = try? Scrypt(password: password, salt: salt, dkLen: 32, N: 4096, r: 16, p: 1).calculate() else {
             print("error")
             return
         }
         
-        let salt2: Array<UInt8> = Array("ersr".utf8)
-        let password2: Array<UInt8> = Array("seresr".utf8)
+        let salt2: [UInt8] = Array("ersr".utf8)
+        let password2: [UInt8] = Array("seresr".utf8)
         
         guard let seed2 = try? Scrypt(password: password2, salt: salt2, dkLen: 32, N: 4096, r: 16, p: 1).calculate() else {
             print("error")
@@ -119,7 +119,6 @@ class CesiumTests: XCTestCase {
 
         let encoded = "enc " + Base58.base58FromBytes(encryptedMessageFromAliceToBob)
         
-
         let cipherText = String(encoded.dropFirst(4))
         
         let boxKeyPair = sodium.sign.convertEd25519KeyPairToCurve25519(keyPair: bobKeyPair)!
@@ -129,18 +128,14 @@ class CesiumTests: XCTestCase {
             sodium.box.open(nonceAndAuthenticatedCipherText: Base58.bytesFromBase58(cipherText),
                             senderPublicKey: senderPublicKey,
                             recipientSecretKey: boxKeyPair.secretKey)!
-        print(String(bytes: messageVerifiedAndDecryptedByBob, encoding: .utf8))
+        print(String(bytes: messageVerifiedAndDecryptedByBob, encoding: .utf8) ?? "")
         XCTAssert(String(bytes: messageVerifiedAndDecryptedByBob, encoding: .utf8)! == "My Test Message")
-        
-
-        
     }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
