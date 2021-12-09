@@ -63,14 +63,14 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3p-e6-IPx">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3p-e6-IPx">
                                         <rect key="frame" x="109" y="0.0" width="42" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="8i7-5s-91T"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="titleShadowOffset" width="2" height="2"/>
-                                        <state key="normal" title="Button" image="change">
+                                        <state key="normal" image="rectangle.2.swap" catalog="system">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -105,6 +105,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="M2g-RL-IE3">
                                         <rect key="frame" x="8" y="8" width="398" height="234.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
@@ -130,7 +131,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="titleEdgeInsets" minX="73" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="40" minY="15" maxX="40" maxY="18"/>
-                                                <state key="normal" title="test" image="g1"/>
+                                                <state key="normal" image="g1"/>
                                                 <connections>
                                                     <action selector="sendWithSender:" destination="2fi-Sn-62l" eventType="touchUpInside" id="bqp-4U-wfR"/>
                                                 </connections>
@@ -184,7 +185,7 @@
                                     <constraint firstAttribute="bottom" secondItem="15J-YC-a3o" secondAttribute="bottom" constant="54.5" id="wgO-nK-wyy"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eio-ke-Rhg">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount Ğ1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eio-ke-Rhg">
                                 <rect key="frame" x="20" y="309" width="374" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="EUJ-Ok-Doz"/>
@@ -1179,13 +1180,13 @@
     </scenes>
     <resources>
         <image name="arrow-right" width="359" height="410"/>
-        <image name="change" width="384" height="335"/>
         <image name="check" width="410" height="410"/>
         <image name="close" width="282" height="410"/>
         <image name="first" width="30" height="30"/>
         <image name="g1" width="168" height="218"/>
         <image name="key" width="410" height="410"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
+        <image name="rectangle.2.swap" catalog="system" width="128" height="101"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

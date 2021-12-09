@@ -151,7 +151,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
+        handleURLRequest()
+    }
 
+    func appDidBecomeActive() {
         handleURLRequest()
     }
 

@@ -33,7 +33,7 @@ class TransactionTableViewCell: UITableViewCell {
     var profile: Profile?
 
     var transaction: ParsedTransaction?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -185,6 +185,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
+        if AppDelegate.shared.g1PaymentRequested != nil {
+            createTransaction(createTransactionButton)
+        }
+    }
+
+    func appDidBecomeActive() {
         if AppDelegate.shared.g1PaymentRequested != nil {
             createTransaction(createTransactionButton)
         }
@@ -324,7 +331,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PrototypeCell", for: indexPath) as! TransactionTableViewCell
-        
+
         // [0, 0]
         if let sections = sections {
             let sects = sections.filter { section -> Bool in

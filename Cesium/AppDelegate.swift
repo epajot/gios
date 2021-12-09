@@ -22,6 +22,7 @@ var currentNode = nodes[0]
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    var appDidBecomeActiveCallback: (() -> Void)?
 
     var g1PaymentRequested: G1URLPayment?
 
@@ -29,13 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         printClassAndFunc(info: "@-----")
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+    func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // this code will be replaced by code for handling the incoming URL
         printClassAndFunc(info: "@-----")
         let message = url.absoluteString.removingPercentEncoding
@@ -68,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        printClassAndFunc(info: "@")
+        appDidBecomeActiveCallback?()
     }
 
     func applicationWillTerminate(_: UIApplication) {
@@ -90,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension String {
-    func localized(bundle: Bundle = .main, tableName: String = "Localizable") -> String {
+    func localized(bundle _: Bundle = .main, tableName: String = "Localizable") -> String {
         return NSLocalizedString(self, tableName: tableName, value: "**\(self)**", comment: "")
     }
 }
