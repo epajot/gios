@@ -50,6 +50,27 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         return .lightContent
     }
 
+    fileprivate func handleURLRequest() {
+        if let g1PaymentRequested = AppDelegate.shared.g1PaymentRequested {
+            logClassAndFunc(info: "payment= \(g1PaymentRequested), sender: \(String(describing: sender?.issuer)), receiver: \(String(describing: receiver?.issuer))")
+
+            // app was newly started with a URL payment request
+            // we should use g1PaymentRequested here
+
+//            logClassAndFunc(info: "1 = \(g1PaymentRequested.g1Account)")
+//            logClassAndFunc(info: "2 = \(g1PaymentRequested.g1AmountDue)")
+//            logClassAndFunc(info: "3 = \(g1PaymentRequested.infoForRecipient)")
+
+            amount.text = "\(g1PaymentRequested.g1AmountDue)"
+            comment.text = "\(g1PaymentRequested.infoForRecipient)"
+
+            receiver = nil
+            receiverProfileFrom(pubKey: g1PaymentRequested.g1Account)
+
+            AppDelegate.shared.g1PaymentRequested = nil
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -82,37 +103,23 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         receiverAvatar.layer.cornerRadius = receiverAvatar.frame.width / 2
         receiverAvatar.clipsToBounds = true
 
-        if let g1PaymentRequested = AppDelegate.shared.g1PaymentRequested {
-            logClassAndFunc(info: "payment= \(g1PaymentRequested), sender: \(String(describing: sender?.issuer)), receiver: \(String(describing: receiver?.issuer))")
-
-            // app was newly started with a URL payment request
-            // we should use g1PaymentRequested here
-
-            logClassAndFunc(info: "1 = \(g1PaymentRequested.g1Account)")
-            logClassAndFunc(info: "2 = \(g1PaymentRequested.g1AmountDue)")
-            logClassAndFunc(info: "3 = \(g1PaymentRequested.infoForRecipient)")
-
-            amount.text = "\(g1PaymentRequested.g1AmountDue)"
-            comment.text = "\(g1PaymentRequested.infoForRecipient)"
-
-            AppDelegate.shared.g1PaymentRequested = nil
-        }
+        handleURLRequest()
 
         if let sender = sender, let receiver = receiver {
-            print(sender.issuer, receiver.issuer)
+            printClassAndFunc(info: "\(sender.issuer), \(receiver.issuer)")
             if sender.issuer == receiver.issuer {
                 print("setting to nil")
                 self.receiver = nil
                 receiverAvatar.image = nil
                 receiverName.text = ""
                 // This is us, show the user choice view
+
                 changeReceiver(sender: nil)
             }
         }
 
         if let receiver = receiver {
             receiver.getAvatar(imageView: receiverAvatar)
-
             receiverName.text = receiver.getName()
         }
 
@@ -144,42 +151,19 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let g1PaymentRequested = AppDelegate.shared.g1PaymentRequested {
-            printClassAndFunc(info: "\(g1PaymentRequested)")
-            logClassAndFunc(info: "payment= \(g1PaymentRequested), sender: \(String(describing: sender?.issuer)), receiver: \(String(describing: receiver?.issuer))")
 
-            // app returns from background, restarted with a URL payment request
-            // we should use g1PaymentRequested here
-
-            logClassAndFunc(info: "4 = \(g1PaymentRequested.g1Account)")
-            logClassAndFunc(info: "5 = \(g1PaymentRequested.g1AmountDue)")
-            logClassAndFunc(info: "6 = \(g1PaymentRequested.infoForRecipient)")
-
-            AppDelegate.shared.g1PaymentRequested = nil
-        }
+        handleURLRequest()
     }
 
-//    func getReceiver(pubKey: String) {
-//        print("getting receiver for " + pubKey)
-//        Profile.getRequirements(publicKey: pubKey, callback: { identity in
-//            // Force getting profile from public key
-//            var ident = identity
-//            if identity == nil {
-//                ident = Identity(pubkey: pubKey, uid: "")
-//            }
-//            Profile.getProfile(publicKey: pubKey, identity: ident, callback: { profile in
-//                if let prof = profile, let am = self.transaction?.amount {
-//                    if am < 0 {
-//                        self.sender = prof
-//                    } else {
-//                        self.receiver = prof
-//                    }
-//                } else {
-//                    print("no profile for " + pubKey)
-//                }
-//            })
-//        })
-//    }
+    func receiverProfileFrom(pubKey: String) {
+        Profile.getProfile(publicKey: pubKey, identity: nil) { profile in
+            DispatchQueue.main.async {
+                if let prof = profile {
+                    self.receiverChanged(receiver: prof)
+                }
+            }
+        }
+    }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
         // move view up a bit
