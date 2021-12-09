@@ -28,10 +28,21 @@ class TransactionTableViewCell: UITableViewCell {
     @IBOutlet var name: UILabel!
     @IBOutlet var date: UILabel!
     @IBOutlet var amount: UIButton!
-    @IBOutlet var avatar: UIImageView!
+    @IBOutlet var avatar1: UIImageView!
+
     var profile: Profile?
 
     var transaction: ParsedTransaction?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        avatar1.layer.borderWidth = 1
+        avatar1.layer.masksToBounds = false
+        avatar1.layer.borderColor = UIColor.clear.cgColor
+        avatar1.layer.cornerRadius = avatar1.frame.width / 2
+        avatar1.clipsToBounds = true
+    }
 }
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -313,7 +324,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PrototypeCell", for: indexPath) as! TransactionTableViewCell
-
+        
         // [0, 0]
         if let sections = sections {
             let sects = sections.filter { section -> Bool in
@@ -341,13 +352,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 cell.amount?.backgroundColor = .init(red: 0, green: 132 / 255.0, blue: 100 / 255.0, alpha: 1)
                 cell.amount?.tintColor = .white
                 if let frame = cell.amount?.frame {
-                    cell.amount?.layer.cornerRadius = frame.height / 2
+                    cell.amount?.layer.cornerRadius = frame.height / 6 // 2
                 }
 
                 // cell.amount?.titleEdgeInsets = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
             }
             let tmpProfile = Profile(issuer: pk)
-            tmpProfile.getAvatar(imageView: cell.avatar)
+            tmpProfile.getAvatar(imageView: cell.avatar1)
 
             // This is two requests per cell, maybe we should get all the users and work with that instead
             Profile.getRequirements(publicKey: pk, callback: { identity in
