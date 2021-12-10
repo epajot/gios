@@ -435,7 +435,7 @@
 		77E7C248D2138B451A24BA853BEBE717 /* CBCMAC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CBCMAC.swift; path = Sources/CryptoSwift/CBCMAC.swift; sourceTree = "<group>"; };
 		79D61EE827BCE9643141C94DC359E915 /* crypto_pwhash_argon2i.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypto_pwhash_argon2i.h; path = Sodium/libsodium/crypto_pwhash_argon2i.h; sourceTree = "<group>"; };
 		7B5030E2CFA9FD136D4AA70457B3FEEB /* PBKDF1.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PBKDF1.swift; path = Sources/CryptoSwift/PKCS/PBKDF1.swift; sourceTree = "<group>"; };
-		7B8521F668D8FCDFB502A90118BA5019 /* Pods-Cesium */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Cesium"; path = Pods_Cesium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B8521F668D8FCDFB502A90118BA5019 /* Pods_Cesium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cesium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BDC02A6BBEF27348A00EA55618FA54E /* crypto_box.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypto_box.h; path = Sodium/libsodium/crypto_box.h; sourceTree = "<group>"; };
 		7BE322A8425F3823AC370568B22CA3D0 /* crypto_secretbox_xsalsa20poly1305.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypto_secretbox_xsalsa20poly1305.h; path = Sodium/libsodium/crypto_secretbox_xsalsa20poly1305.h; sourceTree = "<group>"; };
 		7C85629044AB9746E121BBE4511115E7 /* CFB.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CFB.swift; path = Sources/CryptoSwift/BlockMode/CFB.swift; sourceTree = "<group>"; };
@@ -1006,7 +1006,7 @@
 				17D6DA2384A26C89845E9783D42CFA01 /* Base58String.framework */,
 				91BB24BA472AF523E913108C9AA301F2 /* BigInt.framework */,
 				F81274EDB681F11E7CB05F7DCA2BB33C /* CryptoSwift.framework */,
-				7B8521F668D8FCDFB502A90118BA5019 /* Pods-Cesium */,
+				7B8521F668D8FCDFB502A90118BA5019 /* Pods_Cesium.framework */,
 				60F5EABBFC9B377671079B35C110EA7A /* Pods-CesiumTests */,
 				23CBF26F54F9E6C09E083E7278101904 /* Pods-CesiumUITests */,
 				A2111396C1985EBD1171FE7B023FBE24 /* SipHash.framework */,
@@ -1296,7 +1296,7 @@
 			);
 			name = "Pods-Cesium";
 			productName = Pods_Cesium;
-			productReference = 7B8521F668D8FCDFB502A90118BA5019 /* Pods-Cesium */;
+			productReference = 7B8521F668D8FCDFB502A90118BA5019 /* Pods_Cesium.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		377DAE4050D766B30C3A484B8525BB35 /* SipHash */ = {

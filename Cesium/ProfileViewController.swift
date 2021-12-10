@@ -262,12 +262,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         newTransactionView.receiver = profile
         let ctrl = navigationController as! FirstViewController
-        newTransactionView.sender = ctrl.profile
+        ctrl.profile = profile
+        newTransactionView.sender = profile
         newTransactionView.currency = currency
         newTransactionView.isModalInPopover = true
 
-        printClassAndFunc(info: "@-----\(String(describing: newTransactionView.sender))") // EP's Test
-        printClassAndFunc(info: "@-----\(String(describing: newTransactionView.receiver))") // EP's Test
+        printClassAndFunc(info: "@----- sender = \(String(describing: newTransactionView.sender))")
+        printClassAndFunc(info: "@----- receiver = \(String(describing: newTransactionView.receiver))")
 
         navigationController?.present(newTransactionView, animated: true, completion: nil)
         // self.navigationController?.pushViewController(transactionView, animated: true)
