@@ -8,7 +8,7 @@ target 'Cesium' do
   
   # Pods for Cesium
   pod 'Sodium', '~> 0.8.0'
-  pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "master"
+  pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "main"
   pod 'Base58String', :git => 'https://github.com/cloutiertyler/Base58String.git'
   pod 'SwipeableTabBarController'
 

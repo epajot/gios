@@ -22,7 +22,7 @@ class G1URLTest: XCTestCase {
             XCTFail()
             return
         }
-        XCTAssertEqual(url.absoluteString, "g1:XzSqhF4kCGTvfkWM588Ktq9zxCmcjZ3juHLP4anV1sq?amount=10.00&label=pour%20vos%20beaux%20yeux")
+        XCTAssertEqual(url.absoluteString, "dup:XzSqhF4kCGTvfkWM588Ktq9zxCmcjZ3juHLP4anV1sq?amount=10.00&label=pour%20vos%20beaux%20yeux")
         print("\(url)")
 
         guard let g1PaymentRecieved = G1URLPayment(g1URLString: url.absoluteString) else {
@@ -34,7 +34,7 @@ class G1URLTest: XCTestCase {
             return
         }
 
-        XCTAssertEqual(urlDecoded.absoluteString, "g1:XzSqhF4kCGTvfkWM588Ktq9zxCmcjZ3juHLP4anV1sq?amount=10.00&label=pour%20vos%20beaux%20yeux")
+        XCTAssertEqual(urlDecoded.absoluteString, "dup:XzSqhF4kCGTvfkWM588Ktq9zxCmcjZ3juHLP4anV1sq?amount=10.00&label=pour%20vos%20beaux%20yeux")
         print("\(url)")
         print("\(g1PaymentRecieved)")
 

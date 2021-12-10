@@ -55,6 +55,15 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
         // https://g1.data.duniter.fr/user,page,group/profile,record/_search?q=title:*jo*&size=100&from=0
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
+    }
+    
+    func appDidBecomeActive() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = self.tableView.cellForRow(at: indexPath) as! ChangeUserTableViewCell
         print("selected", indexPath)
@@ -106,7 +115,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func searchChanged(_ sender: UITextField) {
-        print("change", sender.text)
+        print("change", sender.text as Any)
         self.page = 0
         self.end = false
         self.profiles = []

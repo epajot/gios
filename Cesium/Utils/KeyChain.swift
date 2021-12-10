@@ -9,12 +9,12 @@
 import Foundation
 
 class KeyChain {
-    
     class func save(key: String, data: Data) -> OSStatus {
         let query = [
-            kSecClass as String       : kSecClassGenericPassword as String,
-            kSecAttrAccount as String : key,
-            kSecValueData as String   : data ] as [String : Any]
+            kSecClass as String: kSecClassGenericPassword as String,
+            kSecAttrAccount as String: key,
+            kSecValueData as String: data,
+        ] as [String: Any]
         
         SecItemDelete(query as CFDictionary)
         
@@ -23,12 +23,13 @@ class KeyChain {
     
     class func load(key: String) -> Data? {
         let query = [
-            kSecClass as String       : kSecClassGenericPassword,
-            kSecAttrAccount as String : key,
-            kSecReturnData as String  : kCFBooleanTrue!,
-            kSecMatchLimit as String  : kSecMatchLimitOne ] as [String : Any]
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: key,
+            kSecReturnData as String: kCFBooleanTrue!,
+            kSecMatchLimit as String: kSecMatchLimitOne,
+        ] as [String: Any]
         
-        var dataTypeRef: AnyObject? = nil
+        var dataTypeRef: AnyObject?
         
         let status: OSStatus = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
         
@@ -49,10 +50,10 @@ class KeyChain {
 }
 
 extension Data {
-    
-    init<T>(from value: T) {
-        var value = value
-        self.init(buffer: UnsafeBufferPointer(start: &value, count: 1))
+    init<T>(value: T) {
+        self = withUnsafePointer(to: value) { ptr -> Data in
+            Data(buffer: UnsafeBufferPointer(start: ptr, count: 1))
+        }
     }
     
     func to<T>(type: T.Type) -> T {

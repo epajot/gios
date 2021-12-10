@@ -39,6 +39,7 @@
 		ABE007D222A2CDA10077C9C3 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE007D122A2CDA10077C9C3 /* Currency.swift */; };
 		ABF6251A22B5AA60008D5087 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6251922B5AA60008D5087 /* KeyChain.swift */; };
 		ABF6252122B5CCCB008D5087 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABF6252322B5CCCB008D5087 /* InfoPlist.strings */; };
+		EA68D8552758033300E5CEE8 /* DebugExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68D8542758033300E5CEE8 /* DebugExt.swift */; };
 		EA6AABB727512D51005C803A /* G1URLTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB627512D51005C803A /* G1URLTest.swift */; };
 		EA6AABB927512E02005C803A /* G1URLPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB827512E02005C803A /* G1URLPayment.swift */; };
 		EA6AABBA27512E46005C803A /* G1URLPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB827512E02005C803A /* G1URLPayment.swift */; };
@@ -86,13 +87,11 @@
 		AB168A7222A341A900952DDE /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		AB1AC3BB22A05F1100CDEEB7 /* Base58.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base58.swift; path = ../Base58.swift; sourceTree = "<group>"; };
 		AB1AC3C022A060EB00CDEEB7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AB1AC3C222A060EF00CDEEB7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AB1AC3C522A1490B00CDEEB7 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		AB1AC3C922A1575E00CDEEB7 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AB1AC3CB22A1600700CDEEB7 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		AB1AC3CD22A1686F00CDEEB7 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		AB1AC3CF22A17FD700CDEEB7 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		AB33BE62229FF6150003EEA3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		AB38A65822A37B24008D7215 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		AB38A65A22A38309008D7215 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		AB38A65C22A5AE65008D7215 /* ChangeReceiverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeReceiverViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +106,8 @@
 		ABE007D122A2CDA10077C9C3 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		ABF6251922B5AA60008D5087 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		ABF6252222B5CCCB008D5087 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ABF6252422B5CCD3008D5087 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B4A9576E045C516D7255FFE2 /* Pods_Cesium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cesium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA68D8542758033300E5CEE8 /* DebugExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugExt.swift; sourceTree = "<group>"; };
 		EA6AABB627512D51005C803A /* G1URLTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G1URLTest.swift; sourceTree = "<group>"; };
 		EA6AABB827512E02005C803A /* G1URLPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G1URLPayment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,6 +238,7 @@
 				AB7681AC22C16802004755C4 /* Sign.swift */,
 				AB168A7222A341A900952DDE /* TextField.swift */,
 				AB38A65A22A38309008D7215 /* Transactions.swift */,
+				EA68D8542758033300E5CEE8 /* DebugExt.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -350,7 +350,6 @@
 			knownRegions = (
 				en,
 				Base,
-				fr,
 			);
 			mainGroup = AB04BF1F229F539400B1111E;
 			productRefGroup = AB04BF29229F539400B1111E /* Products */;
@@ -493,6 +492,7 @@
 				AB996F1822A06E02005966E2 /* Profile.swift in Sources */,
 				AB1AC3CA22A1575E00CDEEB7 /* Request.swift in Sources */,
 				AB1AC3C622A1490B00CDEEB7 /* Source.swift in Sources */,
+				EA68D8552758033300E5CEE8 /* DebugExt.swift in Sources */,
 				AB1AC3CE22A1686F00CDEEB7 /* Image.swift in Sources */,
 				AB38A65D22A5AE65008D7215 /* ChangeReceiverViewController.swift in Sources */,
 				AB996F1C22A08452005966E2 /* LoginViewController.swift in Sources */,
@@ -556,7 +556,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB04BF37229F539500B1111E /* Base */,
-				AB33BE62229FF6150003EEA3 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -565,7 +564,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB1AC3C022A060EB00CDEEB7 /* en */,
-				AB1AC3C222A060EF00CDEEB7 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -574,7 +572,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				ABF6252222B5CCCB008D5087 /* en */,
-				ABF6252422B5CCD3008D5087 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -635,7 +632,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -693,7 +690,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
