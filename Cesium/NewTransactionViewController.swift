@@ -34,7 +34,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var encryptComment: UISwitch!
     @IBOutlet var encryptCommentSubtext: UILabel!
     @IBOutlet var encryptCommentLabel: UILabel!
-
+    
     @IBAction func encryptCommentChanged(_ sender: UISwitch) {
         print(sender.isOn)
         if sender.isOn {
@@ -60,13 +60,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 //            logClassAndFunc(info: "1 = \(g1PaymentRequested.g1Account)")
 //            logClassAndFunc(info: "2 = \(g1PaymentRequested.g1AmountDue)")
 //            logClassAndFunc(info: "3 = \(g1PaymentRequested.infoForRecipient)")
-
+            
             amount.text = "\(g1PaymentRequested.g1AmountDue)"
             comment.text = "\(g1PaymentRequested.infoForRecipient)"
-
+            
             receiver = nil
             receiverProfileFrom(pubKey: g1PaymentRequested.g1Account)
-
+            
             AppDelegate.shared.g1PaymentRequested = nil
         }
     }
@@ -79,7 +79,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             topBarHeight.constant = navigationController.navigationBar.frame.height
             view.layoutIfNeeded()
         }
-
+        amount.keyboardType = UIKeyboardType.decimalPad
         encryptCommentLabel.text = "encrypt_comment_label".localized()
         encryptCommentSubtext.text = "encrypt_comment_subtext_yes".localized()
         sendButton.layer.cornerRadius = 6
