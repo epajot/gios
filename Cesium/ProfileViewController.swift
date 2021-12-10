@@ -354,15 +354,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.amount?.setTitle(String(format: "%.2f \(currency)", am / 100), for: .normal)
             if am <= 0 {
                 cell.amount?.backgroundColor = .none
+                cell.amount?.layer.borderWidth = 1.5
+                cell.amount?.layer.borderColor = UIColor.lightGray.cgColor
                 cell.amount?.tintColor = .lightGray
             } else {
                 cell.amount?.backgroundColor = .init(red: 0, green: 132 / 255.0, blue: 100 / 255.0, alpha: 1)
                 cell.amount?.tintColor = .white
-                if let frame = cell.amount?.frame {
-                    cell.amount?.layer.cornerRadius = frame.height / 6 // 2
-                }
-
                 // cell.amount?.titleEdgeInsets = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
+            }
+            if let frame = cell.amount?.frame {
+                cell.amount?.layer.cornerRadius = frame.height / 6 // 2
             }
             let tmpProfile = Profile(issuer: pk)
             tmpProfile.getAvatar(imageView: cell.avatar1)
