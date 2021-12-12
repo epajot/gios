@@ -56,6 +56,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var tableView: UITableView!
     @IBOutlet var avatar: UIImageView!
     @IBOutlet var createTransactionButton: UIButton!
+    @IBOutlet var transactBtn: UIButton!
+    @IBOutlet var balanceLoading: UIActivityIndicatorView!
     var loginProfile: Profile?
 
     var profile: Profile? {
@@ -94,6 +96,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.balance.text = str
                     self.profile?.balance = total
                     self.printClassAndFunc(info: "@----- Balance = \(str)") // EP's Test
+                    self.balanceReceived()
                 }
             })
         }
@@ -116,6 +119,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             avatar.layer.borderColor = UIColor.white.cgColor
             avatar.layer.cornerRadius = avatar.frame.width / 2
             avatar.clipsToBounds = true
+
+            transactBtn.isHidden = true
+            balanceLoading.startAnimating()
 
             profile.getAvatar(imageView: avatar)
 
@@ -197,6 +203,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
+    func balanceReceived() {
+        balanceLoading.stopAnimating()
+        transactBtn.isHidden = false
+        printClassAndFunc(info: "balanceReceived -> transactBtnHidden = \(transactBtn.isHidden)")
+    }
+    
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         print("displaying avatar")

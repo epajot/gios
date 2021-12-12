@@ -6,8 +6,6 @@
 //  Copyright © 2016-2017 Károly Lőrentey.
 //
 
-import SipHash
-
 //MARK: BigInt
 
 /// An arbitary precision signed integer type, also known as a "big integer".
@@ -25,7 +23,7 @@ import SipHash
 /// primality test for signed integers. When you need to call one of these, just extract the absolute value:
 ///
 /// ```Swift
-/// BigInt(255).abs.isPrime()   // Returns false
+/// BigInt(255).magnitude.isPrime()   // Returns false
 /// ```
 ///
 public struct BigInt: SignedInteger {

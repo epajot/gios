@@ -110,6 +110,16 @@
 		EA68D8542758033300E5CEE8 /* DebugExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugExt.swift; sourceTree = "<group>"; };
 		EA6AABB627512D51005C803A /* G1URLTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G1URLTest.swift; sourceTree = "<group>"; };
 		EA6AABB827512E02005C803A /* G1URLPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G1URLPayment.swift; sourceTree = "<group>"; };
+		EAFD4F9327668516004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
+		EAFD4F9427668516004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EAFD4F952766854E004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EAFD4F9627668574004B2B9A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		EAFD4F9727668574004B2B9A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EAFD4F9827668585004B2B9A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EAFD4F99276695B1004B2B9A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		EAFD4F9A276695B1004B2B9A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EAFD4F9B276695B1004B2B9A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EAFD4F9C276695B1004B2B9A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +360,9 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				pl,
+				es,
 			);
 			mainGroup = AB04BF1F229F539400B1111E;
 			productRefGroup = AB04BF29229F539400B1111E /* Products */;
@@ -548,6 +561,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB04BF32229F539400B1111E /* Base */,
+				EAFD4F9327668516004B2B9A /* pl */,
+				EAFD4F9627668574004B2B9A /* fr */,
+				EAFD4F99276695B1004B2B9A /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -556,6 +572,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB04BF37229F539500B1111E /* Base */,
+				EAFD4F9427668516004B2B9A /* pl */,
+				EAFD4F9727668574004B2B9A /* fr */,
+				EAFD4F9A276695B1004B2B9A /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -564,6 +583,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				AB1AC3C022A060EB00CDEEB7 /* en */,
+				EAFD4F952766854E004B2B9A /* pl */,
+				EAFD4F9827668585004B2B9A /* fr */,
+				EAFD4F9C276695B1004B2B9A /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -572,6 +594,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				ABF6252222B5CCCB008D5087 /* en */,
+				EAFD4F9B276695B1004B2B9A /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -632,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -690,7 +713,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
