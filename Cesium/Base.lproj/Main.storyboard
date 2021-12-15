@@ -272,6 +272,7 @@
                     </view>
                     <connections>
                         <outlet property="amount" destination="eio-ke-Rhg" id="e6Q-ia-KUd"/>
+                        <outlet property="arrow" destination="ri3-QF-OkB" id="m5G-ks-wI9"/>
                         <outlet property="cancelButton" destination="9Di-Ns-K3U" id="by9-AE-3Eo"/>
                         <outlet property="close" destination="Xd5-1I-mrc" id="fQ5-R7-asy"/>
                         <outlet property="comment" destination="M2g-RL-IE3" id="djw-5V-ZZN"/>
