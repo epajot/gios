@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="パスワード";
+"identifier_placeholder"="秘密の識別子";
+"login_button_label"="ログイン";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="ログアウト";
+"account_tab_label"="アカウント";
+"login_tab_label"="ログイン";
+"public_key_label"="公開鍵";
+"account_does_not_exist_title"="このアカウントは存在しません";
+"account_does_not_exist_message"="認証情報の入力が間違っている可能性があります もう一度試してみてください";
+/* この認証情報で新しいアカウントを作成したい場合は、Create accountを押してください。*/
+"account_does_not_exist_cancel"="もう一度お試しください";
+"account_does_not_exist_create"="アカウントの作成 です";
+"balance_label"="残高";
+"sent"="送信済み";
+"sending"="送信中 ";
+"received"="受信";
+"receiving"="受信中 ";
+"logout_confirm_prompt"="本当にログアウトしていいのか？";
+"confirm_label"="ログアウト ";
+"cancel_label"="ログイン状態を維持する";
+"transaction_view_date_format"="での %@ について %@";
+"transfer_button_label"="転送";
+"transfer_to_label"="転送先";
+"transaction_confirm_prompt"="この取引を確認してください";
+"transaction_confirm_message"="今すぐ%@を%@に送信したい場合は送信を、そうでない場合はキャンセルをタップしてください";
+"transaction_confirm_button_label"="送信";
+"transaction_cancel_button_label"="キャンセル";
+"comment_placeholder"="コメント";
+"transaction_fail_title"="トランザクションの送信に失敗しました";
+"transaction_fail_text"="完全なエラーメッセージは以下の通りです。%@";
+"transaction_success_title"="トランザクションが送信されました";
+"transaction_success_message"="このページを閉じるか、他の人に別のトランザクションを送ることができます";
+"no_internet_message"="接続性が回復したら再度お試しください";
+"no_internet_title"="ネットワークが利用できません";
+"close_label"="閉じる";
+"no_amount"="金額がありません";
+"no_amount_message"="トランザクションの金額を選択してください";
+"insufficient_funds"="資金不足";
+"insufficient_funds_message"="申し訳ありませんが、この時点ではこの取引に十分な資金がありません 低い数字を入力して再度お試しください";
+"end_results"="これ以上の結果はありません";
+"search_placeholder"="検索ユーザー";
+"no_comment_placeholder"="コメントはありません";
+"home_button_label"="戻る";
+"user_auth_prompt"="%@で認証する";
+"encrypt_comment_label"="コメントを暗号化してください";
+"encrypt_comment_subtext_yes"="受信者のみが読めるコメント";
+"encrypt_comment_subtext_no"="すべてのユーザーが読めるコメント ";
+"comment_encrypt_failed"="申し訳ありませんが、あなたのコメントは暗号化できませんでした。ログインしていることを確認して、もう一度お試しください";
+"decrypt_comment_button_label"="コメントの暗号化解除 ";

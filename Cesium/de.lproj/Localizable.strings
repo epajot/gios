@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"passwort_platzhalter"="Passwort";
+"identifier_placeholder" = "Geheime Kennung";
+"login_button_label"="Anmelden";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Abmelden";
+"konto_tab_label"="Konto";
+"login_tab_label"="Anmelden";
+"public_key_label"="Öffentlicher Schlüssel";
+"account_does_not_exist_title"="Dieses Konto existiert nicht";
+"account_does_not_exist_message"="Dies kann daran liegen, dass Sie Ihre Anmeldedaten falsch eingegeben haben. Drücken Sie Try again, um es erneut zu versuchen.";
+/* Wenn Sie ein neues Konto mit diesen Anmeldedaten erstellen möchten, klicken Sie auf Konto erstellen. */
+"account_does_not_exist_cancel"="Versuchen Sie es erneut";
+"account_does_not_exist_create"="Konto erstellen";
+"balance_label"="Saldo: ";
+"sent"="Gesendet";
+"sending"="Senden";
+"received"="Empfangen";
+"receiving"="Empfangen";
+"logout_confirm_prompt"="Sind Sie sicher, dass Sie sich abmelden wollen?";
+"confirm_label"="Abmelden";
+"cancel_label"="Angemeldet bleiben";
+"transaction_view_date_format"="Am %@ um %@";
+"transfer_button_label"="Übertragen";
+"transfer_to_label"="Übertragen an ";
+"transaction_confirm_prompt"="Bitte bestätigen Sie diese Transaktion";
+"transaction_confirm_message"="Wenn Sie %@ jetzt wirklich an %@ senden möchten, tippen Sie auf Senden, andernfalls auf Abbrechen";
+"transaction_confirm_button_label"="Senden";
+"transaction_cancel_button_label"="Abbrechen";
+"comment_placeholder"="Kommentar";
+"transaction_fail_title"="Ihre Transaktion konnte nicht gesendet werden";
+"transaction_fail_text"="Die vollständige Fehlermeldung lautet wie folgt: %@";
+"transaction_success_title"="Ihre Transaktion wurde gesendet";
+"transaction_success_message"="Sie können jetzt diese Seite schließen oder vielleicht eine weitere Transaktion an jemand anderen senden";
+"no_internet_message"="Bitte versuchen Sie es erneut, sobald die Verbindung wiederhergestellt ist";
+"no_internet_title"="Netzwerk nicht verfügbar";
+"close_label"="Schließen";
+"no_amount"="Kein Betrag";
+"no_amount_message"="Bitte wählen Sie einen Betrag für Ihre Transaktion";
+"insufficient_funds"="Unzureichende Mittel";
+"insufficient_funds_message"="Leider haben Sie zu diesem Zeitpunkt nicht genügend Geld für diese Transaktion. Bitte geben Sie eine niedrigere Zahl ein und versuchen Sie es erneut";
+"end_results"="Keine weiteren Ergebnisse";
+"search_placeholder"="Benutzer suchen";
+"no_comment_placeholder"="Kein Kommentar";
+"home_button_label"="Zurück";
+"user_auth_prompt"="Authentifizierung für %@";
+"encrypt_comment_label"="Verschlüsseln Sie Ihren Kommentar";
+"encrypt_comment_subtext_yes"="Kommentar nur für den Empfänger lesbar";
+"encrypt_comment_subtext_no"="Kommentar für alle Benutzer lesbar";
+"comment_encrypt_failed"="Ihr Kommentar konnte leider nicht verschlüsselt werden. Bitte vergewissern Sie sich, dass Sie eingeloggt sind und versuchen Sie es erneut";
+"decrypt_comment_button_label"="Kommentar entschlüsseln";
+

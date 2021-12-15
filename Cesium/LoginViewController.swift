@@ -104,12 +104,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.secret.borderStyle = UITextField.BorderStyle.roundedRect
         self.secret.placeholder = "identifier_placeholder".localized()
         self.secret.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        self.secret.layer.borderWidth = 1
+        self.secret.layer.borderColor = UIColor.white.cgColor
 
         self.secret.addTarget(self, action: #selector(fieldEditingChanged), for: UIControl.Event.editingChanged)
         
         self.password.borderStyle = UITextField.BorderStyle.roundedRect
         self.password.placeholder = "password_placeholder".localized()
         self.password.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        self.password.layer.borderWidth = 1
+        self.password.layer.borderColor = UIColor.white.cgColor
         
         self.password.addTarget(self, action: #selector(fieldEditingChanged), for: UIControl.Event.editingChanged)
         //sampleTextField.delegate = self
@@ -119,6 +123,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.loginButton.setTitle("login_button_label".localized(), for: .normal)
         self.loginButton.layer.cornerRadius = 6
         self.loginButton.addTarget(self, action: #selector(buttonAction), for: UIControl.Event.touchUpInside)
+        self.loginButton.layer.borderWidth = 1
+        self.loginButton.layer.borderColor = UIColor.white.cgColor
+        
+        self.keyImage.tintColor = .darkGray
         
         let context = LAContext()
         var error: NSError?

@@ -80,8 +80,16 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             view.layoutIfNeeded()
         }
         amount.keyboardType = UIKeyboardType.decimalPad
+        amount.addDoneButtonToKeyboard(myAction: #selector(amount.resignFirstResponder))
+        amount.layer.borderColor = UIColor.white.cgColor
+        amount.layer.cornerRadius = 6
+        amount.layer.borderWidth = 1
+        amount.attributedPlaceholder = NSAttributedString(
+            string: "Amount".localized(),
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        
         encryptCommentLabel.text = "encrypt_comment_label".localized()
-        encryptCommentSubtext.text = "encrypt_comment_subtext_yes".localized()
+        encryptCommentSubtext.text = "encrypt_comment_subtext_no".localized()
         sendButton.layer.cornerRadius = 6
 
         close.text = "close_label".localized()
@@ -91,7 +99,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         arrow.image = UIImage(named: "arrow-right")?.withRenderingMode(.alwaysTemplate)
 
         progress.progress = 0.0
-        amount.addDoneButtonToKeyboard(myAction: #selector(amount.resignFirstResponder))
+
         comment.addDoneButtonToKeyboard(myAction: #selector(comment.resignFirstResponder))
 
         comment.text = "comment_placeholder".localized()
@@ -100,8 +108,19 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         receiverAvatar.layer.borderWidth = 1
         receiverAvatar.layer.masksToBounds = false
         receiverAvatar.layer.borderColor = UIColor.white.cgColor
+        receiverAvatar.layer.backgroundColor = .none
         receiverAvatar.layer.cornerRadius = receiverAvatar.frame.width / 2
+        receiverAvatar.layer.masksToBounds = false
         receiverAvatar.clipsToBounds = true
+
+        
+        
+        let imv = UIImage(named: "g1")?.withRenderingMode(.alwaysTemplate)
+        sendButton.setImage(imv?.resize(width: 18), for: .normal)
+        sendButton.setTitle("transfer_button_label".localized(), for: .normal)
+        sendButton.layer.borderColor = UIColor.white.cgColor
+        sendButton.layer.cornerRadius = 6
+        sendButton.layer.borderWidth = 1
 
         handleURLRequest()
 
@@ -114,7 +133,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                 receiverName.text = ""
                 // This is us, show the user choice view
 
-                changeReceiver(sender: nil)
+                changeReceiver()
             }
         }
 
@@ -216,11 +235,27 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         print("cancel")
         dismiss(animated: true, completion: nil)
     }
-
+    fileprivate func changeReceiver() {
+        DispatchQueue.main.async {
+            let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
+            
+            let changeUserView = storyBoard.instantiateViewController(withIdentifier: "ChangeUserView") as! ChangeReceiverViewController
+            
+            changeUserView.isModalInPopover = true
+            changeUserView.profileSelectedDelegate = self
+            
+            self.present(changeUserView, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func tapToChangeReceiver(_ sender: UITapGestureRecognizer) {
+        changeReceiver()
+    }
+    
     @IBAction func send(sender: UIButton?) {
         print("will send")
         guard let receiver = receiver else {
-            changeReceiver(sender: nil)
+            changeReceiver()
             return
         }
 
@@ -446,19 +481,6 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: self.finish))
 
             self.present(alert, animated: true)
-        }
-    }
-
-    @IBAction func changeReceiver(sender: UIButton?) {
-        DispatchQueue.main.async {
-            let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
-
-            let changeUserView = storyBoard.instantiateViewController(withIdentifier: "ChangeUserView") as! ChangeReceiverViewController
-
-            changeUserView.isModalInPopover = true
-            changeUserView.profileSelectedDelegate = self
-
-            self.present(changeUserView, animated: true, completion: nil)
         }
     }
 }

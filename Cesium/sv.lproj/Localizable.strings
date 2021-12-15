@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="Lösenord";
+"identifier_placeholder" = "Hemlig identifierare";
+"login_button_label"="Logga in";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Logga ut";
+"account_tab_label"="Konto";
+"login_tab_label"="Logga in";
+"public_key_label"="Offentlig nyckel";
+"account_does_not_exist_title"="Detta konto finns inte";
+"account_does_not_exist_message"="Detta kan bero på att du har angett dina uppgifter felaktigt. Tryck på Försök igen för att försöka igen.";
+/* Om du vill skapa ett nytt konto med dessa referenser, tryck på Skapa konto. */
+"account_does_not_exist_cancel"="Försök igen";
+"account_does_not_exist_create"="Skapa konto";
+"balance_label"="Saldo: ";
+"sent"="Skickat";
+"sending"="Sänder";
+"received"="Mottagna";
+"receiving"="Tar emot";
+"logout_confirm_prompt"="Är du säker på att du vill logga ut?";
+"confirm_label"="Logga ut";
+"cancel_label"="Fortsätt inloggad";
+"transaction_view_date_format"="På %@ vid %@";
+"transfer_button_label"="Överför";
+"transfer_to_label"="Överför till ";
+"transaction_confirm_prompt"="Bekräfta denna transaktion";
+"transaction_confirm_message"="Om du verkligen vill skicka %@ till %@ nu, tryck på Skicka, annars tryck på Avbryt";
+"transaction_confirm_button_label"="Skicka";
+"transaction_cancel_button_label"="Avbryt";
+"comment_placeholder"="Kommentar";
+"transaction_fail_title"="Det gick inte att skicka din transaktion";
+"transaction_fail_text"="Det fullständiga felmeddelandet är som följer: %@";
+"transaction_success_title"="Din transaktion skickades";
+"transaction_success_message"="Du kan nu stänga den här sidan, eller kanske skicka en annan transaktion till någon annan";
+"no_internet_message"="Var vänlig försök igen när du har återfått anslutningen";
+"no_internet_title"="Nätverk inte tillgängligt";
+"close_label"="Stäng";
+"no_amount"="Inget belopp";
+"no_amount_message"="Välj ett belopp för din transaktion";
+"insufficient_funds"="Otillräckliga medel";
+"insufficient_funds_message"="Tyvärr, du har inte tillräckligt med pengar för denna transaktion just nu. Ange ett lägre antal och försök igen";
+"end_results"="Inga fler resultat";
+"search_placeholder"="Sök användare";
+"no_comment_placeholder"="Ingen kommentar";
+"home_button_label"="Tillbaka";
+"user_auth_prompt"="Autentisera för %@";
+"encrypt_comment_label"="Kryptera din kommentar";
+"encrypt_comment_subtext_yes"="Kommentaren kan endast läsas av mottagaren";
+"encrypt_comment_subtext_no"="Kommentar läsbar av alla användare";
+"comment_encrypt_failed"="Tyvärr, din kommentar kunde inte krypteras. Se till att du är inloggad och försök igen.";
+"decrypt_comment_button_label"="Dekryptera kommentar";

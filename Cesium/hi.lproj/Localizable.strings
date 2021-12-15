@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="पासवर्ड";
+"identifier_placeholder"="गुप्त पहचानकर्ता";
+"login_button_label"="लॉगिन";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="लॉगआउट";
+"account_tab_label"="खाता";
+"login_tab_label"="लॉगिन";
+"public_key_label"="सार्वजनिक कुंजी";
+"account_does_not_exist_title"="यह खाता मौजूद नहीं है";
+"account_does_not_exist_message"="ऐसा इसलिए हो सकता है क्योंकि आपने अपनी साख गलत दर्ज की है। पुन: प्रयास करने के लिए पुन: प्रयास करें दबाएं।.";
+/*  If you want to create a new account with these credential, press Create account. */
+"account_does_not_exist_cancel"="फिर से कोशिश करें";
+"account_does_not_exist_create"="खाता बनाएं";
+"balance_label"="बैलेंस: ";
+"sent"="भेजा";
+"sending"="भेजना";
+"received"="प्राप्त";
+"receiving"="प्राप्त करना";
+"logout_confirm_prompt"="क्या आप वाकई लॉगआउट करना चाहते हैं?";
+"confirm_label"="लॉगआउट";
+"cancel_label"="लॉग इन रहें";
+"transaction_view_date_format"=" %@ पर %@"; // "On the %@ at %@"
+"transfer_button_label"="ट्रांसफर";
+"transfer_to_label"="स्थानांतरित करें ";
+"transaction_confirm_prompt"="कृपया इस लेनदेन की पुष्टि करें";
+"transaction_confirm_message"="यदि आप वास्तव में %@ को %@ अभी भेजना चाहते हैं, तो भेजें पर टैप करें, अन्यथा रद्द करें पर टैप करें";
+"transaction_confirm_button_label"="भेजें";
+"transaction_cancel_button_label"="रद्द करें";
+"comment_placeholder"="टिप्पणी";
+"transaction_fail_title"="आपका लेन-देन भेजने में विफल";
+"transaction_fail_text"="पूर्ण त्रुटि संदेश इस प्रकार है: %@";
+"transaction_success_title"="आपका लेन-देन भेजा गया था";
+"transaction_success_message"="अब आप इस पृष्ठ को बंद कर सकते हैं, या शायद किसी अन्य व्यक्ति को कोई अन्य लेन-देन भेज सकते हैं";
+"no_internet_message"="कृपया एक बार फिर से कनेक्ट होने के बाद पुनः प्रयास करें";
+"no_internet_title"="नेटवर्क अनुपलब्ध";
+"close_label"="क्लोज़";
+"no_amount"="कोई राशि नहीं";
+"no_amount_message"="कृपया अपने लेन-देन के लिए एक राशि चुनें";
+"insufficient_funds"="अपर्याप्त निधि";
+"insufficient_funds_message"="क्षमा करें, इस समय इस लेनदेन के लिए आपके पास पर्याप्त धनराशि नहीं है। कृपया कम संख्या दर्ज करें और पुनः प्रयास करें";
+"end_results"="कोई और परिणाम नहीं";
+"search_placeholder"="उपयोगकर्ता खोजें";
+"no_comment_placeholder"="कोई टिप्पणी नहीं";
+"home_button_label"="वापस";
+"user_auth_prompt"="%@ के लिए प्रमाणित करें";
+"encrypt_comment_label"="अपनी टिप्पणी एन्क्रिप्ट करें";
+"encrypt_comment_subtext_yes"="टिप्पणी केवल प्राप्तकर्ता द्वारा पठनीय";
+"encrypt_comment_subtext_no"="टिप्पणी सभी उपयोगकर्ताओं द्वारा पठनीय";
+"comment_encrypt_failed"="क्षमा करें, आपकी टिप्पणी को एन्क्रिप्ट नहीं किया जा सका। कृपया सुनिश्चित करें कि आप लॉग इन हैं और पुनः प्रयास करें।";
+"decrypt_comment_button_label"="डिक्रिप्ट टिप्पणी";

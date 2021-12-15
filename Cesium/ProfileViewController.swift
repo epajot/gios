@@ -96,7 +96,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.balance.text = str
                     self.profile?.balance = total
                     self.printClassAndFunc(info: "@----- Balance = \(str)") // EP's Test
-                    self.balanceReceived()
                 }
             })
         }
@@ -121,7 +120,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             avatar.clipsToBounds = true
 
             transactBtn.isHidden = true
+            transactBtn.layer.borderWidth = 1
+            transactBtn.layer.borderColor = UIColor.white.cgColor
+            balanceLoading.color = .white
             balanceLoading.startAnimating()
+            
 
             profile.getAvatar(imageView: avatar)
 
@@ -162,7 +165,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-
+            
             profile.getBalance(callback: { total in
                 let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(total) / 100, Currency.formattedCurrency(currency: self.currency))
 
@@ -171,6 +174,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.balance.text = str
                     self.printClassAndFunc(info: "@----- Balance Label = \(str)")
                     self.logClassAndFunc(info: "@----- Balance Label = \(str)")
+                    self.balanceReceived()
                 }
             })
 
@@ -367,12 +371,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.amount?.setTitle(String(format: "%.2f \(currency)", am / 100), for: .normal)
             if am <= 0 {
                 cell.amount?.backgroundColor = .none
-                cell.amount?.layer.borderWidth = 1.5
-                cell.amount?.layer.borderColor = UIColor.lightGray.cgColor
-                cell.amount?.tintColor = .lightGray
-            } else {
-                cell.amount?.backgroundColor = .init(red: 0, green: 132 / 255.0, blue: 100 / 255.0, alpha: 1)
+                cell.amount?.layer.borderWidth = 1
+                cell.amount?.layer.borderColor = UIColor.brown.cgColor
                 cell.amount?.tintColor = .white
+            } else {
+                cell.amount?.backgroundColor = .none // .init(red: 0, green: 132 / 255.0, blue: 100 / 255.0, alpha: 1)
+                cell.amount?.layer.borderColor = UIColor.green.cgColor
+                cell.amount?.tintColor = .white
+                
                 // cell.amount?.titleEdgeInsets = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
             }
             if let frame = cell.amount?.frame {

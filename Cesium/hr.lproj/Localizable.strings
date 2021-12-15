@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="Lozinka";
+"identifier_placeholder" = "Tajni identifikator";
+"login_button_label"="Prijava";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Odjava";
+"account_tab_label"="Račun";
+"login_tab_label"="Prijava";
+"public_key_label"="Javni ključ";
+"account_does_not_exist_title"="Ovaj račun ne postoji";
+"account_does_not_exist_message"="To može biti zato što ste netočno unijeli svoje vjerodajnice. Pritisnite Pokušajte ponovo da pokušate ponovo.";
+/* Ako želite stvoriti novi račun s ovim vjerodajnicama, pritisnite Kreiraj račun. */
+"account_does_not_exist_cancel"="Pokušajte ponovo";
+"account_does_not_exist_create"="Napravi račun";
+"balance_label"="Stanje: ";
+"sent"="Poslano";
+"sending"="Slanje";
+"received"="Primljeno";
+"receiving"="Primam";
+"logout_confirm_prompt"="Jeste li sigurni da se želite odjaviti?";
+"confirm_label"="Odjava";
+"cancel_label"="Ostanite prijavljeni";
+"transaction_view_date_format"="Na %@ u %@";
+"transfer_button_label"="Prijenos";
+"transfer_to_label"="Prijenos na ";
+"transaction_confirm_prompt"="Potvrdite ovu transakciju";
+"transaction_confirm_message"="Ako stvarno želite poslati %@ na %@ sada, dodirnite Pošalji, u suprotnom dodirnite Odustani";
+"transaction_confirm_button_label"="Pošalji";
+"transaction_cancel_button_label"="Odustani";
+"comment_placeholder"="Komentar";
+"transaction_fail_title"="Slanje vaše transakcije nije uspjelo";
+"transaction_fail_text"="Kompletna poruka o pogrešci je sljedeća: %@";
+"transaction_success_title"="Vaša transakcija je poslana";
+"transaction_success_message"="Sada možete zatvoriti ovu stranicu ili možda nekom drugom poslati drugu transakciju";
+"no_internet_message"="Molimo pokušajte ponovno nakon što ponovno uspostavite vezu";
+"no_internet_title"="Mreža nedostupna";
+"close_label"="Zatvori";
+"no_amount"="Nema iznosa";
+"no_amount_message"="Molimo odaberite iznos za svoju transakciju";
+"insufficient_funds"="Nedovoljno sredstava";
+"insufficient_funds_message"="Oprostite, trenutno nemate dovoljno sredstava za ovu transakciju. Unesite manji broj i pokušajte ponovno";
+"end_results"="Nema više rezultata";
+"search_placeholder"="Traži korisnike";
+"no_comment_placeholder"="Nema komentara";
+"home_button_label"="Natrag";
+"user_auth_prompt"="Provjeri autentičnost za %@";
+"encrypt_comment_label"="Šifrirajte svoj komentar";
+"encrypt_comment_subtext_yes"="Komentar može čitati samo primatelj";
+"encrypt_comment_subtext_no"="Komentar čitaju svi korisnici";
+"comment_encrypt_failed"="Oprostite, vaš komentar nije mogao biti šifriran. Provjerite jeste li prijavljeni i pokušajte ponovno.";
+"decrypt_comment_button_label"="Dešifriraj komentar";

@@ -1,0 +1,108 @@
+
+/* Class = "UILabel"; text = "Your comment will be readable by anyone"; ObjectID = "0Ep-bV-Blg"; */
+"0Ep-bV-Blg.text" = "Your comment will be readable by anyone";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4gg-9K-ENQ"; */
+"4gg-9K-ENQ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "public key loading..."; ObjectID = "5Pv-dk-ydy"; */
+"5Pv-dk-ydy.text" = "public key loading...";
+
+/* Class = "UIImageView"; accessibilityHint = "The public key for this account"; ObjectID = "83b-h5-3YP"; */
+"83b-h5-3YP.accessibilityHint" = "The public key for this account";
+
+/* Class = "UIImageView"; accessibilityLabel = "Public key"; ObjectID = "83b-h5-3YP"; */
+"83b-h5-3YP.accessibilityLabel" = "Public key";
+
+/* Class = "UITextField"; placeholder = "mot de passe"; ObjectID = "9v5-Bs-Gua"; */
+"9v5-Bs-Gua.placeholder" = "mot de passe";
+
+/* Class = "UILabel"; text = "Name Loading..."; ObjectID = "Bup-PV-GuN"; */
+"Bup-PV-GuN.text" = "Name Loading...";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Dds-d7-ryQ"; */
+"Dds-d7-ryQ.text" = "Label";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "ERr-SM-PmZ"; */
+"ERr-SM-PmZ.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Public key"; ObjectID = "Ftj-0b-Bhs"; */
+"Ftj-0b-Bhs.text" = "Public key";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "KOQ-1e-jGU"; */
+"KOQ-1e-jGU.text" = "Label";
+
+/* Class = "UILabel"; text = "Fin des résultats"; ObjectID = "MEr-Sh-9Bi"; */
+"MEr-Sh-9Bi.text" = "Fin des résultats";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "Mfg-7i-qm3"; */
+"Mfg-7i-qm3.text" = "Name";
+
+/* Class = "UILabel"; text = "Close"; ObjectID = "Ngr-jf-G6z"; */
+"Ngr-jf-G6z.text" = "Close";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "NyZ-RA-Sp4"; */
+"NyZ-RA-Sp4.text" = "...";
+
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "OFu-oL-EbG"; */
+"OFu-oL-EbG.text" = "Loading...";
+
+/* Class = "UILabel"; text = "Close"; ObjectID = "RTZ-CJ-jUt"; */
+"RTZ-CJ-jUt.text" = "Close";
+
+/* Class = "UILabel"; text = "Close"; ObjectID = "Xd5-1I-mrc"; */
+"Xd5-1I-mrc.text" = "Close";
+
+/* Class = "UILabel"; text = "Encrypt comment"; ObjectID = "YDq-Sh-MzF"; */
+"YDq-Sh-MzF.text" = "Encrypt comment";
+
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "Zfp-Gc-pHF"; */
+"Zfp-Gc-pHF.text" = "Loading...";
+
+/* Class = "UITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "First";
+
+/* Class = "UINavigationItem"; title = "Login"; ObjectID = "bDh-YP-161"; */
+"bDh-YP-161.title" = "Login";
+
+/* Class = "UILabel"; text = "0.00 G1"; ObjectID = "bHe-Kd-HVU"; */
+"bHe-Kd-HVU.text" = "0.00 G1";
+
+/* Class = "UIButton"; normalTitle = "  Send"; ObjectID = "cL0-nT-0Ou"; */
+"cL0-nT-0Ou.normalTitle" = "  Send";
+
+/* Class = "UIButton"; normalTitle = "Decrypt comment"; ObjectID = "cr4-Eo-RN3"; */
+"cr4-Eo-RN3.normalTitle" = "Decrypt comment";
+
+/* Class = "UITextField"; placeholder = "Amount Ğ1"; ObjectID = "eio-ke-Rhg"; */
+"eio-ke-Rhg.placeholder" = "Amount Ğ1";
+
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "g8z-kr-5pv"; */
+"g8z-kr-5pv.text" = "Loading...";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mfg-S1-Jod"; */
+"mfg-S1-Jod.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "nIy-Dv-JOm"; */
+"nIy-Dv-JOm.text" = "Loading...";
+
+/* Class = "UITextField"; placeholder = "identifiant"; ObjectID = "oPp-by-Wl6"; */
+"oPp-by-Wl6.placeholder" = "identifiant";
+
+/* Class = "UILabel"; text = "Close"; ObjectID = "qcF-it-S9L"; */
+"qcF-it-S9L.text" = "Close";
+
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "sav-B4-2wF"; */
+"sav-B4-2wF.text" = "Loading...";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "t2P-9R-ig8"; */
+"t2P-9R-ig8.text" = "Label";
+
+/* Class = "UIView"; accessibilityLabel = "Login screen"; ObjectID = "tsR-hK-woN"; */
+"tsR-hK-woN.accessibilityLabel" = "Login screen";
+
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "uAD-fc-nQe"; */
+"uAD-fc-nQe.text" = "Loading...";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "wdP-EG-Uhr"; */
+"wdP-EG-Uhr.text" = "Date";

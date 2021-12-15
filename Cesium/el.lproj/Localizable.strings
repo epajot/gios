@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="Κωδικός πρόσβασης";
+"identifier_placeholder" = "Μυστικό αναγνωριστικό";
+"login_button_label"="Σύνδεση";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Αποσύνδεση";
+"account_tab_label"="Λογαριασμός";
+"login_tab_label"="Σύνδεση";
+"public_key_label"="Δημόσιο κλειδί";
+"account_does_not_exist_title"="Αυτός ο λογαριασμός δεν υπάρχει";
+"account_does_not_exist_message"="Αυτό μπορεί να οφείλεται στο ότι έχετε εισάγει λανθασμένα τα διαπιστευτήριά σας. Πατήστε Try again για να δοκιμάσετε ξανά.";
+/*  If you want to create a new account with these credential, press Create account. */
+"account_does_not_exist_cancel"="Δοκιμάστε ξανά";
+"account_does_not_exist_create"="Δημιουργία λογαριασμού";
+"balance_label"="Υπόλοιπο: ";
+"sent"="Στάλθηκε";
+"sending"="Αποστολή";
+"received"="Ελήφθη";
+"receiving"="Λήψη";
+"logout_confirm_prompt"="Είστε σίγουρος ότι θέλετε να αποσυνδεθείτε;";
+"confirm_label"="Αποσύνδεση";
+"cancel_label"="Μείνετε συνδεδεμένοι";
+"transaction_view_date_format"="Στις %@ στις %@";
+"transfer_button_label"="Μεταφορά";
+"transfer_to_label"="Μεταφορά στο";
+"transaction_confirm_prompt"="Παρακαλώ επιβεβαιώστε αυτή τη συναλλαγή";
+"transaction_confirm_message"="Εάν θέλετε πραγματικά να στείλετε %@ στο %@ τώρα, πατήστε αποστολή, διαφορετικά πατήστε ακυρώστε";
+"transaction_confirm_button_label"="αποστολή";
+"transaction_cancel_button_label"="Ακύρωση";
+"comment_placeholder"="Σχόλιο";
+"transaction_fail_title"="FΑπέτυχε η αποστολή της συναλλαγής σας";
+"transaction_fail_text"="Το πλήρες μήνυμα σφάλματος έχει ως εξής: %@";
+"transaction_success_title"="Η συναλλαγή σας στάλθηκε";
+"transaction_success_message"="Μπορείτε τώρα να κλείσετε αυτή τη σελίδα ή ίσως να στείλετε μια άλλη συναλλαγή σε κάποιον άλλο";
+"no_internet_message"="PΠροσπαθήστε ξανά μόλις αποκατασταθεί η συνδεσιμότητα";
+"no_internet_title"="Το δίκτυο δεν είναι διαθέσιμο";
+"close_label"="Κλείσιμο";
+"no_amount"="Δεν υπάρχει ποσό";
+"no_amount_message"="Παρακαλώ επιλέξτε ένα ποσό για τη συναλλαγή σας";
+"insufficient_funds"="Ανεπαρκή κεφάλαια";
+"insufficient_funds_message"="Λυπάμαι, δεν έχετε επαρκή κεφάλαια για αυτή τη συναλλαγή αυτή τη στιγμή. Παρακαλώ εισάγετε έναν μικρότερο αριθμό και προσπαθήστε ξανά";
+"end_results"="Δεν υπάρχουν άλλα αποτελέσματα";
+"search_placeholder"="Αναζήτηση χρηστών";
+"no_comment_placeholder"="Κανένα σχόλιο";
+"home_button_label"="Επιστροφή";
+"user_auth_prompt"="Έλεγχος ταυτότητας για %@";
+"encrypt_comment_label"="Κρυπτογράφηση του σχολίου σας";
+"encrypt_comment_subtext_yes"="Σχόλιο αναγνώσιμο από όλους τους χρήστες";
+"encrypt_comment_subtext_no"="Σχόλιο αναγνώσιμο από όλους τους χρήστες";
+"comment_encrypt_failed"="Λυπούμαστε, το σχόλιό σας δεν μπόρεσε να κρυπτογραφηθεί. Βεβαιωθείτε ότι έχετε συνδεθεί και προσπαθήστε ξανά.";
+"decrypt_comment_button_label"="Αποκρυπτογράφηση σχολίου";

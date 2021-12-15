@@ -39,8 +39,15 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         self.close.text = "close_label".localized()
         self.tableView.rowHeight = 64.0
-        self.search.becomeFirstResponder()
-        self.search.placeholder = "search_placeholder".localized()
+//        self.search.becomeFirstResponder()
+        
+        self.search.attributedPlaceholder = NSAttributedString(
+            string: "search_placeholder".localized(),
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        self.search.layer.borderWidth = 1
+        self.search.layer.borderColor = UIColor.white.cgColor
+        self.search.layer.cornerRadius = 6
+        
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             print("found")
             self.topBarHeight.constant = navigationController.navigationBar.frame.height
@@ -90,6 +97,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
                     dateFormatter.locale = NSLocale.current
                     dateFormatter.dateFormat = "dd/MM/YYYY HH:mm:ss"
                     cell.date?.text = dateFormatter.string(from: date)
+                    cell.avatar.layer.cornerRadius = cell.avatar.frame.height / 2
                 }
                 return cell
             }

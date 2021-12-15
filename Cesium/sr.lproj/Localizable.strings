@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="Лозинка";
+"identifier_placeholder"="Тајни идентификатор";
+"login_button_label"="Пријава";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Одјава";
+"account_tab_label"="Налог";
+"login_tab_label"="Пријава";
+"public_key_label"="Јавни кључ";
+"account_does_not_exist_title"="Овај налог не постоји";
+"account_does_not_exist_message"="Ово може бити зато што сте погрешно унели своје акредитиве. Притисните Пробај поново да покушате поново.";
+/* Ако желите да креирате нови налог са овим акредитивима, притисните Креирај налог. */
+"account_does_not_exist_cancel"="Покушајте поново";
+"account_does_not_exist_create"="Направи налог";
+"balance_label"="Стање: ";
+"sent"="Послато";
+"sending"="Шаље се";
+"received"="Примљено";
+"receiving"="Примам";
+"logout_confirm_prompt"="Да ли сте сигурни да желите да се одјавите?";
+"confirm_label"="Одјава";
+"cancel_label"="Останите пријављени";
+"transaction_view_date_format"="На %@ у %@";
+"transfer_button_label"="Пренос";
+"transfer_to_label"="Пренеси на ";
+"transaction_confirm_prompt"="Потврдите ову трансакцију";
+"transaction_confirm_message"="Ако заиста желите да пошаљете %@ на %@ сада, додирните Пошаљи, у супротном додирните Откажи";
+"transaction_confirm_button_label"="Пошаљи";
+"transaction_cancel_button_label"="Откажи";
+"comment_placeholder"="Коментар";
+"transaction_fail_title"="Слање ваше трансакције није успело";
+"transaction_fail_text"="Комплетна порука о грешци је следећа: %@";
+"transaction_success_title"="Ваша трансакција је послата";
+"transaction_success_message"="Сада можете затворити ову страницу, или можда послати другу трансакцију неком другом";
+"no_internet_message"="Молимо покушајте поново када поново успоставите везу";
+"no_internet_title"="Мрежа није доступна";
+"close_label"="Затвори";
+"no_amount"="Нема износа";
+"no_amount_message"="Молимо изаберите износ за своју трансакцију";
+"insufficient_funds"="Недовољно средстава";
+"insufficient_funds_message"="Жао нам је, тренутно немате довољно средстава за ову трансакцију. Унесите мањи број и покушајте поново";
+"end_results"="Нема више резултата";
+"search_placeholder"="Тражи кориснике";
+"no_comment_placeholder"="Нема коментара";
+"home_button_label"="Назад";
+"user_auth_prompt"="Потврди аутентичност за %@";
+"encrypt_comment_label"="Шифрујте свој коментар";
+"encrypt_comment_subtext_yes"="Коментар може да чита само прималац";
+"encrypt_comment_subtext_no"="Коментар читају сви корисници";
+"comment_encrypt_failed"="Жао нам је, ваш коментар није могао да буде шифрован. Проверите да ли сте пријављени и покушајте поново.";
+"decrypt_comment_button_label"="Дешифрујте коментар";

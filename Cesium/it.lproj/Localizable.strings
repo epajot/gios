@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="Password";
+"identifier_placeholder"="Identificatore segreto";
+"login_button_label"="Accedi";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Esci";
+"account_tab_label"="Conto";
+"login_tab_label"="Accedi";
+"public_key_label"="Chiave pubblica";
+"account_does_not_exist_title"="Questo account non esiste";
+"account_does_not_exist_message"="Questo potrebbe essere dovuto al fatto che hai inserito le tue credenziali in modo errato. Premi Riprova per riprovare.";
+/* Se vuoi creare un nuovo account con queste credenziali, premi Crea account. */
+"account_does_not_exist_cancel"="Riprova";
+"account_does_not_exist_create"="Crea account";
+"balance_label"="Saldo: ";
+"inviato"="Inviato";
+"invio"="Invio";
+"ricevuto"="ricevuto";
+"ricezione"="ricezione";
+"logout_confirm_prompt"="Sei sicuro di voler uscire?";
+"confirm_label"="Esci";
+"cancel_label"="Rimani connesso";
+"transaction_view_date_format"="Sul %@ a %@";
+"transfer_button_label"="Trasferisci";
+"transfer_to_label"="Trasferisci a ";
+"transaction_confirm_prompt"="Conferma questa transazione";
+"transaction_confirm_message"="Se vuoi davvero inviare %@ a %@ adesso, tocca Invia, altrimenti tocca Annulla";
+"transaction_confirm_button_label"="Invia";
+"transaction_cancel_button_label"="Annulla";
+"comment_placeholder"="Commento";
+"transaction_fail_title"="Impossibile inviare la transazione";
+"transaction_fail_text"="Il messaggio di errore completo è il seguente: %@";
+"transaction_success_title"="La tua transazione è stata inviata";
+"transaction_success_message"="Ora puoi chiudere questa pagina, o magari inviare un'altra transazione a qualcun altro";
+"no_internet_message"="Riprova una volta ripristinata la connettività";
+"no_internet_title"="Rete non disponibile";
+"close_label"="Chiudi";
+"no_amount"="Nessun importo";
+"no_amount_message"="Scegli un importo per la tua transazione";
+"insufficient_funds"="Fondi insufficienti";
+"insufficient_funds_message"="Spiacenti, non hai fondi sufficienti per questa transazione in questo momento. Inserisci un numero inferiore e riprova";
+"end_results"="Nessun altro risultato";
+"search_placeholder"="Cerca utenti";
+"no_comment_placeholder"="Nessun commento";
+"home_button_label"="Indietro";
+"user_auth_prompt"="Autentica per %@";
+"encrypt_comment_label"="Cifra il tuo commento";
+"encrypt_comment_subtext_yes"="Commento leggibile solo dal destinatario";
+"encrypt_comment_subtext_no"="Commento leggibile da tutti gli utenti";
+"comment_encrypt_failed"="Spiacenti, non è stato possibile crittografare il tuo commento. Assicurati di aver effettuato l'accesso e riprova.";
+"decrypt_comment_button_label"="Decripta commento";

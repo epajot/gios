@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="비밀번호";
+"identifier_placeholder" = "비밀 식별자";
+"login_button_label"="로그인";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="로그아웃";
+"account_tab_label"="계정";
+"login_tab_label"="로그인";
+"public_key_label"="공개 키";
+"account_does_not_exist_title"="이 계정은 존재하지 않습니다";
+"account_does_not_exist_message"="자격 증명을 잘못 입력했기 때문일 수 있습니다. 다시 시도하려면 다시 시도를 누르십시오.";
+/* 이 자격 증명으로 새 계정을 만들려면 계정 만들기를 누릅니다. */
+"account_does_not_exist_cancel"="다시 시도하십시오";
+"account_does_not_exist_create"="계정 생성";
+"balance_label"="잔액: ";
+"send"="보냄";
+"sending"="보내기";
+"received"="수신";
+"receiving"="수신";
+"logout_confirm_prompt"="로그아웃하시겠습니까?";
+"confirm_label"="로그아웃";
+"cancel_label"="로그인 상태 유지";
+"transaction_view_date_format"="%@의 %@";
+"transfer_button_label"="전송";
+"transfer_to_label"="다음으로 전송";
+"transaction_confirm_prompt"="이 거래를 확인하십시오";
+"transaction_confirm_message"="지금 %@을(를) %@에게 보내려면 보내기를 누르고, 그렇지 않으면 취소를 누르십시오";
+"transaction_confirm_button_label"="보내기";
+"transaction_cancel_button_label"="취소";
+"comment_placeholder"="댓글";
+"transaction_fail_title"="거래 전송 실패";
+"transaction_fail_text"="전체 오류 메시지는 다음과 같습니다: %@";
+"transaction_success_title"="거래가 전송되었습니다";
+"transaction_success_message"="이제 이 페이지를 닫거나 다른 사람에게 다른 거래를 보낼 수 있습니다.";
+"no_internet_message"="다시 연결되면 다시 시도하십시오";
+"no_internet_title"="네트워크를 사용할 수 없음";
+"close_label"="닫기";
+"no_amount"="금액 없음";
+"no_amount_message"="거래 금액을 선택하십시오";
+"insufficient_funds"="자금 부족";
+"insufficient_funds_message"="죄송합니다. 현재 이 거래를 위한 충분한 자금이 없습니다. 더 낮은 숫자를 입력하고 다시 시도하십시오";
+"end_results"="결과가 더 이상 없습니다";
+"search_placeholder"="사용자 검색";
+"no_comment_placeholder"="댓글 없음";
+"home_button_label"="뒤로";
+"user_auth_prompt"="%@ 인증";
+"encrypt_comment_label"="댓글 암호화";
+"encrypt_comment_subtext_yes"="수신인만 읽을 수 있는 댓글";
+"encrypt_comment_subtext_no"="모든 사용자가 읽을 수 있는 댓글";
+"comment_encrypt_failed"="죄송합니다. 댓글을 암호화할 수 없습니다. 로그인했는지 확인하고 다시 시도하십시오.";
+"decrypt_comment_button_label"="댓글 복호화";

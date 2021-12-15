@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="סיסמה";
+"identifier_placeholder" = "מזהה סודי";
+"login_button_label"="כניסה";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="יציאה";
+"account_tab_label"="חשבון";
+"login_tab_label"="כניסה";
+"public_key_label"="מפתח ציבורי";
+"account_does_not_exist_title"="חשבון זה אינו קיים";
+"account_does_not_exist_message"="ייתכן שהסיבה לכך היא שהזנת את האישורים שלך בצורה שגויה. לחץ על נסה שוב כדי לנסות שוב.";
+/* אם ברצונך ליצור חשבון חדש עם אישורים אלה, לחץ על צור חשבון. */
+"account_does_not_exist_cancel"="נסה שוב";
+"account_does_not_exist_create"="צור חשבון";
+"balance_label"="איזון: ";
+;"שלח"="sent"
+"sending"="שליחה";
+"received"="התקבל";
+"receiving"="מקבל";
+"logout_confirm_prompt"="האם אתה בטוח שאתה רוצה לצאת?";
+"confirm_label"="יציאה";
+"cancel_label"="הישאר מחובר";
+"transaction_view_date_format"="ב-%@ ב-%@";
+"transfer_button_label"="העברה";
+"transfer_to_label"="העבר אל ";
+"transaction_confirm_prompt"="אנא אשר עסקה זו";
+"transaction_confirm_message"="אם אתה באמת רוצה לשלוח את %@ אל %@ כעת, הקש על שלח, אחרת הקש על ביטול";
+"transaction_confirm_button_label"="שלח";
+"transaction_cancel_button_label"="בטל";
+"comment_placeholder"="תגובה";
+"transaction_fail_title"="כשל שליחת העסקה שלך";
+"transaction_fail_text"="הודעת השגיאה המלאה היא כדלקמן: %@";
+"transaction_success_title"="העסקה שלך נשלחה";
+"transaction_success_message"="עכשיו אתה יכול לסגור דף זה, או אולי לשלוח עסקה אחרת למישהו אחר";
+"no_internet_message"="אנא נסה שוב לאחר שחזרת לקישוריות";
+"no_internet_title"="רשת לא זמינה";
+"close_label"="סגור";
+"no_amount"="אין סכום";
+"no_amount_message"="אנא בחר סכום עבור העסקה שלך";
+"insufficient_funds"="אין מספיק כספים";
+"insufficient_funds_message"="מצטערים, אין לך מספיק כסף עבור עסקה זו בשלב זה. אנא הזן מספר נמוך יותר ונסה שוב";
+"end_results"="אין יותר תוצאות";
+"search_placeholder"="חפש משתמשים";
+"no_comment_placeholder"="אין תגובה";
+"home_button_label"="חזרה";
+"user_auth_prompt"="אמת עבור %@";
+"encrypt_comment_label"="הצפין את התגובה שלך";
+"encrypt_comment_subtext_yes"="תגובה הניתנת לקריאה על ידי הנמען בלבד";
+"encrypt_comment_subtext_no"="תגובה הניתנת לקריאה על ידי כל המשתמשים";
+"comment_encrypt_failed"="מצטערים, לא ניתן היה להצפין את התגובה שלך. אנא ודא שאתה מחובר ונסה שוב.";
+"decrypt_comment_button_label"="פענח הערה";

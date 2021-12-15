@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="Wachtwoord";
+"identifier_placeholder" = "Geheime identificatie";
+"login_button_label"="Inloggen";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Uitloggen";
+"account_tab_label"="Account";
+"login_tab_label"="Inloggen";
+"public_key_label"="Openbare sleutel";
+"account_does_not_exist_title"="Dit account bestaat niet";
+"account_does_not_exist_message"="Dit kan zijn omdat je je gegevens verkeerd hebt ingevoerd. Druk op Opnieuw proberen om het opnieuw te proberen.";
+/* Als u een nieuw account met deze gegevens wilt maken, drukt u op Account maken. */
+"account_does_not_exist_cancel"="Probeer het opnieuw";
+"account_does_not_exist_create"="Account aanmaken";
+"balance_label"="Balans: ";
+"verzonden"="Verzonden";
+"verzenden"="Verzenden";
+"ontvangen"="Ontvangen";
+"ontvangen"="Ontvangen";
+"logout_confirm_prompt"="Weet u zeker dat u wilt uitloggen?";
+"confirm_label"="Uitloggen";
+"cancel_label"="Blijf ingelogd";
+"transaction_view_date_format"="Op de %@ om %@";
+"transfer_button_label"="Overdracht";
+"transfer_to_label"="Overzetten naar ";
+"transaction_confirm_prompt"="Bevestig deze transactie";
+"transaction_confirm_message"="Als u nu echt %@ naar %@ wilt sturen, tikt u op Verzenden, of tikt u op Annuleren";
+"transaction_confirm_button_label"="Verzenden";
+"transaction_cancel_button_label"="Annuleren";
+"comment_placeholder"="Commentaar";
+"transaction_fail_title"="Verzenden van uw transactie mislukt";
+"transaction_fail_text"="De volledige foutmelding is als volgt: %@";
+"transaction_success_title"="Uw transactie is verzonden";
+"transaction_success_message"="U kunt nu deze pagina sluiten, of misschien nog een transactie naar iemand anders sturen";
+"no_internet_message"="Probeer het opnieuw zodra u weer verbinding heeft";
+"no_internet_title"="Netwerk niet beschikbaar";
+"close_label"="Sluiten";
+"no_amount"="Geen bedrag";
+"no_amount_message"="Kies een bedrag voor uw transactie";
+"insufficient_funds"="Onvoldoende fondsen";
+"insufficient_funds_message"="Sorry, u heeft op dit moment niet voldoende saldo voor deze transactie. Voer een lager getal in en probeer het opnieuw";
+"end_results"="Geen resultaten meer";
+"search_placeholder"="Zoek gebruikers";
+"no_comment_placeholder"="Geen commentaar";
+"home_button_label"="Terug";
+"user_auth_prompt"="Authenticeren voor %@";
+"encrypt_comment_label"="Versleutel uw commentaar";
+"encrypt_comment_subtext_yes"="Opmerking alleen leesbaar voor de ontvanger";
+"encrypt_comment_subtext_no"="Opmerking leesbaar voor alle gebruikers";
+"comment_encrypt_failed"="Sorry, je reactie kon niet worden versleuteld. Zorg ervoor dat je bent ingelogd en probeer het opnieuw.";
+"decrypt_comment_button_label"="Decodeer commentaar";
+

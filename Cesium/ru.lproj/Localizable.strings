@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="Пароль";
+"identifier_placeholder" = "Секретный идентификатор";
+"login_button_label"="Войти";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Выйти";
+"account_tab_label"="Учетная запись";
+"login_tab_label"="Войти";
+"public_key_label"="Открытый ключ";
+"account_does_not_exist_title"="TЭта учетная запись не существует";
+"account_does_not_exist_message"="Это может быть потому, что вы неправильно ввели свои учетные данные. Нажмите Повторить попытку , чтобы повторить попытку.";
+/*  If you want to create a new account with these credential, press Create account. */
+"account_does_not_exist_cancel"="Повторить попытку";
+"account_does_not_exist_create"="Создать учетную запись";
+"balance_label"="Баланс: ";
+"sent"="Отправленоt";
+"sending"="Отправка";
+"received"="Получено";
+"receiving"="Получение";
+"logout_confirm_prompt"="Вы действительно хотите выйти?";
+"confirm_label"="Выйти";
+"cancel_label"="Оставаться в системе";
+"transaction_view_date_format"="На% @ в% @";
+"transfer_button_label"="Перевод";
+"transfer_to_label"="Перенести в ";
+"transaction_confirm_prompt"="Если вы действительно хотите отправить% @ на% @ сейчас, нажмите« Отправить , в противном случае нажмите« Отмена";
+"transaction_confirm_message"="If you would really like to send %@ to %@ now, tap Send, otherwise tap Cancel";
+"transaction_confirm_button_label"="Отправить";
+"transaction_cancel_button_label"="Отменить";
+"comment_placeholder"="Комментарий";
+"transaction_fail_title"="Не удалось отправить транзакцию";
+"transaction_fail_text"="Полное сообщение об ошибке выглядит следующим образом: %@";
+"transaction_success_title"="Ваша транзакция была отправлена";
+"transaction_success_message"="Теперь вы можете закрыть эту страницу или, возможно, отправить другую транзакцию кому-то другому";
+"no_internet_message"="Повторите попытку после восстановления подключения";
+"no_internet_title"="Сеть недоступна";
+"close_label"="Закрыть";
+"no_amount"="Нет суммы";
+"no_amount_message"="Выберите сумму для транзакции";
+"insufficient_funds"="Недостаточно средств";
+"insufficient_funds_message"="К сожалению, в настоящее время у вас недостаточно средств для этой транзакции. Введите меньшее число и повторите попытку";
+"end_results"="Результатов больше нет";
+"search_placeholder"="Искать пользователей";
+"no_comment_placeholder"="Без комментариев";
+"home_button_label"="Назад";
+"user_auth_prompt"="Выполнить аутентификацию %@";
+"encrypt_comment_label"="Зашифруйте свой комментарий";
+"encrypt_comment_subtext_yes"="Комментарий доступен для чтения только получателю";
+"encrypt_comment_subtext_no"="Комментарий доступен для чтения всем пользователям";
+"comment_encrypt_failed"="К сожалению, ваш комментарий не может быть зашифрован. Убедитесь, что вы вошли в систему, и повторите попытку.";
+"decrypt_comment_button_label"="Расшифровать комментарий";

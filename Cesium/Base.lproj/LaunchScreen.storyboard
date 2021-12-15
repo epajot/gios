@@ -16,17 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNm-td-AXS">
-                                <rect key="frame" x="123" y="339" width="168" height="218"/>
-                                <color key="tintColor" red="0.0" green="0.51605003240000002" blue="0.39081952060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="g1"/>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SHARE_background_11_Pro Blue" translatesAutoresizingMaskIntoConstraints="NO" id="AzJ-Oa-7Gs">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fNm-td-AXS" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="I97-TJ-aOJ"/>
-                            <constraint firstItem="fNm-td-AXS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="e14-IJ-KHi"/>
+                            <constraint firstItem="AzJ-Oa-7Gs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Qn-Iv-vAg"/>
+                            <constraint firstItem="AzJ-Oa-7Gs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fvJ-OT-0cR"/>
+                            <constraint firstItem="AzJ-Oa-7Gs" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="nQJ-Zy-aJM"/>
+                            <constraint firstAttribute="bottom" secondItem="AzJ-Oa-7Gs" secondAttribute="bottom" id="oXt-e0-5yO"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="g1" width="168" height="218"/>
+        <image name="SHARE_background_11_Pro Blue" width="1125" height="2436"/>
     </resources>
 </document>

@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="密码";
+"identifier_placeholder" = "秘密标识符";
+"login_button_label"="登录";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="注销";
+"account_tab_label"="帐户";
+"login_tab_label"="登录";
+"public_key_label"="公钥";
+"account_does_not_exist_title"="该账户不存在";
+"account_does_not_exist_message"="这可能是因为您输入的凭据不正确。按再试一次。";
+/* 如果要使用这些凭据创建新帐户，请按创建帐户。 */
+"account_does_not_exist_cancel"="再试一次";
+"account_does_not_exist_create"="创建账户";
+"balance_label"="余额：";
+"sent"="已发送";
+"sending"="发送";
+"received"="收到";
+"receiving"="接收";
+"logout_confirm_prompt"="您确定要退出吗？";
+"confirm_label"="注销";
+"cancel_label"="保持登录状态";
+"transaction_view_date_format"="在 %@ 的 %@";
+"transfer_button_label"="传输";
+"transfer_to_label"="转移到";
+"transaction_confirm_prompt"="请确认此交易";
+"transaction_confirm_message"="如果您现在真的想将 %@ 发送到 %@，请点击发送，否则点击取消";
+"transaction_confirm_button_label"="发送";
+"transaction_cancel_button_label"="取消";
+"comment_placeholder"="评论";
+"transaction_fail_title"="发送您的交易失败";
+"transaction_fail_text"="完整的错误信息如下：%@";
+"transaction_success_title"="您的交易已发送";
+"transaction_success_message"="您现在可以关闭此页面，或者向其他人发送另一笔交易";
+"no_internet_message"="重新连接后请重试";
+"no_internet_title"="网络不可用";
+"close_label"="关闭";
+"no_amount"="没有金额";
+"no_amount_message"="请为您的交易选择一个金额";
+"insufficient_funds"="资金不足";
+"insufficient_funds_message"="抱歉，您目前没有足够的资金用于此交易。请输入一个较小的数字，然后重试";
+"end_results"="没有更多结果";
+"search_placeholder"="搜索用户";
+"no_comment_placeholder"="没有评论";
+"home_button_label"="返回";
+"user_auth_prompt"="验证 %@";
+"encrypt_comment_label"="加密您的评论";
+"encrypt_comment_subtext_yes"="只有收件人可读的评论";
+"encrypt_comment_subtext_no"="所有用户均可阅读的评论";
+"comment_encrypt_failed"="抱歉，您的评论无法加密。请确保您已登录并重试。";
+"decrypt_comment_button_label"="解密评论";
