@@ -171,6 +171,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.balance.text = str
                     self.printClassAndFunc(info: "@----- Balance Label = \(str)")
                     self.logClassAndFunc(info: "@----- Balance Label = \(str)")
+                    self.balanceReceived()
                 }
             })
 
