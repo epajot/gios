@@ -130,15 +130,14 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         sendButton.layer.borderWidth = 1
 
         if let sender = sender, let receiver = receiver {
-            printClassAndFunc(info: "\(sender.issuer), \(receiver.issuer)")
             if sender.issuer == receiver.issuer {
                 print("setting to nil")
                 self.receiver = nil
                 receiverAvatar.image = nil
                 receiverName.text = ""
                 // This is us, show the user choice view
-
-                changeReceiver()
+                // changeReceiver()
+                printClassAndFunc(info: "\(sender.issuer), \(receiver.issuer)")
             }
         }
 
