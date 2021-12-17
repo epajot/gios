@@ -14,12 +14,12 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     var receiver: Profile?
     var sender: Profile?
     var currency: String?
-    var aa = true
+    var encryptedComentON = true
 
     @IBOutlet var senderAvatar: UIImageView!
     @IBOutlet var receiverAvatar: UIImageView!
     @IBOutlet var visibleComment: UIButton!
-    
+
     @IBOutlet var senderBalance: UILabel!
     @IBOutlet var receiverName: UILabel!
     @IBOutlet var senderName: UILabel!
@@ -36,7 +36,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var encryptComment: UISwitch!
     @IBOutlet var encryptCommentSubtext: UILabel!
     @IBOutlet var encryptCommentLabel: UILabel!
-    
+
     @IBAction func encryptCommentChanged(_ sender: UISwitch) {
         print(sender.isOn)
         if sender.isOn {
@@ -62,13 +62,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 //            logClassAndFunc(info: "1 = \(g1PaymentRequested.g1Account)")
 //            logClassAndFunc(info: "2 = \(g1PaymentRequested.g1AmountDue)")
 //            logClassAndFunc(info: "3 = \(g1PaymentRequested.infoForRecipient)")
-            
+
             amount.text = "\(g1PaymentRequested.g1AmountDue)"
             comment.text = "\(g1PaymentRequested.infoForRecipient)"
-            
+
             receiver = nil
             receiverProfileFrom(pubKey: g1PaymentRequested.g1Account)
-            
+
             AppDelegate.shared.g1PaymentRequested = nil
         }
     }
@@ -81,11 +81,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             topBarHeight.constant = navigationController.navigationBar.frame.height
             view.layoutIfNeeded()
         }
-        
+
         transfertBtn.setImage(UIImage(named: "arrow-right"), for: .normal)
         transfertBtn.clipsToBounds = true
         transfertBtn.tintColor = .blue
-       
+
         amount.keyboardType = UIKeyboardType.decimalPad
         amount.addDoneButtonToKeyboard(myAction: #selector(amount.resignFirstResponder))
         amount.layer.borderColor = UIColor.white.cgColor
@@ -94,21 +94,25 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         amount.attributedPlaceholder = NSAttributedString(
             string: "no_amount".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
-        
+
         encryptCommentLabel.text = "encrypt_comment_label".localized()
-        encryptCommentSubtext.text = "encrypt_comment_subtext_no".localized()
+        encryptedTextLabelDisplay()
+
         sendButton.layer.cornerRadius = 6
 
         close.text = "close_label".localized()
         // UIApplication.shared.statusBarStyle = .lightContent
         // set arrow to white
-       
+
         progress.progress = 0.0
 
-        comment.addDoneButtonToKeyboard(myAction: #selector(comment.resignFirstResponder))
         comment.text = "comment_placeholder".localized()
 
-        comment.textColor = .white
+        handleURLRequest()
+
+        commentChangeColor()
+
+        comment.addDoneButtonToKeyboard(myAction: #selector(comment.resignFirstResponder))
 
         receiverAvatar.layer.borderWidth = 1
         receiverAvatar.layer.masksToBounds = false
@@ -118,16 +122,12 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         receiverAvatar.layer.masksToBounds = false
         receiverAvatar.clipsToBounds = true
 
-        
-        
         let imv = UIImage(named: "g1")?.withRenderingMode(.alwaysTemplate)
         sendButton.setImage(imv?.resize(width: 18), for: .normal)
         sendButton.setTitle("transfer_button_label".localized(), for: .normal)
         sendButton.layer.borderColor = UIColor.darkGray.cgColor
         sendButton.layer.cornerRadius = 6
         sendButton.layer.borderWidth = 1
-
-        handleURLRequest()
 
         if let sender = sender, let receiver = receiver {
             printClassAndFunc(info: "\(sender.issuer), \(receiver.issuer)")
@@ -177,10 +177,21 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         super.viewWillAppear(animated)
         AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
         handleURLRequest()
+        commentChangeColor()
     }
 
     func appDidBecomeActive() {
         handleURLRequest()
+    }
+
+    func commentChangeColor() {
+        visibleComment.tintColor = encryptedComentON ? .orange : .white
+        encryptCommentSubtext.textColor = visibleComment.tintColor
+        if comment.text == "comment_placeholder".localized() {
+            comment.textColor = .darkGray
+        } else {
+            comment.textColor = visibleComment.tintColor
+        }
     }
 
     func receiverProfileFrom(pubKey: String) {
@@ -201,17 +212,16 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                 self.view.frame.origin.y -= 100
             })
         }
-        if textView.text == "comment_placeholder".localized(), textView.textColor == .lightGray {
+        if textView.text == "comment_placeholder".localized(), textView.textColor == .darkGray {
             textView.text = ""
-            textView.textColor = .white
-            
+            commentChangeColor()
         }
     }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
 
-        if encryptComment.isOn {
+        if encryptedComentON {
             let cipherTextLength = encryptedLength(text: newText)
 
             return cipherTextLength < 256
@@ -233,56 +243,63 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
         if textView.text == "" {
             textView.text = "comment_placeholder".localized()
-            textView.textColor = .lightGray
+            commentChangeColor()
         }
     }
-    
-    @IBAction func visibleCommentTapped(_ sender: Any) {
-        aa.toggle()
-        vibrateLight()
-        if aa != true {
-            visibleComment.tintColor = .red
+
+    fileprivate func encryptedTextLabelDisplay() {
+        if encryptedComentON {
             if #available(iOS 13.0, *) {
                 visibleComment.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+                encryptCommentSubtext.text = "encrypt_comment_subtext_yes".localized()
             } else {
                 // Fallback on earlier versions
             }
         } else {
-            visibleComment.tintColor = .white
             if #available(iOS 13.0, *) {
                 visibleComment.setImage(UIImage(systemName: "eyeglasses"), for: .normal)
+                encryptCommentSubtext.text = "encrypt_comment_subtext_no".localized()
             } else {
                 // Fallback on earlier versions
             }
         }
     }
-    
+
+    @IBAction func visibleCommentTapped(_ sender: Any) {
+        vibrateLight()
+        encryptedComentON.toggle()
+        encryptedTextLabelDisplay()
+        commentChangeColor()
+    }
+
     @IBAction func cancel(sender: UIButton) {
         print("cancel")
         dismiss(animated: true, completion: nil)
     }
+
     fileprivate func changeReceiver() {
         DispatchQueue.main.async {
             let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
-            
+
             let changeUserView = storyBoard.instantiateViewController(withIdentifier: "ChangeUserView") as! ChangeReceiverViewController
-            
+
             changeUserView.isModalInPopover = true
             changeUserView.profileSelectedDelegate = self
-            
+
             self.present(changeUserView, animated: true, completion: nil)
         }
     }
-    
+
     @IBAction func tapToChangeReceiver(_ sender: UITapGestureRecognizer) {
+        print("Change Receiver Tapped !!!")
         changeReceiver()
     }
-    
+
     @IBAction func transfertBtnTapped(_ sender: Any) {
-        print("Good Tap !!!")
+        print("Transfert Amount Tapped !!!")
         changeReceiver()
     }
-        
+
     @IBAction func send(sender: UIButton?) {
         print("will send")
         guard let receiver = receiver else {
@@ -353,12 +370,12 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
             self.sendButton.isEnabled = false
             var text = self.comment?.text ?? ""
-            if self.comment?.text == "comment_placeholder".localized(), self.comment?.textColor == .lightGray
+            if self.comment?.text == "comment_placeholder".localized(), self.comment?.textColor == .darkGray
             {
                 text = ""
             }
 
-            if self.encryptComment.isOn {
+            if self.encryptedComentON {
                 if let cipherText = self.encryptComment(text: text) {
                     text = cipherText
                 } else {
@@ -486,7 +503,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             self.sendButton.isEnabled = true
             self.progress.progress = 0.0
             self.comment?.text = "comment_placeholder".localized()
-            self.comment?.textColor = .lightGray
+            self.comment?.textColor = .darkGray
             self.amount.text = ""
         }
     }
