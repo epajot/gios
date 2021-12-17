@@ -93,6 +93,9 @@
                                             <constraint firstItem="g8z-kr-5pv" firstAttribute="top" secondItem="JqE-yj-kYt" secondAttribute="bottom" constant="8" id="WXv-iA-O5W"/>
                                             <constraint firstItem="JqE-yj-kYt" firstAttribute="centerX" secondItem="ggf-wH-L3w" secondAttribute="centerX" id="ejq-b6-ast"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="fb4-dp-TC8" appends="YES" id="Xdk-Bk-wOf"/>
+                                        </connections>
                                     </view>
                                     <button clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NII-Ed-mWZ">
                                         <rect key="frame" x="172" y="15" width="50" height="50"/>
@@ -336,6 +339,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUD-9w-579" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fb4-dp-TC8">
+                    <connections>
+                        <action selector="senderAvatarTapped:" destination="2fi-Sn-62l" id="Tnf-we-jLs"/>
+                    </connections>
+                </tapGestureRecognizer>
                 <tapGestureRecognizer id="mX3-H6-kii">
                     <connections>
                         <action selector="tapToChangeReceiver:" destination="2fi-Sn-62l" id="zj3-TG-C0l"/>

@@ -265,6 +265,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
     }
 
+    
+    @IBAction func senderAvatarTapped(_ sender: UITapGestureRecognizer) {
+        printClassAndFunc(info: "sender Avatar Tapped !!!")
+    }
+    
     @IBAction func visibleCommentTapped(_ sender: Any) {
         vibrateLight()
         encryptedComentON.toggle()
