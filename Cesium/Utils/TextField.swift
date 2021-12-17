@@ -47,3 +47,10 @@ extension UITextView{
         self.inputAccessoryView = doneToolbar
     }
 }
+
+extension NSObject {
+    func vibrateLight() {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+    }
+}

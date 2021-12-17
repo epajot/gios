@@ -52,7 +52,7 @@
 "home_button_label"="Επιστροφή";
 "user_auth_prompt"="Έλεγχος ταυτότητας για %@";
 "encrypt_comment_label"="Κρυπτογράφηση του σχολίου σας";
-"encrypt_comment_subtext_yes"="Σχόλιο αναγνώσιμο από όλους τους χρήστες";
-"encrypt_comment_subtext_no"="Σχόλιο αναγνώσιμο από όλους τους χρήστες";
+"encrypt_comment_subtext_yes"="Διαβάζεται μόνο από τον παραλήπτη";
+"encrypt_comment_subtext_no"="Διαβάζεται από όλους τους χρήστες";
 "comment_encrypt_failed"="Λυπούμαστε, το σχόλιό σας δεν μπόρεσε να κρυπτογραφηθεί. Βεβαιωθείτε ότι έχετε συνδεθεί και προσπαθήστε ξανά.";
 "decrypt_comment_button_label"="Αποκρυπτογράφηση σχολίου";

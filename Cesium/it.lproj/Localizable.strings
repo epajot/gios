@@ -52,7 +52,7 @@
 "home_button_label"="Indietro";
 "user_auth_prompt"="Autentica per %@";
 "encrypt_comment_label"="Cifra il tuo commento";
-"encrypt_comment_subtext_yes"="Commento leggibile solo dal destinatario";
-"encrypt_comment_subtext_no"="Commento leggibile da tutti gli utenti";
+"encrypt_comment_subtext_yes"="Leggibile solo dal destinatario";
+"encrypt_comment_subtext_no"="Leggibile da tutti gli utenti";
 "comment_encrypt_failed"="Spiacenti, non è stato possibile crittografare il tuo commento. Assicurati di aver effettuato l'accesso e riprova.";
 "decrypt_comment_button_label"="Decripta commento";

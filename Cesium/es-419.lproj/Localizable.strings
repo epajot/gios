@@ -52,7 +52,7 @@
 "home_button_label"="Volver";
 "user_auth_prompt"="Autenticarse para %@";
 "encrypt_comment_label"="Cifrar su comentario";
-"encrypt_comment_subtext_yes"="Comentario legible sólo por el destinatario";
-"encrypt_comment_subtext_no"="Comentario legible por todos los usuarios";
+"encrypt_comment_subtext_yes"="Legible sólo por el destinatario";
+"encrypt_comment_subtext_no"="Legible por todos los usuarios";
 "comment_encrypt_failed"="Lo sentimos, su comentario no ha podido ser encriptado. Por favor, asegúrate de que has iniciado sesión y vuelve a intentarlo";
 "decrypt_comment_button_label"="Desencriptar comentario";

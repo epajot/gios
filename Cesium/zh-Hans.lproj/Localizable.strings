@@ -52,7 +52,7 @@
 "home_button_label"="返回";
 "user_auth_prompt"="验证 %@";
 "encrypt_comment_label"="加密您的评论";
-"encrypt_comment_subtext_yes"="只有收件人可读的评论";
-"encrypt_comment_subtext_no"="所有用户均可阅读的评论";
+"encrypt_comment_subtext_yes"="仅收件人可读";
+"encrypt_comment_subtext_no"="所有用户可读";
 "comment_encrypt_failed"="抱歉，您的评论无法加密。请确保您已登录并重试。";
 "decrypt_comment_button_label"="解密评论";

@@ -52,7 +52,7 @@
 "home_button_label"="戻る";
 "user_auth_prompt"="%@で認証する";
 "encrypt_comment_label"="コメントを暗号化してください";
-"encrypt_comment_subtext_yes"="受信者のみが読めるコメント";
-"encrypt_comment_subtext_no"="すべてのユーザーが読めるコメント ";
+"encrypt_comment_subtext_yes"="受信者のみが読むことができます";
+"encrypt_comment_subtext_no"="すべてのユーザーが読むことができます";
 "comment_encrypt_failed"="申し訳ありませんが、あなたのコメントは暗号化できませんでした。ログインしていることを確認して、もう一度お試しください";
 "decrypt_comment_button_label"="コメントの暗号化解除 ";

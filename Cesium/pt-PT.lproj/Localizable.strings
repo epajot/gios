@@ -52,7 +52,7 @@
 "home_button_label"="Voltar";
 "user_auth_prompt"="Autenticar para% @";
 "encrypt_comment_label"="Criptografe seu comentário";
-"encrypt_comment_subtext_yes"="Comentário legível apenas pelo destinatário";
-"encrypt_comment_subtext_no"="Comentário legível por todos os usuários";
+"encrypt_comment_subtext_yes"="Legível apenas pelo destinatário";
+"encrypt_comment_subtext_no"="Legível por todos os usuários";
 "comment_encrypt_failed"="Desculpe, seu comentário não pôde ser criptografado. Certifique-se de estar logado e tente novamente.";
 "decrypt_comment_button_label"="Descriptografar comentário";

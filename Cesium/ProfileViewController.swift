@@ -10,6 +10,7 @@ import CryptoSwift
 import Foundation
 import Sodium
 import UIKit
+import Network
 
 struct TransactionSection: Comparable {
     var type: String
@@ -47,7 +48,10 @@ class TransactionTableViewCell: UITableViewCell {
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     weak var changeUserDelegate: ViewUserDelegate?
+//    let networkStatusView = getNetworkStatusView()
     var displayingAvatar: Bool = true
+    
+    @IBOutlet var noNetworkStackView: UIStackView!
     @IBOutlet var check: UIImageView!
     @IBOutlet var name: UILabel!
     @IBOutlet var balance: UILabel!
@@ -58,6 +62,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var createTransactionButton: UIButton!
     @IBOutlet var transactBtn: UIButton!
     @IBOutlet var balanceLoading: UIActivityIndicatorView!
+    
+
     var loginProfile: Profile?
 
     var profile: Profile? {
@@ -103,10 +109,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        view.addSubview(networkStatusView)
+//        activateNetworkStatusView(statusView: networkStatusView)
+        //hideKeyboardWhenTappedAround()
+        
         tableView.rowHeight = 64.0
 
         logClassAndFunc(info: "@ Enter")
-
+        
+//        view.addSubview(networkStatusView)
+//        activateNetworkStatusView(statusView: networkStatusView)
+        
         if let profile = profile {
             logClassAndFunc(info: "@ Profile")
             name.text = profile.getName()
@@ -121,15 +134,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
             transactBtn.isHidden = true
             transactBtn.layer.borderWidth = 1
-            transactBtn.layer.borderColor = UIColor.white.cgColor
+            transactBtn.layer.borderColor = UIColor.darkGray.cgColor
             balanceLoading.color = .white
             balanceLoading.startAnimating()
             
-
             profile.getAvatar(imageView: avatar)
 
             // make key image white
-            keyImage.tintColor = .white
+            keyImage.tintColor = .darkGray
             keyImage.image = UIImage(named: "key")?.withRenderingMode(.alwaysTemplate)
 
             // Make checkmark image white

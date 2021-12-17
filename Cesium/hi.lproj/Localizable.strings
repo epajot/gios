@@ -52,7 +52,7 @@
 "home_button_label"="वापस";
 "user_auth_prompt"="%@ के लिए प्रमाणित करें";
 "encrypt_comment_label"="अपनी टिप्पणी एन्क्रिप्ट करें";
-"encrypt_comment_subtext_yes"="टिप्पणी केवल प्राप्तकर्ता द्वारा पठनीय";
-"encrypt_comment_subtext_no"="टिप्पणी सभी उपयोगकर्ताओं द्वारा पठनीय";
+"encrypt_comment_subtext_yes"="केवल प्राप्तकर्ता द्वारा पठनीय";
+"encrypt_comment_subtext_no"="सभी उपयोगकर्ताओं द्वारा पठनीय";
 "comment_encrypt_failed"="क्षमा करें, आपकी टिप्पणी को एन्क्रिप्ट नहीं किया जा सका। कृपया सुनिश्चित करें कि आप लॉग इन हैं और पुनः प्रयास करें।";
 "decrypt_comment_button_label"="डिक्रिप्ट टिप्पणी";

@@ -52,7 +52,7 @@
 "home_button_label"="뒤로";
 "user_auth_prompt"="%@ 인증";
 "encrypt_comment_label"="댓글 암호화";
-"encrypt_comment_subtext_yes"="수신인만 읽을 수 있는 댓글";
-"encrypt_comment_subtext_no"="모든 사용자가 읽을 수 있는 댓글";
+"encrypt_comment_subtext_yes"="수신자만 읽을 수 있음";
+"encrypt_comment_subtext_no"="모든 사용자가 읽을 수 있음";
 "comment_encrypt_failed"="죄송합니다. 댓글을 암호화할 수 없습니다. 로그인했는지 확인하고 다시 시도하십시오.";
 "decrypt_comment_button_label"="댓글 복호화";

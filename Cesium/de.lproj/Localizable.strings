@@ -52,8 +52,8 @@
 "home_button_label"="Zurück";
 "user_auth_prompt"="Authentifizierung für %@";
 "encrypt_comment_label"="Verschlüsseln Sie Ihren Kommentar";
-"encrypt_comment_subtext_yes"="Kommentar nur für den Empfänger lesbar";
-"encrypt_comment_subtext_no"="Kommentar für alle Benutzer lesbar";
+"encrypt_comment_subtext_yes"="Nur für den Empfänger lesbar";
+"encrypt_comment_subtext_no"="Für alle Benutzer lesbar";
 "comment_encrypt_failed"="Ihr Kommentar konnte leider nicht verschlüsselt werden. Bitte vergewissern Sie sich, dass Sie eingeloggt sind und versuchen Sie es erneut";
 "decrypt_comment_button_label"="Kommentar entschlüsseln";
 

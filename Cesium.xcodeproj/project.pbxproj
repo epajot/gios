@@ -162,6 +162,8 @@
 		EA9D2F87276A188300D9F87F /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EA9D2F88276A188300D9F87F /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA9D2F89276A188300D9F87F /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EAD4B340276BBB9100EB88D9 /* NetworkStatusUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusUtil.swift; sourceTree = "<group>"; };
+		EAD4B342276BBF5200EB88D9 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		EAFD4F9327668516004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		EAFD4F9427668516004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EAFD4F952766854E004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -296,6 +298,8 @@
 		AB1AC3C822A1574E00CDEEB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EAD4B342276BBF5200EB88D9 /* NetworkMonitor.swift */,
+				EAD4B340276BBB9100EB88D9 /* NetworkStatusUtil.swift */,
 				AB1AC3BB22A05F1100CDEEB7 /* Base58.swift */,
 				ABE007D122A2CDA10077C9C3 /* Currency.swift */,
 				AB1AC3CD22A1686F00CDEEB7 /* Image.swift */,

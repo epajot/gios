@@ -35,7 +35,7 @@
 "transaction_confirm_button_label"="Envoyer";
 "transaction_cancel_button_label"="Annuler";
 "comment_placeholder"="Commentaire";
-"transaction_fail_title"="Impossible d'envoyer la transaction transaction";
+"transaction_fail_title"="Impossible d'envoyer la transaction";
 "transaction_fail_text"="Le message d'erreur complet est le suivant : %@";
 "transaction_success_title"="Votre transaction a été envoyée";
 "transaction_success_message"="Vous pouvez maintenant fermer cette page, ou alors envoyer une autre transaction";
@@ -52,7 +52,7 @@
 "home_button_label"="Retour";
 "user_auth_prompt"="Authentification pour %@";
 "encrypt_comment_label"="Chiffrer le commentaire";
-"encrypt_comment_subtext_yes"="Commentaire uniquement visible par le destinataire";
-"encrypt_comment_subtext_no"="Commentaire visible par tous les utilisateurs";
+"encrypt_comment_subtext_yes"="Visible par le destinataire uniquement";
+"encrypt_comment_subtext_no"="Visible par tous les utilisateurs";
 "comment_encrypt_failed"="Désolé, votre commentaire n'a pas pu être chiffré. Veuillez vous assurer que vous êtes bien connecté·e, puis réessayez.";
 "decrypt_comment_button_label"="Décoder le commentaire";

@@ -52,7 +52,7 @@
 "home_button_label"="Natrag";
 "user_auth_prompt"="Provjeri autentičnost za %@";
 "encrypt_comment_label"="Šifrirajte svoj komentar";
-"encrypt_comment_subtext_yes"="Komentar može čitati samo primatelj";
-"encrypt_comment_subtext_no"="Komentar čitaju svi korisnici";
+"encrypt_comment_subtext_yes"="može čitati samo primatelj";
+"encrypt_comment_subtext_no"="čitaju svi korisnici";
 "comment_encrypt_failed"="Oprostite, vaš komentar nije mogao biti šifriran. Provjerite jeste li prijavljeni i pokušajte ponovno.";
 "decrypt_comment_button_label"="Dešifriraj komentar";

@@ -52,7 +52,7 @@
 "home_button_label"="Назад";
 "user_auth_prompt"="Выполнить аутентификацию %@";
 "encrypt_comment_label"="Зашифруйте свой комментарий";
-"encrypt_comment_subtext_yes"="Комментарий доступен для чтения только получателю";
-"encrypt_comment_subtext_no"="Комментарий доступен для чтения всем пользователям";
+"encrypt_comment_subtext_yes"="доступен для чтения только получателю";
+"encrypt_comment_subtext_no"="доступен для чтения всем пользователям";
 "comment_encrypt_failed"="К сожалению, ваш комментарий не может быть зашифрован. Убедитесь, что вы вошли в систему, и повторите попытку.";
 "decrypt_comment_button_label"="Расшифровать комментарий";

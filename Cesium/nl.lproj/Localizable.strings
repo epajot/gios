@@ -52,8 +52,8 @@
 "home_button_label"="Terug";
 "user_auth_prompt"="Authenticeren voor %@";
 "encrypt_comment_label"="Versleutel uw commentaar";
-"encrypt_comment_subtext_yes"="Opmerking alleen leesbaar voor de ontvanger";
-"encrypt_comment_subtext_no"="Opmerking leesbaar voor alle gebruikers";
+"encrypt_comment_subtext_yes"="Alleen leesbaar voor de ontvanger";
+"encrypt_comment_subtext_no"="Leesbaar voor alle gebruikers";
 "comment_encrypt_failed"="Sorry, je reactie kon niet worden versleuteld. Zorg ervoor dat je bent ingelogd en probeer het opnieuw.";
 "decrypt_comment_button_label"="Decodeer commentaar";
 

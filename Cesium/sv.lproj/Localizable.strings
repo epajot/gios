@@ -52,7 +52,7 @@
 "home_button_label"="Tillbaka";
 "user_auth_prompt"="Autentisera för %@";
 "encrypt_comment_label"="Kryptera din kommentar";
-"encrypt_comment_subtext_yes"="Kommentaren kan endast läsas av mottagaren";
-"encrypt_comment_subtext_no"="Kommentar läsbar av alla användare";
+"encrypt_comment_subtext_yes"="Kan endast läsas av mottagaren";
+"encrypt_comment_subtext_no"="Läsbar av alla användare";
 "comment_encrypt_failed"="Tyvärr, din kommentar kunde inte krypteras. Se till att du är inloggad och försök igen.";
 "decrypt_comment_button_label"="Dekryptera kommentar";

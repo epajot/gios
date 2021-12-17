@@ -52,7 +52,7 @@
 "home_button_label"="חזרה";
 "user_auth_prompt"="אמת עבור %@";
 "encrypt_comment_label"="הצפין את התגובה שלך";
-"encrypt_comment_subtext_yes"="תגובה הניתנת לקריאה על ידי הנמען בלבד";
-"encrypt_comment_subtext_no"="תגובה הניתנת לקריאה על ידי כל המשתמשים";
+"encrypt_comment_subtext_yes"="ניתן לקריאה על ידי הנמען בלבד";
+"encrypt_comment_subtext_no"="קריא לכל המשתמשים";
 "comment_encrypt_failed"="מצטערים, לא ניתן היה להצפין את התגובה שלך. אנא ודא שאתה מחובר ונסה שוב.";
 "decrypt_comment_button_label"="פענח הערה";

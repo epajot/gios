@@ -14,11 +14,12 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     var receiver: Profile?
     var sender: Profile?
     var currency: String?
+    var aa = true
 
     @IBOutlet var senderAvatar: UIImageView!
     @IBOutlet var receiverAvatar: UIImageView!
-    @IBOutlet var arrow: UIImageView!
-
+    @IBOutlet var visibleComment: UIButton!
+    
     @IBOutlet var senderBalance: UILabel!
     @IBOutlet var receiverName: UILabel!
     @IBOutlet var senderName: UILabel!
@@ -27,6 +28,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var close: UILabel!
     @IBOutlet var amount: UITextField!
     @IBOutlet var comment: UITextView!
+    @IBOutlet var transfertBtn: UIButton!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var progress: UIProgressView!
@@ -79,13 +81,18 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             topBarHeight.constant = navigationController.navigationBar.frame.height
             view.layoutIfNeeded()
         }
+        
+        transfertBtn.setImage(UIImage(named: "arrow-right"), for: .normal)
+        transfertBtn.clipsToBounds = true
+        transfertBtn.tintColor = .blue
+       
         amount.keyboardType = UIKeyboardType.decimalPad
         amount.addDoneButtonToKeyboard(myAction: #selector(amount.resignFirstResponder))
         amount.layer.borderColor = UIColor.white.cgColor
         amount.layer.cornerRadius = 6
         amount.layer.borderWidth = 1
         amount.attributedPlaceholder = NSAttributedString(
-            string: "Amount".localized(),
+            string: "no_amount".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         
         encryptCommentLabel.text = "encrypt_comment_label".localized()
@@ -95,15 +102,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         close.text = "close_label".localized()
         // UIApplication.shared.statusBarStyle = .lightContent
         // set arrow to white
-        arrow.tintColor = .white
-        arrow.image = UIImage(named: "arrow-right")?.withRenderingMode(.alwaysTemplate)
-
+       
         progress.progress = 0.0
 
         comment.addDoneButtonToKeyboard(myAction: #selector(comment.resignFirstResponder))
-
         comment.text = "comment_placeholder".localized()
-        comment.textColor = .lightGray
+
+        comment.textColor = .white
 
         receiverAvatar.layer.borderWidth = 1
         receiverAvatar.layer.masksToBounds = false
@@ -118,7 +123,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         let imv = UIImage(named: "g1")?.withRenderingMode(.alwaysTemplate)
         sendButton.setImage(imv?.resize(width: 18), for: .normal)
         sendButton.setTitle("transfer_button_label".localized(), for: .normal)
-        sendButton.layer.borderColor = UIColor.white.cgColor
+        sendButton.layer.borderColor = UIColor.darkGray.cgColor
         sendButton.layer.cornerRadius = 6
         sendButton.layer.borderWidth = 1
 
@@ -198,7 +203,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
         if textView.text == "comment_placeholder".localized(), textView.textColor == .lightGray {
             textView.text = ""
-            textView.textColor = .black
+            textView.textColor = .white
+            
         }
     }
 
@@ -230,7 +236,27 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             textView.textColor = .lightGray
         }
     }
-
+    
+    @IBAction func visibleCommentTapped(_ sender: Any) {
+        aa.toggle()
+        vibrateLight()
+        if aa != true {
+            visibleComment.tintColor = .red
+            if #available(iOS 13.0, *) {
+                visibleComment.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            } else {
+                // Fallback on earlier versions
+            }
+        } else {
+            visibleComment.tintColor = .white
+            if #available(iOS 13.0, *) {
+                visibleComment.setImage(UIImage(systemName: "eyeglasses"), for: .normal)
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    
     @IBAction func cancel(sender: UIButton) {
         print("cancel")
         dismiss(animated: true, completion: nil)
@@ -252,6 +278,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         changeReceiver()
     }
     
+    @IBAction func transfertBtnTapped(_ sender: Any) {
+        print("Good Tap !!!")
+        changeReceiver()
+    }
+        
     @IBAction func send(sender: UIButton?) {
         print("will send")
         guard let receiver = receiver else {
