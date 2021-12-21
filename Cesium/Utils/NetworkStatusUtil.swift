@@ -1,6 +1,6 @@
 //
 //  NetworkStatusUtil.swift
-//  shAre
+//  GiOS
 //
 //  Created by Rudolf Farkas on 01.04.20.
 //  Copyright © 2020 Eric PAJOT. All rights reserved.

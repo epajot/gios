@@ -62,6 +62,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var createTransactionButton: UIButton!
     @IBOutlet var transactBtn: UIButton!
     @IBOutlet var balanceLoading: UIActivityIndicatorView!
+    @IBOutlet var userView: UIView!
     
 
     var loginProfile: Profile?
@@ -141,7 +142,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             profile.getAvatar(imageView: avatar)
 
             // make key image white
-            keyImage.tintColor = .darkGray
+            keyImage.tintColor = UIColor.systemOrange
             keyImage.image = UIImage(named: "key")?.withRenderingMode(.alwaysTemplate)
 
             // Make checkmark image white
@@ -282,7 +283,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
-
+    @IBAction func userViewTapped(_ sender: UITapGestureRecognizer) {
+        UIPasteboard.general.string = publicKey.text
+        printClassAndFunc(info: "Public Key saved in PasteBoard !! = \(String(describing: publicKey.text))")
+    }
+        
     @IBAction func createTransaction(_: UIButton) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 

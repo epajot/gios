@@ -137,18 +137,21 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    @IBAction func readQR(_ sender: UIButton) {
-        DispatchQueue.main.async {
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let QRCodeView = storyBoard.instantiateViewController(withIdentifier: "QRCodeView") as! QRCodeViewController
-            
-            QRCodeView.isModalInPopover = true
-            QRCodeView.profileSelectedDelegate = self
-            
-            self.present(QRCodeView, animated: true, completion: nil)
-        }
-        
+//    func openQRCodeReader() {
+//        DispatchQueue.main.async {
+//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//            let QRCodeView = storyBoard.instantiateViewController(withIdentifier: "QRCodeView") as! QRCodeViewController
+//
+//            QRCodeView.isModalInPopover = true
+//            QRCodeView.profileSelectedDelegate = self
+//
+//            self.present(QRCodeView, animated: true, completion: nil)
+//        }
+//    }
+    
+    @IBAction func backBtnTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func loadPage(search: String) {

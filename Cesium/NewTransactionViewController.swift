@@ -30,7 +30,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var comment: UITextView!
     @IBOutlet var transfertBtn: UIButton!
     @IBOutlet var cancelButton: UIButton!
-    @IBOutlet var sendButton: UIButton!
+//    @IBOutlet var sendButton: UIButton!
+    @IBOutlet var transferBtn: UIButton!
+
+    @IBOutlet var qrcodeBtn: UIButton!
+    @IBOutlet var disconnectBtn: UIButton!
+    @IBOutlet var scanBtn: UIButton!
+
     @IBOutlet var progress: UIProgressView!
     @IBOutlet var topBarHeight: NSLayoutConstraint!
     @IBOutlet var encryptComment: UISwitch!
@@ -63,12 +69,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 //            logClassAndFunc(info: "2 = \(g1PaymentRequested.g1AmountDue)")
 //            logClassAndFunc(info: "3 = \(g1PaymentRequested.infoForRecipient)")
 
-            amount.text = "\(g1PaymentRequested.g1AmountDue)"
-            comment.text = "\(g1PaymentRequested.infoForRecipient)"
-
             receiver = nil
             receiverProfileFrom(pubKey: g1PaymentRequested.g1Account)
-
+            amount.text = "\(g1PaymentRequested.g1AmountDue)"
+            refactorAmountWithDot()
+            comment.text = "\(g1PaymentRequested.infoForRecipient)"
+            commentChangeColor()
+            
             AppDelegate.shared.g1PaymentRequested = nil
         }
     }
@@ -95,10 +102,12 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             string: "no_amount".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
 
+        refactorAmountWithDot()
+
         encryptCommentLabel.text = "encrypt_comment_label".localized()
         encryptedTextLabelDisplay()
 
-        sendButton.layer.cornerRadius = 6
+//        sendButton.layer.cornerRadius = 6
 
         close.text = "close_label".localized()
         // UIApplication.shared.statusBarStyle = .lightContent
@@ -122,12 +131,12 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         receiverAvatar.layer.masksToBounds = false
         receiverAvatar.clipsToBounds = true
 
-        let imv = UIImage(named: "g1")?.withRenderingMode(.alwaysTemplate)
-        sendButton.setImage(imv?.resize(width: 18), for: .normal)
-        sendButton.setTitle("transfer_button_label".localized(), for: .normal)
-        sendButton.layer.borderColor = UIColor.darkGray.cgColor
-        sendButton.layer.cornerRadius = 6
-        sendButton.layer.borderWidth = 1
+//        let imv = UIImage(named: "g1")?.withRenderingMode(.alwaysTemplate)
+//        sendButton.setImage(imv?.resize(width: 18), for: .normal)
+//        sendButton.setTitle("transfer_button_label".localized(), for: .normal)
+//        sendButton.layer.borderColor = UIColor.darkGray.cgColor
+//        sendButton.layer.cornerRadius = 6
+//        sendButton.layer.borderWidth = 1
 
         if let sender = sender, let receiver = receiver {
             if sender.issuer == receiver.issuer {
@@ -183,6 +192,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         handleURLRequest()
     }
 
+    fileprivate func refactorAmountWithDot() {
+        // EP's Test replacing comma with dot into amount.text
+        amount.text = amount.text?.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
+    }
+    
     func commentChangeColor() {
         visibleComment.tintColor = encryptedComentON ? .orange : .white
         encryptCommentSubtext.textColor = visibleComment.tintColor
@@ -246,6 +260,19 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
     }
 
+    func readQRCode() {
+        DispatchQueue.main.async {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+
+            let QRCodeView = storyBoard.instantiateViewController(withIdentifier: "QRCodeView") as! QRCodeViewController
+
+            QRCodeView.isModalInPopover = true
+            QRCodeView.profileSelectedDelegate = self
+
+            self.present(QRCodeView, animated: true, completion: nil)
+        }
+    }
+
     fileprivate func encryptedTextLabelDisplay() {
         if encryptedComentON {
             if #available(iOS 13.0, *) {
@@ -264,11 +291,35 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
     }
 
-    
+    @IBAction func qrcodeBtnTapped(_ sender: Any) {
+        printClassAndFunc(info: "QR Code Btn Tapped !!")
+    }
+
+    @IBAction func disconnectBtnTapped(_ sender: Any) {
+//        printClassAndFunc(info: "Disconnect Btn Tapped !!")
+        dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func scanBtnTapped(_ sender: Any) {
+//        printClassAndFunc(info: "Scan Btn Tapped !!")
+        readQRCode()
+    }
+
     @IBAction func senderAvatarTapped(_ sender: UITapGestureRecognizer) {
         printClassAndFunc(info: "sender Avatar Tapped !!!")
+
+        DispatchQueue.main.async {
+            let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
+
+            let ProfileView = storyBoard.instantiateViewController(withIdentifier: "ProfileView") as! ProfileViewController
+
+//            ProfileView.isModalInPopover = true
+//            ProfileView.profileSelectedDelegate = self
+
+            self.present(ProfileView, animated: true, completion: nil)
+        }
     }
-    
+
     @IBAction func visibleCommentTapped(_ sender: Any) {
         vibrateLight()
         encryptedComentON.toggle()
@@ -304,7 +355,10 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         changeReceiver()
     }
 
-    @IBAction func send(sender: UIButton?) {
+    @IBAction func receiverAndChangeTapped(_ sender: UIButton?) {
+//    }
+//
+//    @IBAction func send(sender: UIButton?) {
         print("will send")
         guard let receiver = receiver else {
             changeReceiver()
@@ -329,6 +383,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         let numberFormatter = NumberFormatter()
         numberFormatter.locale = Locale.current
 
+        printClassAndFunc(info: "amstring = \(amstring) !!!") // EP's Check
+        
         let am = numberFormatter.number(from: amstring) ?? 0
 
         if am.floatValue <= 0.0 {
@@ -349,7 +405,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         if let sender = self.sender {
             if sender.kp == nil {
                 print("no secret key here")
-                sendButton.isEnabled = true
+                transferBtn.isEnabled = true
+
                 let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
 
                 loginView = storyBoard.instantiateViewController(withIdentifier: "LoginView") as? LoginViewController
@@ -366,13 +423,16 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
 
         let amountString = String(format: "%.2f %@", Float(truncating: am), Currency.formattedCurrency(currency: currency))
+        
+        printClassAndFunc(info: "amountString = \(amountString) !!!") // EP's Check
 
         let msg = String(format: "transaction_confirm_message".localized(), amountString, title)
         let alert = UIAlertController(title: "transaction_confirm_prompt".localized(), message: msg, preferredStyle: .actionSheet)
         print("preparing action")
         alert.addAction(UIAlertAction(title: "transaction_confirm_button_label".localized(), style: .default, handler: { _ in
 
-            self.sendButton.isEnabled = false
+            self.transferBtn.isEnabled = false
+
             var text = self.comment?.text ?? ""
             if self.comment?.text == "comment_placeholder".localized(), self.comment?.textColor == .darkGray
             {
@@ -436,7 +496,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                                     DispatchQueue.main.async {
                                         self.progress.setProgress(1.0, animated: true)
                                         self.cancelButton.isEnabled = true
-                                        self.sendButton.isEnabled = true
+                                        self.transferBtn.isEnabled = true
+
                                         let alert = UIAlertController(title: "transaction_success_title".localized(), message: "transaction_success_message".localized(), preferredStyle: .actionSheet)
 
                                         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: self.finish))
@@ -504,7 +565,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     func finish(action: UIAlertAction) {
         DispatchQueue.main.async {
             self.cancelButton.isEnabled = true
-            self.sendButton.isEnabled = true
+            self.transferBtn.isEnabled = true
+
             self.progress.progress = 0.0
             self.comment?.text = "comment_placeholder".localized()
             self.comment?.textColor = .darkGray
@@ -520,7 +582,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
             self.present(alert, animated: true)
             self.cancelButton.isEnabled = true
-            self.sendButton.isEnabled = true
+            self.transferBtn.isEnabled = true
 
             self.progress.setProgress(1.0, animated: true)
         }
@@ -557,7 +619,8 @@ extension NewTransactionViewController: LoginDelegate {
             if let v = self.loginView {
                 v.dismiss(animated: true, completion: {
                     DispatchQueue.main.async {
-                        self.send(sender: nil)
+//                        self.send(sender: nil)
+                        self.receiverAndChangeTapped(nil)
                     }
                 })
             }
