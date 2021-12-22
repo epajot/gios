@@ -14,6 +14,7 @@
 "account_tab_label"="खाता";
 "login_tab_label"="लॉगिन";
 "public_key_label"="सार्वजनिक कुंजी";
+"public_key_saved_in_clipboard"="सार्वजनिक कुंजी क्लिपबोर्ड में सहेजी गई";
 "account_does_not_exist_title"="यह खाता मौजूद नहीं है";
 "account_does_not_exist_message"="ऐसा इसलिए हो सकता है क्योंकि आपने अपनी साख गलत दर्ज की है। पुन: प्रयास करने के लिए पुन: प्रयास करें दबाएं।.";
 /*  If you want to create a new account with these credential, press Create account. */

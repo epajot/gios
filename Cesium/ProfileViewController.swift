@@ -209,13 +209,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         publicKey.isUserInteractionEnabled = true
         publicKey.addGestureRecognizer(tapGestureRecognizer2)
-        
-        let tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(tempTapped))
-        
-        tempLabel.isUserInteractionEnabled = true
-        tempLabel.addGestureRecognizer(tapGestureRecognizer3)
-        
-        
+                
         createTransaction(UIButton())
     }
 
@@ -239,26 +233,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         printClassAndFunc(info: "balanceReceived -> transactBtnHidden = \(transactBtn.isHidden)")
     }
     
-    @objc func tempTapped() {
-        printClassAndFunc(info: "PublicKey Tapped !")
-        if let publicKeyTemp = publicKey.text {
-            UIPasteboard.general.string = publicKeyTemp
-            let alertController = UIAlertController(title: "Public Key saved in Clipboard", message: "", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-            alertController.addAction(okAction)
-            present(alertController, animated: true)
-        }
-    }
-    
-    
     @objc func labelTapped() {
         printClassAndFunc(info: "PublicKey Tapped !")
         if let publicKeyTemp = publicKey.text {
             UIPasteboard.general.string = publicKeyTemp
-            let alertController = UIAlertController(title: "Public Key saved in Clipboard", message: "", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-            alertController.addAction(okAction)
-            present(alertController, animated: true)
+            errorAlert(title: "public_key_label".localized(), message: "public_key_saved_in_clipboard".localized())
         }
     }
     

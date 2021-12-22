@@ -14,6 +14,7 @@
 "account_tab_label"="חשבון";
 "login_tab_label"="כניסה";
 "public_key_label"="מפתח ציבורי";
+"public_key_saved_in_clipboard"="מפתח ציבורי נשמר בלוח";
 "account_does_not_exist_title"="חשבון זה אינו קיים";
 "account_does_not_exist_message"="ייתכן שהסיבה לכך היא שהזנת את האישורים שלך בצורה שגויה. לחץ על נסה שוב כדי לנסות שוב.";
 /* אם ברצונך ליצור חשבון חדש עם אישורים אלה, לחץ על צור חשבון. */

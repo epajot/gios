@@ -14,6 +14,7 @@
 "account_tab_label"="帐户";
 "login_tab_label"="登录";
 "public_key_label"="公钥";
+"public_key_saved_in_clipboard"="公钥保存在剪贴板";
 "account_does_not_exist_title"="该账户不存在";
 "account_does_not_exist_message"="这可能是因为您输入的凭据不正确。按再试一次。";
 /* 如果要使用这些凭据创建新帐户，请按创建帐户。 */

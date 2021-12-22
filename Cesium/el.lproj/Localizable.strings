@@ -14,6 +14,7 @@
 "account_tab_label"="Λογαριασμός";
 "login_tab_label"="Σύνδεση";
 "public_key_label"="Δημόσιο κλειδί";
+"public_key_saved_in_clipboard"="Δημόσιο κλειδί αποθηκευμένο στο πρόχειρο";
 "account_does_not_exist_title"="Αυτός ο λογαριασμός δεν υπάρχει";
 "account_does_not_exist_message"="Αυτό μπορεί να οφείλεται στο ότι έχετε εισάγει λανθασμένα τα διαπιστευτήριά σας. Πατήστε Try again για να δοκιμάσετε ξανά.";
 /*  If you want to create a new account with these credential, press Create account. */

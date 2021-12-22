@@ -14,6 +14,7 @@
 "account_tab_label"="Konto";
 "login_tab_label"="Logga in";
 "public_key_label"="Offentlig nyckel";
+"public_key_saved_in_clipboard"="Offentlig nyckel sparad i klippbordet";
 "account_does_not_exist_title"="Detta konto finns inte";
 "account_does_not_exist_message"="Detta kan bero på att du har angett dina uppgifter felaktigt. Tryck på Försök igen för att försöka igen.";
 /* Om du vill skapa ett nytt konto med dessa referenser, tryck på Skapa konto. */

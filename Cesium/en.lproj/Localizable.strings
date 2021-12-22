@@ -14,6 +14,7 @@
 "account_tab_label"="Account";
 "login_tab_label"="Login";
 "public_key_label"="Public key";
+"public_key_saved_in_clipboard"="Public Key saved in Clipboard";
 "account_does_not_exist_title"="This account does not exist";
 "account_does_not_exist_message"="This may be because your entered your credentials incorrectly. Press Try again to try again.";
 /*  If you want to create a new account with these credential, press Create account. */

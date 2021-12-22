@@ -14,6 +14,7 @@
 "account_tab_label"="Compte";
 "login_tab_label"="Connexion";
 "public_key_label"="Clé publique ";
+"public_key_saved_in_clipboard"="Clé publique enregistrée dans le presse-papiers";
 "account_does_not_exist_title"="Ce compte n'existe pas";
 "account_does_not_exist_message"="C'est peut-être parce que vous avez entré des données incorrectes. Dans ce cas pressez Réessayer pour essayer à nouveau.";
 /*  Si vous souhaitez créer un nouveau compte avec ces identifiants, appuyez sur Créer un compte. */

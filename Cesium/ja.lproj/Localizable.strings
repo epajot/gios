@@ -14,6 +14,7 @@
 "account_tab_label"="アカウント";
 "login_tab_label"="ログイン";
 "public_key_label"="公開鍵";
+"public_key_saved_in_clipboard" = "クリップボードに保存された公開鍵";
 "account_does_not_exist_title"="このアカウントは存在しません";
 "account_does_not_exist_message"="認証情報の入力が間違っている可能性があります もう一度試してみてください";
 /* この認証情報で新しいアカウントを作成したい場合は、Create accountを押してください。*/

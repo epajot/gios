@@ -14,6 +14,7 @@
 "account_tab_label"="Konto";
 "login_tab_label"="Zaloguj się";
 "public_key_label"="Klucz publiczny";
+"public_key_saved_in_clipboard"="Klucz publiczny zapisany w Schowku";
 "account_does_not_exist_title"="To konto nie istnieje";
 "account_does_not_exist_message"="Może to wynikać z nieprawidłowego wprowadzenia danych uwierzytelniających. Naciśnij przycisk Spróbuj ponownie, aby spróbować ponownie.";
 /* Jeśli chcesz utworzyć nowe konto z tymi danymi uwierzytelniającymi, naciśnij przycisk Utwórz konto. */

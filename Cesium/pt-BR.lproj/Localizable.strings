@@ -14,6 +14,7 @@
 "account_tab_label"="Conta";
 "login_tab_label"="Login";
 "public_key_label"="Chave pública";
+"public_key_saved_in_clipboard"="Chave pública salva na área de transferência";
 "account_does_not_exist_title"="Esta conta não existe";
 "account_does_not_exist_message"="Isso pode ser porque você inseriu suas credenciais incorretamente. Pressione Tentar novamente para tentar novamente.";
 /*  If you want to create a new account with these credential, press Create account. */

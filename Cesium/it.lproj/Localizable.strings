@@ -14,6 +14,7 @@
 "account_tab_label"="Conto";
 "login_tab_label"="Accedi";
 "public_key_label"="Chiave pubblica";
+"public_key_saved_in_clipboard"="Chiave pubblica salvata negli appunti";
 "account_does_not_exist_title"="Questo account non esiste";
 "account_does_not_exist_message"="Questo potrebbe essere dovuto al fatto che hai inserito le tue credenziali in modo errato. Premi Riprova per riprovare.";
 /* Se vuoi creare un nuovo account con queste credenziali, premi Crea account. */

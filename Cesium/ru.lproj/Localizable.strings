@@ -14,6 +14,7 @@
 "account_tab_label"="Учетная запись";
 "login_tab_label"="Войти";
 "public_key_label"="Открытый ключ";
+"public_key_saved_in_clipboard"="Открытый ключ сохранен в буфере обмена";
 "account_does_not_exist_title"="TЭта учетная запись не существует";
 "account_does_not_exist_message"="Это может быть потому, что вы неправильно ввели свои учетные данные. Нажмите Повторить попытку , чтобы повторить попытку.";
 /*  If you want to create a new account with these credential, press Create account. */

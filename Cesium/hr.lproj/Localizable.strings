@@ -14,6 +14,7 @@
 "account_tab_label"="Račun";
 "login_tab_label"="Prijava";
 "public_key_label"="Javni ključ";
+"public_key_saved_in_clipboard"="Javni ključ spremljen u međuspremnik";
 "account_does_not_exist_title"="Ovaj račun ne postoji";
 "account_does_not_exist_message"="To može biti zato što ste netočno unijeli svoje vjerodajnice. Pritisnite Pokušajte ponovo da pokušate ponovo.";
 /* Ako želite stvoriti novi račun s ovim vjerodajnicama, pritisnite Kreiraj račun. */

@@ -14,6 +14,7 @@
 "account_tab_label"="Cuenta";
 "login_tab_label"="Inicio de sesión";
 "public_key_label"="Clave pública";
+"public_key_saved_in_clipboard"="Clave pública guardada en el portapapeles";
 "account_does_not_exist_title"="Esta cuenta no existe";
 "account_does_not_exist_message"="Esto puede deberse a que has introducido tus credenciales incorrectamente. Pulse Try again para volver a intentarlo";
 /* Si desea crear una nueva cuenta con estas credenciales, pulse Crear cuenta. */

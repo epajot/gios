@@ -14,6 +14,7 @@
 "account_tab_label"="Account";
 "login_tab_label"="Inloggen";
 "public_key_label"="Openbare sleutel";
+"public_key_saved_in_clipboard"="Openbare sleutel opgeslagen in klembord";
 "account_does_not_exist_title"="Dit account bestaat niet";
 "account_does_not_exist_message"="Dit kan zijn omdat je je gegevens verkeerd hebt ingevoerd. Druk op Opnieuw proberen om het opnieuw te proberen.";
 /* Als u een nieuw account met deze gegevens wilt maken, drukt u op Account maken. */

@@ -14,6 +14,7 @@
 "konto_tab_label"="Konto";
 "login_tab_label"="Anmelden";
 "public_key_label"="Öffentlicher Schlüssel";
+"public_key_saved_in_clipboard"="Öffentlicher Schlüssel in der Zwischenablage gespeichert";
 "account_does_not_exist_title"="Dieses Konto existiert nicht";
 "account_does_not_exist_message"="Dies kann daran liegen, dass Sie Ihre Anmeldedaten falsch eingegeben haben. Drücken Sie Try again, um es erneut zu versuchen.";
 /* Wenn Sie ein neues Konto mit diesen Anmeldedaten erstellen möchten, klicken Sie auf Konto erstellen. */
