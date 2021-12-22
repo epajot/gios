@@ -15,6 +15,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     var sender: Profile?
     var currency: String?
     var encryptedComentON = true
+    var qrcodeDisplayed: Bool = false
 
     @IBOutlet var senderAvatar: UIImageView!
     @IBOutlet var receiverAvatar: UIImageView!
@@ -75,7 +76,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             refactorAmountWithDot()
             comment.text = "\(g1PaymentRequested.infoForRecipient)"
             commentChangeColor()
-            
+
             AppDelegate.shared.g1PaymentRequested = nil
         }
     }
@@ -196,7 +197,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         // EP's Test replacing comma with dot into amount.text
         amount.text = amount.text?.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
     }
-    
+
     func commentChangeColor() {
         visibleComment.tintColor = encryptedComentON ? .orange : .white
         encryptCommentSubtext.textColor = visibleComment.tintColor
@@ -292,7 +293,41 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func qrcodeBtnTapped(_ sender: Any) {
-        printClassAndFunc(info: "QR Code Btn Tapped !!")
+        qrcodeDisplayed.toggle()
+//        let tappedImage = UIImageView()
+        if qrcodeDisplayed {
+            senderAvatar.layer.masksToBounds = false
+            if #available(iOS 11, *) {
+                UIView.animate(withDuration: 0.15, animations: {
+                    self.senderAvatar.layer.cornerRadius = 0
+                })
+            } else {
+                senderAvatar.layer.cornerRadius = 0
+            }
+            senderAvatar.clipsToBounds = true
+            if let data = self.sender?.issuer.data(using: String.Encoding.ascii) {
+                if let filter = CIFilter(name: "CIQRCodeGenerator") {
+                    filter.setValue(data, forKey: "inputMessage")
+                    let transform = CGAffineTransform(scaleX: 3, y: 3)
+                    if let output = filter.outputImage?.transformed(by: transform) {
+                        senderAvatar.image = UIImage(ciImage: output)
+                    }
+                }
+            }
+        } else {
+//            if let prof = profile {
+//                prof.getAvatar(imageView: tappedImage ?? senderAvatar)
+                senderAvatar.layer.masksToBounds = false
+                if #available(iOS 11, *) {
+                    UIView.animate(withDuration: 0.15, animations: {
+                        self.senderAvatar.layer.cornerRadius = self.senderAvatar.frame.width / 2
+                    })
+                } else {
+                    senderAvatar.layer.cornerRadius = senderAvatar.frame.width / 2
+                }
+                senderAvatar.clipsToBounds = true
+            }
+//        }
     }
 
     @IBAction func disconnectBtnTapped(_ sender: Any) {
@@ -308,16 +343,16 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBAction func senderAvatarTapped(_ sender: UITapGestureRecognizer) {
         printClassAndFunc(info: "sender Avatar Tapped !!!")
 
-        DispatchQueue.main.async {
-            let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
-
-            let ProfileView = storyBoard.instantiateViewController(withIdentifier: "ProfileView") as! ProfileViewController
-
-//            ProfileView.isModalInPopover = true
-//            ProfileView.profileSelectedDelegate = self
-
-            self.present(ProfileView, animated: true, completion: nil)
-        }
+//        DispatchQueue.main.async {
+//            let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
+//
+//            let ProfileView = storyBoard.instantiateViewController(withIdentifier: "ProfileView") as! ProfileViewController
+//
+        ////            ProfileView.isModalInPopover = true
+        ////            ProfileView.profileSelectedDelegate = self
+//
+//            self.present(ProfileView, animated: true, completion: nil)
+//        }
     }
 
     @IBAction func visibleCommentTapped(_ sender: Any) {
@@ -384,7 +419,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         numberFormatter.locale = Locale.current
 
         printClassAndFunc(info: "amstring = \(amstring) !!!") // EP's Check
-        
+
         let am = numberFormatter.number(from: amstring) ?? 0
 
         if am.floatValue <= 0.0 {
@@ -423,7 +458,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
 
         let amountString = String(format: "%.2f %@", Float(truncating: am), Currency.formattedCurrency(currency: currency))
-        
+
         printClassAndFunc(info: "amountString = \(amountString) !!!") // EP's Check
 
         let msg = String(format: "transaction_confirm_message".localized(), amountString, title)

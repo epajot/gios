@@ -48,10 +48,8 @@ class TransactionTableViewCell: UITableViewCell {
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     weak var changeUserDelegate: ViewUserDelegate?
-//    let networkStatusView = getNetworkStatusView()
     var displayingAvatar: Bool = true
     
-    @IBOutlet var noNetworkStackView: UIStackView!
     @IBOutlet var check: UIImageView!
     @IBOutlet var name: UILabel!
     @IBOutlet var balance: UILabel!
@@ -204,6 +202,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         avatar.isUserInteractionEnabled = true
         avatar.addGestureRecognizer(tapGestureRecognizer)
+        
+        createTransaction(UIButton())
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -283,6 +283,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
+    
+    
     @IBAction func userViewTapped(_ sender: UITapGestureRecognizer) {
         UIPasteboard.general.string = publicKey.text
         printClassAndFunc(info: "Public Key saved in PasteBoard !! = \(String(describing: publicKey.text))")

@@ -164,6 +164,29 @@
                                     <constraint firstItem="ggf-wH-L3w" firstAttribute="top" secondItem="IjX-qa-d4F" secondAttribute="topMargin" id="uTU-M8-rqO"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="n4w-Wg-8Po">
+                                <rect key="frame" x="80" y="224" width="254" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eio-ke-Rhg">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="EUJ-Ok-Doz"/>
+                                            <constraint firstAttribute="width" constant="254" id="jcK-1h-jj4"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" returnKeyType="go"/>
+                                    </textField>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P5f-HI-cml">
+                                        <rect key="frame" x="0.0" y="36" width="254" height="4"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="4" id="fiA-lx-BSa"/>
+                                        </constraints>
+                                    </progressView>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00 G1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHe-Kd-HVU">
                                 <rect key="frame" x="185.5" y="272" width="43.5" height="14.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -240,22 +263,22 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vnC-1f-SeI">
-                                <rect key="frame" x="127" y="782" width="160" height="50"/>
+                                <rect key="frame" x="117" y="782" width="180" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY5-ag-Tcj" userLabel="Scan Button">
-                                        <rect key="frame" x="0.0" y="12.5" width="53.5" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSr-j4-hwb" userLabel="QRCode Button">
+                                        <rect key="frame" x="0.0" y="13" width="60" height="24"/>
                                         <color key="tintColor" name="EP_Blue"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
-                                            <imageReference key="image" image="barcode.viewfinder" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="qrcode" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="scanBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="BPn-lA-9dU"/>
+                                            <action selector="qrcodeBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="HwH-fC-gKA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-TH-Vrz" userLabel="Disconnect Button">
-                                        <rect key="frame" x="53.5" y="14.5" width="53" height="21"/>
+                                        <rect key="frame" x="60" y="14.5" width="60" height="21"/>
                                         <color key="tintColor" name="EP_Blue"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
@@ -267,49 +290,26 @@
                                             <action selector="disconnectBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="hus-rR-rNU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSr-j4-hwb" userLabel="QRCode Button">
-                                        <rect key="frame" x="106.5" y="13" width="53.5" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY5-ag-Tcj" userLabel="Scan Button">
+                                        <rect key="frame" x="120" y="12.5" width="60" height="25"/>
                                         <color key="tintColor" name="EP_Blue"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
-                                            <imageReference key="image" image="qrcode" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="barcode.viewfinder" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="qrcodeBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="HwH-fC-gKA"/>
+                                            <action selector="scanBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="BPn-lA-9dU"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7Vj-TH-Vrz" firstAttribute="centerY" secondItem="vnC-1f-SeI" secondAttribute="centerY" id="7o0-Bk-RuH"/>
-                                    <constraint firstAttribute="width" constant="160" id="G6G-kf-gH4"/>
+                                    <constraint firstAttribute="width" constant="180" id="G6G-kf-gH4"/>
                                     <constraint firstItem="AY5-ag-Tcj" firstAttribute="centerY" secondItem="vnC-1f-SeI" secondAttribute="centerY" id="jNi-ER-1vc"/>
                                     <constraint firstAttribute="height" constant="50" id="l8d-D4-k4s"/>
                                     <constraint firstItem="dSr-j4-hwb" firstAttribute="centerY" secondItem="vnC-1f-SeI" secondAttribute="centerY" id="qqk-eo-SYN"/>
                                 </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="n4w-Wg-8Po">
-                                <rect key="frame" x="80" y="224" width="254" height="40"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eio-ke-Rhg">
-                                        <rect key="frame" x="0.0" y="0.0" width="254" height="35"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="EUJ-Ok-Doz"/>
-                                            <constraint firstAttribute="width" constant="254" id="jcK-1h-jj4"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" returnKeyType="go"/>
-                                    </textField>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P5f-HI-cml">
-                                        <rect key="frame" x="0.0" y="36" width="254" height="4"/>
-                                        <color key="tintColor" systemColor="systemOrangeColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="4" id="fiA-lx-BSa"/>
-                                        </constraints>
-                                    </progressView>
-                                </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AhG-Xz-HhB"/>
@@ -959,9 +959,6 @@
                                     <constraint firstItem="sav-B4-2wF" firstAttribute="trailing" secondItem="5Pv-dk-ydy" secondAttribute="trailing" id="mQY-lQ-G9x"/>
                                     <constraint firstItem="sav-B4-2wF" firstAttribute="leading" secondItem="Bup-PV-GuN" secondAttribute="leading" id="sqx-KD-FLg"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="MZh-gL-nvd" appends="YES" id="VIv-I8-8at"/>
-                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dqt-5n-9a2">
                                 <rect key="frame" x="20" y="273" width="374" height="310"/>
@@ -1134,11 +1131,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGT-er-LqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="MZh-gL-nvd">
-                    <connections>
-                        <action selector="pubKEYTapped:" destination="aoc-97-fyh" id="Ttk-vj-Vzg"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="195.6521739130435" y="-1740.4017857142856"/>
         </scene>
@@ -1316,9 +1308,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aoc-97-fyh" kind="show" identifier="goTo Profile" id="C6y-rk-XEO"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nnn-iF-9c8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
