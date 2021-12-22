@@ -315,8 +315,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                 }
             }
         } else {
-//            if let prof = profile {
-//                prof.getAvatar(imageView: tappedImage ?? senderAvatar)
+            if let prof = self.sender {
+                prof.getAvatar(imageView: senderAvatar)
                 senderAvatar.layer.masksToBounds = false
                 if #available(iOS 11, *) {
                     UIView.animate(withDuration: 0.15, animations: {
@@ -327,7 +327,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                 }
                 senderAvatar.clipsToBounds = true
             }
-//        }
+        }
     }
 
     @IBAction func disconnectBtnTapped(_ sender: Any) {
