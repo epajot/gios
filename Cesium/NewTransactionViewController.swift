@@ -342,17 +342,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func senderAvatarTapped(_ sender: UITapGestureRecognizer) {
         printClassAndFunc(info: "sender Avatar Tapped !!!")
-
-//        DispatchQueue.main.async {
-//            let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
-//
-//            let ProfileView = storyBoard.instantiateViewController(withIdentifier: "ProfileView") as! ProfileViewController
-//
-        ////            ProfileView.isModalInPopover = true
-        ////            ProfileView.profileSelectedDelegate = self
-//
-//            self.present(ProfileView, animated: true, completion: nil)
-//        }
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func visibleCommentTapped(_ sender: Any) {
