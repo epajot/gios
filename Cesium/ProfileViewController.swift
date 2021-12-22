@@ -199,9 +199,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             tableView.addSubview(refreshControl)
         }
 
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        
         avatar.isUserInteractionEnabled = true
         avatar.addGestureRecognizer(tapGestureRecognizer)
+        
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
+        
+        publicKey.isUserInteractionEnabled = true
+        publicKey.addGestureRecognizer(tapGestureRecognizer2)
         
         createTransaction(UIButton())
     }
@@ -226,8 +232,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         printClassAndFunc(info: "balanceReceived -> transactBtnHidden = \(transactBtn.isHidden)")
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
+    @objc func labelTapped() {
+        printClassAndFunc(info: "PublicKey Tapped !")
+        if let publicKeyTemp = publicKey.text {
+            UIPasteboard.general.string = publicKeyTemp
+            let alertController = UIAlertController(title: "Public Key saved in Clipboard", message: "", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
+        }
+    }
+    
+    @objc func imageTapped() {
+//        let tappedImage = tapGestureRecognizer.view as! UIImageView
         print("displaying avatar")
         if displayingAvatar {
             displayingAvatar = false
@@ -249,14 +266,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     let transform = CGAffineTransform(scaleX: 3, y: 3)
 
                     if let output = filter.outputImage?.transformed(by: transform) {
-                        tappedImage.image = UIImage(ciImage: output)
+                        avatar.image = UIImage(ciImage: output)
                     }
                 }
             }
         } else {
             if let prof = profile {
                 displayingAvatar = true
-                prof.getAvatar(imageView: tappedImage)
+                prof.getAvatar(imageView: avatar)
                 avatar.layer.borderWidth = 1
                 avatar.layer.masksToBounds = false
                 avatar.layer.borderColor = UIColor.white.cgColor
@@ -284,11 +301,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
-    @IBAction func userViewTapped(_ sender: UITapGestureRecognizer) {
-        UIPasteboard.general.string = publicKey.text
-        printClassAndFunc(info: "Public Key saved in PasteBoard !! = \(String(describing: publicKey.text))")
-    }
         
     @IBAction func createTransaction(_: UIButton) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
