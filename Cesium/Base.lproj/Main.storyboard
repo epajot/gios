@@ -934,17 +934,26 @@
                                             <constraint firstAttribute="height" constant="16" id="iW9-18-1pU"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="public key loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-dk-ydy">
-                                        <rect key="frame" x="57" y="79" width="327" height="16"/>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="public key loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-dk-ydy">
+                                        <rect key="frame" x="57" y="79" width="327" height="28"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <color key="textColor" systemColor="systemOrangeColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEj-ku-ssh">
+                                        <rect key="frame" x="264" y="-7.5" width="57" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="57" id="cha-xY-vDs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="83b-h5-3YP" firstAttribute="top" secondItem="5Pv-dk-ydy" secondAttribute="top" id="0F2-n1-brS"/>
-                                    <constraint firstItem="83b-h5-3YP" firstAttribute="centerY" secondItem="5Pv-dk-ydy" secondAttribute="centerY" id="C9K-We-bai"/>
+                                    <constraint firstItem="83b-h5-3YP" firstAttribute="centerY" secondItem="5Pv-dk-ydy" secondAttribute="centerY" constant="-6" id="C9K-We-bai"/>
                                     <constraint firstItem="3PS-nb-WPD" firstAttribute="top" secondItem="Bup-PV-GuN" secondAttribute="top" id="DUC-5k-NCS"/>
                                     <constraint firstItem="83b-h5-3YP" firstAttribute="leading" secondItem="zNL-vG-hky" secondAttribute="leading" id="LJK-NE-rG6"/>
                                     <constraint firstItem="5Pv-dk-ydy" firstAttribute="top" secondItem="3PS-nb-WPD" secondAttribute="bottom" constant="55" id="RWR-XU-8xg"/>
@@ -952,12 +961,14 @@
                                     <constraint firstItem="83b-h5-3YP" firstAttribute="top" secondItem="zNL-vG-hky" secondAttribute="bottom" constant="16" id="ZR1-J0-GPT"/>
                                     <constraint firstItem="sav-B4-2wF" firstAttribute="top" secondItem="Bup-PV-GuN" secondAttribute="bottom" constant="8" id="biZ-SR-gFN"/>
                                     <constraint firstItem="3PS-nb-WPD" firstAttribute="leading" secondItem="Bup-PV-GuN" secondAttribute="trailing" constant="19" id="cEG-eE-BjK"/>
+                                    <constraint firstItem="aEj-ku-ssh" firstAttribute="bottom" secondItem="zNL-vG-hky" secondAttribute="bottom" constant="-50" id="cuh-NX-W2u"/>
                                     <constraint firstItem="3PS-nb-WPD" firstAttribute="top" secondItem="iAq-c6-PLh" secondAttribute="top" id="e8j-T2-Mcr"/>
                                     <constraint firstAttribute="trailing" secondItem="5Pv-dk-ydy" secondAttribute="trailing" constant="30" id="e9y-O7-uQq"/>
                                     <constraint firstItem="5Pv-dk-ydy" firstAttribute="leading" secondItem="83b-h5-3YP" secondAttribute="trailing" constant="11" id="f5L-Cc-eb5"/>
                                     <constraint firstItem="sav-B4-2wF" firstAttribute="leading" secondItem="iAq-c6-PLh" secondAttribute="leading" constant="107" id="hit-fw-eZo"/>
                                     <constraint firstItem="sav-B4-2wF" firstAttribute="trailing" secondItem="5Pv-dk-ydy" secondAttribute="trailing" id="mQY-lQ-G9x"/>
                                     <constraint firstItem="sav-B4-2wF" firstAttribute="leading" secondItem="Bup-PV-GuN" secondAttribute="leading" id="sqx-KD-FLg"/>
+                                    <constraint firstAttribute="trailing" secondItem="aEj-ku-ssh" secondAttribute="trailing" constant="93" id="yXG-zX-lo7"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dqt-5n-9a2">
@@ -1126,6 +1137,7 @@
                         <outlet property="name" destination="Bup-PV-GuN" id="Be2-4R-ChA"/>
                         <outlet property="publicKey" destination="5Pv-dk-ydy" id="utH-vI-lhm"/>
                         <outlet property="tableView" destination="Dqt-5n-9a2" id="hyJ-FP-8fo"/>
+                        <outlet property="tempLabel" destination="aEj-ku-ssh" id="Igt-B3-a4L"/>
                         <outlet property="transactBtn" destination="cL0-nT-0Ou" id="dUw-dH-XEi"/>
                         <outlet property="view" destination="iui-Kc-Y5g" id="gqw-3v-zn9"/>
                     </connections>
