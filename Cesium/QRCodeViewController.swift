@@ -62,6 +62,7 @@ class QRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     
     @IBAction func backBtnTappped(_ sender: Any) {
+        vibrateLight()
         self.dismiss(animated: true, completion: nil)
     }
     

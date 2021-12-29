@@ -5,4 +5,4 @@
   Created by Jonathan Foucher on 16/06/2019.
   Copyright © 2019 Jonathan Foucher. All rights reserved.
 */
-"NSFaceIDUsageDescription"="We use FaceID to authenticate you to your account after your first login";
+"NSFaceIDUsageDescription"="Wij gebruiken FaceID om u te authenticeren bij uw account na uw eerste login";

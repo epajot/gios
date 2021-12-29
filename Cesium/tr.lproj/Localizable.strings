@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="Parola";
+"identifier_placeholder" = "Gizli Tanımlayıcı";
+"login_button_label"="Giriş";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Çıkış";
+"account_tab_label"="Hesap";
+"login_tab_label"="Giriş";
+"public_key_label"="Genel anahtar";
+"public_key_saved_in_clipboard"="Genel Anahtar Panoya kaydedildi";
+"account_does_not_exist_title"="Bu hesap mevcut değil";
+"account_does_not_exist_message"="Bunun nedeni, kimlik bilgilerinizi yanlış girmiş olmanız olabilir. Tekrar denemek için Tekrar Dene'ye basın.";
+//*  If you want to create a new account with these credential, press Create account. */
+"account_does_not_exist_cancel"="Tekrar deneyin";
+"account_does_not_exist_create"="Hesap oluştur";
+"balance_label"="Bakiye: ";
+"sent"="Gönderildi";
+"sending"="Gönderiliyor";
+"received"="Alındı";
+"receiving"="Alınıyor";
+"logout_confirm_prompt"="Oturumu kapatmak istediğinizden emin misiniz?";
+"confirm_label"="Çıkış";
+"cancel_label"="Oturum açık kalsın";
+"transaction_view_date_format"="%@ üzerinde %@ adresinde";
+"transfer_button_label"="Aktar";
+"transfer_to_label"="Aktar ";
+"transaction_confirm_prompt"="Lütfen bu işlemi onaylayın";
+"transaction_confirm_message"="Eğer gerçekten %@'ı %@'a göndermek istiyorsanız, Gönder'e dokunun, aksi halde İptal'e dokunun";
+"transaction_confirm_button_label"="Gönder";
+"transaction_cancel_button_label"="İptal";
+"comment_placeholder"="Yorum";
+"transaction_fail_title"="İşleminiz gönderilemedi";
+"transaction_fail_text"="Hata mesajının tamamı aşağıdaki gibidir: %@";
+"transaction_success_title"="İşleminiz gönderildi";
+"transaction_success_message"="Artık bu sayfayı kapatabilir veya başka birine başka bir işlem gönderebilirsiniz";
+"no_internet_message"="Bağlantıyı yeniden kazandıktan sonra lütfen tekrar deneyin";
+"no_internet_title"="Ağ kullanılamıyor";
+"close_label"="Kapat";
+"no_amount"="Miktar yok";
+"no_amount_message"="Lütfen işleminiz için bir tutar seçin";
+"insufficient_funds"="Yetersiz fon";
+"insufficient_funds_message"="Üzgünüz, şu anda bu işlem için yeterli bakiyeniz yok. Lütfen daha düşük bir sayı girin ve tekrar deneyin";
+"end_results"="Başka sonuç yok";
+"search_placeholder"="Kullanıcıları ara";
+"no_comment_placeholder"="Yorum yok";
+"home_button_label"="Geri";
+"user_auth_prompt"="%@ için kimlik doğrulama";
+"encrypt_comment_label"="Yorumunuzu şifreleyin";
+"encrypt_comment_subtext_yes"="Yalnızca alıcı tarafından okunabilir";
+"encrypt_comment_subtext_no"="Tüm kullanıcılar tarafından okunabilir";
+"comment_encrypt_failed"="Üzgünüz, yorumunuz şifrelenemedi. Lütfen giriş yaptığınızdan emin olun ve tekrar deneyin.";
+"decrypt_comment_button_label"="Yorumun şifresini çöz";

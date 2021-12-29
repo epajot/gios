@@ -133,8 +133,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             avatar.clipsToBounds = true
 
             transactBtn.isHidden = true
-            transactBtn.layer.borderWidth = 1
-            transactBtn.layer.borderColor = UIColor.darkGray.cgColor
+//            transactBtn.layer.borderWidth = 1
+//            transactBtn.layer.borderColor = UIColor.darkGray.cgColor
             balanceLoading.color = .white
             balanceLoading.startAnimating()
             
@@ -149,10 +149,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             check.image = UIImage(named: "check")?.withRenderingMode(.alwaysTemplate)
 
             // Add image to send button
-            let imv = UIImage(named: "g1")?.withRenderingMode(.alwaysTemplate)
-
-            createTransactionButton.setImage(imv?.resize(width: 18), for: .normal)
-            createTransactionButton.setTitle("transfer_button_label".localized(), for: .normal)
+//            let imv = UIImage(named: "g1")?.withRenderingMode(.alwaysTemplate)
+//            createTransactionButton.setImage(imv?.resize(width: 18), for: .normal)
+//            createTransactionButton.setTitle("transfer_button_label".localized(), for: .normal)
             createTransactionButton.layer.cornerRadius = 6
 
 //            let ctrl = self.navigationController as! FirstViewController
@@ -234,6 +233,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func labelTapped() {
+        vibrateLight()
         printClassAndFunc(info: "PublicKey Tapped !")
         if let publicKeyTemp = publicKey.text {
             UIPasteboard.general.string = publicKeyTemp
@@ -242,6 +242,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func imageTapped() {
+        vibrateLight()
 //        let tappedImage = tapGestureRecognizer.view as! UIImageView
         print("displaying avatar")
         if displayingAvatar {
@@ -301,6 +302,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
         
     @IBAction func createTransaction(_: UIButton) {
+        vibrateLight()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 
         let newTransactionView = storyBoard.instantiateViewController(withIdentifier: "NewTransactionView") as! NewTransactionViewController

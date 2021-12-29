@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="كلمة المرور";
+"identifier_placeholder"="معرّف سري";
+"login_button_label"="تسجيل الدخول";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="تسجيل الخروج";
+"account_tab_label"="الحساب";
+"login_tab_label"="تسجيل الدخول";
+"public_key_label"="مفتاح عمومي";
+"public_key_saved_in_clipboard"="المفتاح العام محفوظ في الحافظة";
+"account_does_not_exist_title"="هذا الحساب غير موجود";
+"account_does_not_exist_message"="قد يكون هذا بسبب إدخال بيانات الاعتماد الخاصة بك بشكل غير صحيح. اضغط حاول مرة أخرى للمحاولة مرة أخرى.";
+//*  If you want to create a new account with these credential, press Create account. */
+"account_does_not_exist_cancel"="حاول مرة أخرى";
+"account_does_not_exist_create"="إنشاء حساب";
+"Balance_label"="الرصيد:";
+;"أرسلت"="sent"
+;"إرسال"="sending"
+;"استقبل"="received"
+;"تلقي"="receiving"
+"logout_confirm_prompt"="هل أنت متأكد من رغبتك في تسجيل الخروج؟";
+"Confirm_label"="تسجيل الخروج";
+"Cancel_label"="ابق مسجلاً للدخول";
+"transaction_view_date_format"="في٪ @ عند٪ @";
+"transfer_button_label"="نقل";
+"transfer_to_label"="نقل إلى";
+"transaction_confirm_prompt"="الرجاء تأكيد هذه المعاملة";
+"transaction_confirm_message"="إذا كنت ترغب حقًا في إرسال٪ @ إلى٪ @ الآن ، فانقر فوق إرسال ، وإلا فانقر فوق إلغاء";
+"transaction_confirm_button_label"="إرسال";
+"transaction_cancel_button_label"="إلغاء";
+"comment_placeholder"="تعليق";
+"transaction_fail_title"="فشل إرسال معاملتك";
+"transaction_fail_text"="رسالة الخطأ الكاملة كالتالي:٪ @";
+"transaction_success_title"="تم إرسال معاملتك";
+"transaction_success_message"="يمكنك الآن إغلاق هذه الصفحة ، أو ربما إرسال معاملة أخرى إلى شخص آخر";
+"no_internet_message"="الرجاء المحاولة مرة أخرى بمجرد استعادة الاتصال";
+"no_internet_title"="الشبكة غير متوفرة";
+"close_label"="إغلاق";
+"no_amount"="لا يوجد مبلغ";
+"no_amount_message"="الرجاء اختيار مبلغ لمعاملتك";
+;"الأموال غير الكافية"="insufficient_funds"
+;"غير كافية_الأموال_الرسالة"="insufficient_funds_message"
+"end_results"="لا توجد نتائج أخرى";
+"search_placeholder"="بحث عن المستخدمين";
+"no_comment_placeholder"="لا يوجد تعليق";
+"home_button_label"="رجوع";
+"user_auth_prompt"="مصادقة لـ٪ @";
+"encrypt_comment_label"="تشفير تعليقك";
+"encrypt_comment_subtext_yes"="قابل للقراءة من قبل المستلم فقط";
+"encrypt_comment_subtext_no"="قابل للقراءة من قبل كافة المستخدمين";
+"comment_encrypt_failed"="عذرًا ، تعذر تشفير تعليقك. الرجاء التأكد من أنك قمت بتسجيل الدخول وحاول مرة أخرى.";
+"decrypt_comment_button_label"="فك تشفير التعليق";

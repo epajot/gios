@@ -5,4 +5,4 @@
   Created by Jonathan Foucher on 16/06/2019.
   Copyright © 2019 Jonathan Foucher. All rights reserved.
 */
-"NSFaceIDUsageDescription"="We use FaceID to authenticate you to your account after your first login";
+"NSFaceIDUsageDescription"="हम आपके पहले लॉगिन के बाद आपको आपके खाते में प्रमाणित करने के लिए फेसआईडी का उपयोग करते हैं";

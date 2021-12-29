@@ -5,4 +5,4 @@
   Created by Jonathan Foucher on 16/06/2019.
   Copyright © 2019 Jonathan Foucher. All rights reserved.
 */
-"NSFaceIDUsageDescription"="Usiamo FaceID per autenticarti al tuo account dopo il tuo primo accesso";
+"NSFaceIDUsageDescription"="İlk girişinizden sonra hesabınızda kimliğinizi doğrulamak için FaceID kullanıyoruz";

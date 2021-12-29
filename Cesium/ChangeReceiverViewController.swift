@@ -151,6 +151,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
 //    }
     
     @IBAction func backBtnTapped(_ sender: Any) {
+        vibrateLight()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -190,6 +191,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func cancel(_ sender: Any) {
+        vibrateLight()
         self.dismiss(animated: true, completion: nil)
     }
 }

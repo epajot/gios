@@ -37,7 +37,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var qrcodeBtn: UIButton!
     @IBOutlet var disconnectBtn: UIButton!
     @IBOutlet var scanBtn: UIButton!
-
+    @IBOutlet var balanceLoading: UIActivityIndicatorView!
+    
     @IBOutlet var progress: UIProgressView!
     @IBOutlet var topBarHeight: NSLayoutConstraint!
     @IBOutlet var encryptComment: UISwitch!
@@ -45,6 +46,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var encryptCommentLabel: UILabel!
 
     @IBAction func encryptCommentChanged(_ sender: UISwitch) {
+        vibrateLight()
         print(sender.isOn)
         if sender.isOn {
             encryptCommentSubtext.text = "encrypt_comment_subtext_yes".localized()
@@ -90,9 +92,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             view.layoutIfNeeded()
         }
 
+        balanceLoading.startAnimating()
+        balanceLoading.isHidden = false
+        
         transfertBtn.setImage(UIImage(named: "arrow-right"), for: .normal)
         transfertBtn.clipsToBounds = true
         transfertBtn.tintColor = .blue
+        transfertBtn.isHidden = true
 
         amount.keyboardType = UIKeyboardType.decimalPad
         amount.addDoneButtonToKeyboard(myAction: #selector(amount.resignFirstResponder))
@@ -104,6 +110,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
 
         refactorAmountWithDot()
+        senderBalance.isHidden = true
 
         encryptCommentLabel.text = "encrypt_comment_label".localized()
         encryptedTextLabelDisplay()
@@ -170,15 +177,26 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             if let bal = sender.balance {
                 let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(bal) / 100, cur)
                 senderBalance.text = str
+//                self.printClassAndFunc(info: "@___CUR__ \(cur)")
+//                self.printClassAndFunc(info: "@_____ \(str)")
             } else {
                 sender.getBalance(callback: { total in
                     let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(total) / 100, cur)
                     self.sender?.balance = total
+                    self.printClassAndFunc(info: "@--CUR--- \(cur)")
+                    self.printClassAndFunc(info: "@----- \(str)")
                     DispatchQueue.main.async {
                         self.senderBalance.text = str
+                        self.printClassAndFunc(info: "@>>>CUR>> \(cur)")
+                        self.printClassAndFunc(info: "@>>>>> \(str)")
+                        self.balanceReceived()
                     }
                 })
             }
+        }
+        
+        if sender?.balance != nil {
+            self.balanceReceived()
         }
     }
 
@@ -188,7 +206,14 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         handleURLRequest()
         commentChangeColor()
     }
-
+    
+    func balanceReceived() {
+        balanceLoading.stopAnimating()
+        balanceLoading.isHidden = true
+        transfertBtn.isHidden = false
+        senderBalance.isHidden = false
+    }
+    
     func appDidBecomeActive() {
         handleURLRequest()
     }
@@ -230,6 +255,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             textView.text = ""
             commentChangeColor()
         }
+    }
+    
+    func flipImage() {
+        printClassAndFunc(info: "@--- flipImage done !! TBF")
+        transfertBtn.image(for: .normal)?.withHorizontallyFlippedOrientation() // EP's Test Flip imageBtn
     }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -294,7 +324,9 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func qrcodeBtnTapped(_ sender: Any) {
         qrcodeDisplayed.toggle()
-//        let tappedImage = UIImageView()
+        vibrateLight()
+        flipImage()
+        
         if qrcodeDisplayed {
             senderAvatar.layer.masksToBounds = false
             if #available(iOS 11, *) {
@@ -332,15 +364,18 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func disconnectBtnTapped(_ sender: Any) {
 //        printClassAndFunc(info: "Disconnect Btn Tapped !!")
+        vibrateLight()
         dismiss(animated: true, completion: nil)
     }
 
     @IBAction func scanBtnTapped(_ sender: Any) {
 //        printClassAndFunc(info: "Scan Btn Tapped !!")
+        vibrateLight()
         readQRCode()
     }
 
     @IBAction func senderAvatarTapped(_ sender: UITapGestureRecognizer) {
+        vibrateLight()
         printClassAndFunc(info: "sender Avatar Tapped !!!")
         dismiss(animated: true, completion: nil)
     }
@@ -353,6 +388,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func cancel(sender: UIButton) {
+        vibrateLight()
         print("cancel")
         dismiss(animated: true, completion: nil)
     }
@@ -371,16 +407,19 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func tapToChangeReceiver(_ sender: UITapGestureRecognizer) {
+        vibrateLight()
         print("Change Receiver Tapped !!!")
         changeReceiver()
     }
 
     @IBAction func transfertBtnTapped(_ sender: Any) {
+        vibrateLight()
         print("Transfert Amount Tapped !!!")
         changeReceiver()
     }
 
     @IBAction func receiverAndChangeTapped(_ sender: UIButton?) {
+        vibrateLight()
 //    }
 //
 //    @IBAction func send(sender: UIButton?) {
