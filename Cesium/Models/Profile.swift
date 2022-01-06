@@ -86,6 +86,24 @@ struct Profile: Codable {
         })
     }
     
+    func getBalance2(callback: ((Int, String) -> Void)?) {
+        let pubKey = self.issuer
+        let url = String(format: "%@/tx/sources/%@", currentNode, pubKey)
+        
+        let request = Request(url: url)
+        
+        request.jsonDecodeWithCallback(type: SourceResponse.self, callback: { err, sourceResponse in
+            
+            if let response = sourceResponse {
+                let amounts = response.sources.map {$0.amount}
+                let total = amounts.reduce(0, +)
+ 
+                callback?(total, response.currency)
+            }
+            
+        })
+    }
+    
     func getName() -> String {
         if let name = self.title {
             return name

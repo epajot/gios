@@ -173,22 +173,23 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             sender.getAvatar(imageView: senderAvatar)
 
             senderName.text = sender.getName()
-            let cur = Currency.formattedCurrency(currency: currency!)
             if let bal = sender.balance {
+                let cur = Currency.formattedCurrency(currency: currency!)
                 let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(bal) / 100, cur)
                 senderBalance.text = str
 //                self.printClassAndFunc(info: "@___CUR__ \(cur)")
 //                self.printClassAndFunc(info: "@_____ \(str)")
             } else {
-                sender.getBalance(callback: { total in
-                    let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(total) / 100, cur)
+                sender.getBalance2(callback: { total, currency in
+                    let cur2 = Currency.formattedCurrency(currency: currency)
+                    let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(total) / 100, cur2)
                     self.sender?.balance = total
-                    self.printClassAndFunc(info: "@--CUR--- \(cur)")
-                    self.printClassAndFunc(info: "@----- \(str)")
+//                    self.printClassAndFunc(info: "@--CUR--- \(cur2)")
+//                    self.printClassAndFunc(info: "@----- \(str)")
                     DispatchQueue.main.async {
                         self.senderBalance.text = str
-                        self.printClassAndFunc(info: "@>>>CUR>> \(cur)")
-                        self.printClassAndFunc(info: "@>>>>> \(str)")
+//                        self.printClassAndFunc(info: "@>>>CUR>> \(cur2)")
+//                        self.printClassAndFunc(info: "@>>>>> \(str)")
                         self.balanceReceived()
                     }
                 })
