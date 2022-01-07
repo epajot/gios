@@ -152,7 +152,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            let imv = UIImage(named: "g1")?.withRenderingMode(.alwaysTemplate)
 //            createTransactionButton.setImage(imv?.resize(width: 18), for: .normal)
 //            createTransactionButton.setTitle("transfer_button_label".localized(), for: .normal)
-            createTransactionButton.layer.cornerRadius = 6
+//            createTransactionButton.layer.cornerRadius = 6
 
 //            let ctrl = self.navigationController as! FirstViewController
             if let cnt = navigationController?.viewControllers.count {
@@ -311,6 +311,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let ctrl = navigationController as! FirstViewController
         ctrl.profile = profile
         newTransactionView.sender = profile
+        
         newTransactionView.currency = currency
         newTransactionView.isModalInPopover = true
 
@@ -444,7 +445,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = self.tableView.cellForRow(at: indexPath) as! TransactionTableViewCell
 
         if let profile = cell.profile {
+            
             changeUserDelegate?.viewUser(profile: profile)
+            
             self.tableView.deselectRow(at: indexPath, animated: true)
         }
     }

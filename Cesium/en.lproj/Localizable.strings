@@ -48,7 +48,7 @@
 "insufficient_funds"="Insufficient funds";
 "insufficient_funds_message"="Sorry, you do not have sufficient funds for this transaction at this time. Please input a lower number and try again";
 "end_results"="No more results";
-"search_placeholder"="Search users";
+"search_placeholder"="Receiver";
 "no_comment_placeholder"="No comment";
 "home_button_label"="Back";
 "user_auth_prompt"="Authenticate for %@";

@@ -48,7 +48,7 @@
 "insufficient_funds"="资金不足";
 "insufficient_funds_message"="抱歉，您目前没有足够的资金用于此交易。请输入一个较小的数字，然后重试";
 "end_results"="没有更多结果";
-"search_placeholder"="搜索用户";
+"search_placeholder"="受益人";
 "no_comment_placeholder"="没有评论";
 "home_button_label"="返回";
 "user_auth_prompt"="验证 %@";

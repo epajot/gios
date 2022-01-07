@@ -48,7 +48,7 @@
 "insufficient_funds"="Niewystarczające środki";
 "insufficient_funds_message"="Przepraszamy, nie masz wystarczających środków na tę transakcję w tym momencie. Proszę wprowadzić niższą liczbę i spróbować ponownie";
 "end_results"="Brak dalszych wyników";
-"search_placeholder"="Wyszukaj użytkowników";
+"search_placeholder"="Odbiorca";
 "no_comment_placeholder"="Brak komentarza";
 "home_button_label"="Powrót";
 "user_auth_prompt"="Uwierzytelnij się dla %@";

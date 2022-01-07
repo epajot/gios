@@ -48,7 +48,7 @@
 "insufficient_funds"="Fondos insuficientes";
 "insufficient_funds_message"="Lo sentimos, no tiene fondos suficientes para esta transacción en este momento. Por favor, introduzca un número menor e inténtelo de nuevo";
 "end_results"="No hay más resultados";
-"search_placeholder"="Buscar usuarios";
+"search_placeholder"="Beneficiario";
 "no_comment_placeholder"="Sin comentarios";
 "home_button_label"="Volver";
 "user_auth_prompt"="Autenticarse para %@";

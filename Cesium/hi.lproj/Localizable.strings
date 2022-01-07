@@ -48,7 +48,7 @@
 "insufficient_funds"="अपर्याप्त निधि";
 "insufficient_funds_message"="क्षमा करें, इस समय इस लेनदेन के लिए आपके पास पर्याप्त धनराशि नहीं है। कृपया कम संख्या दर्ज करें और पुनः प्रयास करें";
 "end_results"="कोई और परिणाम नहीं";
-"search_placeholder"="उपयोगकर्ता खोजें";
+"search_placeholder"="लाभार्थी";
 "no_comment_placeholder"="कोई टिप्पणी नहीं";
 "home_button_label"="वापस";
 "user_auth_prompt"="%@ के लिए प्रमाणित करें";

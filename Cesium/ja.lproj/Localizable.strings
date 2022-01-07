@@ -48,7 +48,7 @@
 "insufficient_funds"="資金不足";
 "insufficient_funds_message"="申し訳ありませんが、この時点ではこの取引に十分な資金がありません 低い数字を入力して再度お試しください";
 "end_results"="これ以上の結果はありません";
-"search_placeholder"="検索ユーザー";
+"search_placeholder"="受益者";
 "no_comment_placeholder"="コメントはありません";
 "home_button_label"="戻る";
 "user_auth_prompt"="%@で認証する";

@@ -48,7 +48,7 @@
 "insufficient_funds"="Недовољно средстава";
 "insufficient_funds_message"="Жао нам је, тренутно немате довољно средстава за ову трансакцију. Унесите мањи број и покушајте поново";
 "end_results"="Нема више резултата";
-"search_placeholder"="Тражи кориснике";
+"search_placeholder"="Kорисник";
 "no_comment_placeholder"="Нема коментара";
 "home_button_label"="Назад";
 "user_auth_prompt"="Потврди аутентичност за %@";

@@ -48,7 +48,7 @@
 "insufficient_funds"="אין מספיק כספים";
 "insufficient_funds_message"="מצטערים, אין לך מספיק כסף עבור עסקה זו בשלב זה. אנא הזן מספר נמוך יותר ונסה שוב";
 "end_results"="אין יותר תוצאות";
-"search_placeholder"="חפש משתמשים";
+"search_placeholder"="מוּטָב";
 "no_comment_placeholder"="אין תגובה";
 "home_button_label"="חזרה";
 "user_auth_prompt"="אמת עבור %@";

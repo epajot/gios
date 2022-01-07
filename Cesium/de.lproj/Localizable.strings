@@ -48,7 +48,7 @@
 "insufficient_funds"="Unzureichende Mittel";
 "insufficient_funds_message"="Leider haben Sie zu diesem Zeitpunkt nicht genügend Geld für diese Transaktion. Bitte geben Sie eine niedrigere Zahl ein und versuchen Sie es erneut";
 "end_results"="Keine weiteren Ergebnisse";
-"search_placeholder"="Benutzer suchen";
+"search_placeholder"="Empfänger";
 "no_comment_placeholder"="Kein Kommentar";
 "home_button_label"="Zurück";
 "user_auth_prompt"="Authentifizierung für %@";

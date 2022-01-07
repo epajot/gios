@@ -35,6 +35,10 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     var loading: Bool = false
     weak var profileSelectedDelegate: ReceiverChangedDelegate?
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.close.text = "close_label".localized()
@@ -43,9 +47,10 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
         
         self.search.attributedPlaceholder = NSAttributedString(
             string: "search_placeholder".localized(),
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         self.search.layer.borderWidth = 1
-        self.search.layer.borderColor = UIColor.white.cgColor
+        self.search.layer.backgroundColor = UIColor(named: "EP_Blue")?.cgColor //UIColor.white.cgColor
+        self.search.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor //UIColor.white.cgColor
         self.search.layer.cornerRadius = 6
         
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
@@ -55,7 +60,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         self.search.addDoneButtonToKeyboard(myAction:  #selector(self.search.resignFirstResponder))
-
+        
         // get all members
         //https://g1.jfoucher.com/wot/lookup/jon
         //https://g1.data.duniter.fr/user,page,group/profile,record/_search?q=title:jonathan

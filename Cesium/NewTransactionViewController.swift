@@ -64,14 +64,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     fileprivate func handleURLRequest() {
         if let g1PaymentRequested = AppDelegate.shared.g1PaymentRequested {
             logClassAndFunc(info: "payment= \(g1PaymentRequested), sender: \(String(describing: sender?.issuer)), receiver: \(String(describing: receiver?.issuer))")
-
-            // app was newly started with a URL payment request
-            // we should use g1PaymentRequested here
-
-//            logClassAndFunc(info: "1 = \(g1PaymentRequested.g1Account)")
-//            logClassAndFunc(info: "2 = \(g1PaymentRequested.g1AmountDue)")
-//            logClassAndFunc(info: "3 = \(g1PaymentRequested.infoForRecipient)")
-
+            
             receiver = nil
             receiverProfileFrom(pubKey: g1PaymentRequested.g1Account)
             amount.text = "\(g1PaymentRequested.g1AmountDue)"
@@ -95,19 +88,20 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         balanceLoading.startAnimating()
         balanceLoading.isHidden = false
         
-        transfertBtn.setImage(UIImage(named: "arrow-right"), for: .normal)
+        displayTransfertImageFliped()
         transfertBtn.clipsToBounds = true
         transfertBtn.tintColor = .blue
         transfertBtn.isHidden = true
 
         amount.keyboardType = UIKeyboardType.decimalPad
         amount.addDoneButtonToKeyboard(myAction: #selector(amount.resignFirstResponder))
-        amount.layer.borderColor = UIColor.white.cgColor
+        amount.layer.backgroundColor = UIColor(named: "EP_Blue")?.cgColor //UIColor.white.cgColor
+        amount.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor //UIColor.white.cgColor
         amount.layer.cornerRadius = 6
         amount.layer.borderWidth = 1
         amount.attributedPlaceholder = NSAttributedString(
             string: "no_amount".localized(),
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
 
         refactorAmountWithDot()
         senderBalance.isHidden = true
@@ -119,12 +113,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
         close.text = "close_label".localized()
         // UIApplication.shared.statusBarStyle = .lightContent
-        // set arrow to white
 
         progress.progress = 0.0
 
         comment.text = "comment_placeholder".localized()
-
+        
         handleURLRequest()
 
         commentChangeColor()
@@ -177,19 +170,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                 let cur = Currency.formattedCurrency(currency: currency!)
                 let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(bal) / 100, cur)
                 senderBalance.text = str
-//                self.printClassAndFunc(info: "@___CUR__ \(cur)")
-//                self.printClassAndFunc(info: "@_____ \(str)")
             } else {
                 sender.getBalance2(callback: { total, currency in
                     let cur2 = Currency.formattedCurrency(currency: currency)
                     let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(total) / 100, cur2)
                     self.sender?.balance = total
-//                    self.printClassAndFunc(info: "@--CUR--- \(cur2)")
-//                    self.printClassAndFunc(info: "@----- \(str)")
                     DispatchQueue.main.async {
                         self.senderBalance.text = str
-//                        self.printClassAndFunc(info: "@>>>CUR>> \(cur2)")
-//                        self.printClassAndFunc(info: "@>>>>> \(str)")
                         self.balanceReceived()
                     }
                 })
@@ -222,6 +209,14 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     fileprivate func refactorAmountWithDot() {
         // EP's Test replacing comma with dot into amount.text
         amount.text = amount.text?.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
+    }
+
+    func displayTransfertImageFliped() {
+        if qrcodeDisplayed {
+            transfertBtn.setImage(UIImage(named: "arrow-right")?.withHorizontallyFlippedOrientation(), for: .normal)
+        } else {
+            transfertBtn.setImage(UIImage(named: "arrow-right"), for: .normal)
+        }
     }
 
     func commentChangeColor() {
@@ -258,11 +253,6 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    func flipImage() {
-        printClassAndFunc(info: "@--- flipImage done !! TBF")
-        transfertBtn.image(for: .normal)?.withHorizontallyFlippedOrientation() // EP's Test Flip imageBtn
-    }
-
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
 
@@ -325,8 +315,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func qrcodeBtnTapped(_ sender: Any) {
         qrcodeDisplayed.toggle()
+//        displayTransfertImageFliped()
         vibrateLight()
-        flipImage()
         
         if qrcodeDisplayed {
             senderAvatar.layer.masksToBounds = false
@@ -366,7 +356,44 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBAction func disconnectBtnTapped(_ sender: Any) {
 //        printClassAndFunc(info: "Disconnect Btn Tapped !!")
         vibrateLight()
-        dismiss(animated: true, completion: nil)
+        
+        // EP's TODO: fix disconnexion by logout fron firstVC
+
+        print("logout")
+        let alert = UIAlertController(title: "logout_confirm_prompt".localized(), message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "confirm_label".localized(), style: .default, handler: { _ in
+//            self.loggedOut = true
+            print("removing profile")
+            
+//            if let pk = self.profile?.issuer {
+//                UserDefaults.standard.removeObject(forKey: "identity-" + pk)
+//            }
+            
+            Profile.remove()
+            
+//            self.profile = nil
+//            print(self.viewControllers.count)
+//            if self.viewControllers.count > 1 {
+//                self.popViewController(animated: true)
+//            } else {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
+                loginView.loginDelegate = self
+//                loginView.loginFailedDelegate = self
+//
+//                self.viewControllers.insert(loginView, at: 0)
+//                self.popViewController(animated: true)
+                // self.setViewControllers(vc, animated: true)
+
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "cancel_label".localized(), style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+        
+//        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func scanBtnTapped(_ sender: Any) {

@@ -48,7 +48,7 @@
 "insufficient_funds"="Otillräckliga medel";
 "insufficient_funds_message"="Tyvärr, du har inte tillräckligt med pengar för denna transaktion just nu. Ange ett lägre antal och försök igen";
 "end_results"="Inga fler resultat";
-"search_placeholder"="Sök användare";
+"search_placeholder"="Stödmottagaren";
 "no_comment_placeholder"="Ingen kommentar";
 "home_button_label"="Tillbaka";
 "user_auth_prompt"="Autentisera för %@";

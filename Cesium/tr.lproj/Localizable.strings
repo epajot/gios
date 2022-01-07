@@ -48,7 +48,7 @@
 "insufficient_funds"="Yetersiz fon";
 "insufficient_funds_message"="Üzgünüz, şu anda bu işlem için yeterli bakiyeniz yok. Lütfen daha düşük bir sayı girin ve tekrar deneyin";
 "end_results"="Başka sonuç yok";
-"search_placeholder"="Kullanıcıları ara";
+"search_placeholder"="Yararlanıcı";
 "no_comment_placeholder"="Yorum yok";
 "home_button_label"="Geri";
 "user_auth_prompt"="%@ için kimlik doğrulama";

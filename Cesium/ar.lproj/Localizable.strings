@@ -48,7 +48,7 @@
 ;"الأموال غير الكافية"="insufficient_funds"
 ;"غير كافية_الأموال_الرسالة"="insufficient_funds_message"
 "end_results"="لا توجد نتائج أخرى";
-"search_placeholder"="بحث عن المستخدمين";
+"search_placeholder"="المستفيد";
 "no_comment_placeholder"="لا يوجد تعليق";
 "home_button_label"="رجوع";
 "user_auth_prompt"="مصادقة لـ٪ @";

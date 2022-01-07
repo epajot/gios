@@ -48,7 +48,7 @@
 "insufficient_funds"="Недостаточно средств";
 "insufficient_funds_message"="К сожалению, в настоящее время у вас недостаточно средств для этой транзакции. Введите меньшее число и повторите попытку";
 "end_results"="Результатов больше нет";
-"search_placeholder"="Искать пользователей";
+"search_placeholder"="Бенефициар";
 "no_comment_placeholder"="Без комментариев";
 "home_button_label"="Назад";
 "user_auth_prompt"="Выполнить аутентификацию %@";

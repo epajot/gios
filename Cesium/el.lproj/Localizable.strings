@@ -48,7 +48,7 @@
 "insufficient_funds"="Ανεπαρκή κεφάλαια";
 "insufficient_funds_message"="Λυπάμαι, δεν έχετε επαρκή κεφάλαια για αυτή τη συναλλαγή αυτή τη στιγμή. Παρακαλώ εισάγετε έναν μικρότερο αριθμό και προσπαθήστε ξανά";
 "end_results"="Δεν υπάρχουν άλλα αποτελέσματα";
-"search_placeholder"="Αναζήτηση χρηστών";
+"search_placeholder"="Δικαιούχος";
 "no_comment_placeholder"="Κανένα σχόλιο";
 "home_button_label"="Επιστροφή";
 "user_auth_prompt"="Έλεγχος ταυτότητας για %@";

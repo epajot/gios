@@ -48,7 +48,7 @@
 "insufficient_funds"="Onvoldoende fondsen";
 "insufficient_funds_message"="Sorry, u heeft op dit moment niet voldoende saldo voor deze transactie. Voer een lager getal in en probeer het opnieuw";
 "end_results"="Geen resultaten meer";
-"search_placeholder"="Zoek gebruikers";
+"search_placeholder"="Begunstigde";
 "no_comment_placeholder"="Geen commentaar";
 "home_button_label"="Terug";
 "user_auth_prompt"="Authenticeren voor %@";
