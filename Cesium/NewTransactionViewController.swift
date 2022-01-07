@@ -366,13 +366,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 //            self.loggedOut = true
             print("removing profile")
             
-//            if let pk = self.profile?.issuer {
-//                UserDefaults.standard.removeObject(forKey: "identity-" + pk)
-//            }
+            if let pk = self.sender?.issuer {
+                UserDefaults.standard.removeObject(forKey: "identity-" + pk)
+            }
             
             Profile.remove()
             
-//            self.profile = nil
+            self.sender = nil
 //            print(self.viewControllers.count)
 //            if self.viewControllers.count > 1 {
 //                self.popViewController(animated: true)
@@ -381,8 +381,9 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                 let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
                 loginView.loginDelegate = self
 //                loginView.loginFailedDelegate = self
-//
+            self.present(loginView, animated: true, completion: nil)
 //                self.viewControllers.insert(loginView, at: 0)
+            
 //                self.popViewController(animated: true)
                 // self.setViewControllers(vc, animated: true)
 

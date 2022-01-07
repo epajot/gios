@@ -26,6 +26,8 @@ class TransactionViewController: UIViewController {
     @IBOutlet var date: UILabel!
     @IBOutlet var comment: UITextView!
     @IBOutlet var closeButton: UIButton!
+    @IBOutlet var backBtn: UIButton!
+    
     @IBOutlet var topBarHeight: NSLayoutConstraint!
     @IBOutlet var decryptCommentButton: UIButton!
     
@@ -150,6 +152,11 @@ class TransactionViewController: UIViewController {
         self.senderAvatar.layer.cornerRadius = self.senderAvatar.frame.width/2
         self.receiverAvatar.layer.cornerRadius = self.receiverAvatar.frame.width/2
     }
+    
+    @IBAction func backBtnTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func close(sender: UIButton?) {
         print("dismiss")

@@ -518,7 +518,7 @@
                                             <action selector="closeWithSender:" destination="kZB-q6-wtU" eventType="touchUpInside" id="nmN-gS-u4q"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Close" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTZ-CJ-jUt">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Close" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTZ-CJ-jUt">
                                         <rect key="frame" x="36" y="45.5" width="41" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -587,6 +587,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="backBtnTapped:" destination="kZB-q6-wtU" eventType="touchUpInside" id="zyC-f9-2DU"/>
                                             <action selector="createTransaction:" destination="aoc-97-fyh" eventType="touchUpInside" id="zOG-m0-yNK"/>
                                         </connections>
                                     </button>
@@ -642,6 +643,7 @@
                     <connections>
                         <outlet property="amount" destination="NyZ-RA-Sp4" id="F4l-C4-hv4"/>
                         <outlet property="arrow" destination="hzx-2l-Cpq" id="2gb-8u-LkC"/>
+                        <outlet property="backBtn" destination="FHp-lP-vSp" id="avu-Vg-ad9"/>
                         <outlet property="close" destination="RTZ-CJ-jUt" id="KYp-Ea-4Ur"/>
                         <outlet property="comment" destination="ERr-SM-PmZ" id="0nc-sZ-Kii"/>
                         <outlet property="date" destination="uAD-fc-nQe" id="436-8Z-ffW"/>
