@@ -274,8 +274,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func escapeBtnTap(_ sender: Any) {
         vibrateLight()
-        print("Escape Btn Tapped !")
-
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "callForLogout"), object: nil)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {

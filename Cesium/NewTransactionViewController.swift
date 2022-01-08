@@ -354,9 +354,10 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func cleanUpBtnTapped(_ sender: Any) {
         vibrateLight()
-        amount.text = nil
-        comment.text = "comment_placeholder".localized()
-        commentChangeColor()
+//        amount.text = nil
+//        comment.text = "comment_placeholder".localized()
+//        commentChangeColor()
+
         print("Clean Up")
     }
     

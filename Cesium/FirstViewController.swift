@@ -27,6 +27,11 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
             self.loadLoginView()
             logClassAndFunc(info: "@ LoadLoginView")
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(logout), name: NSNotification.Name(rawValue: "callForLogout"), object: nil)
+    }
+    
+    func viewDidUnload() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "callForLogout"), object: nil)
     }
     
     func loadLoginView() {
@@ -108,6 +113,7 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
     }
     
     @objc func logout() {
+        
         print("logout")
         let alert = UIAlertController(title: "logout_confirm_prompt".localized(), message: "", preferredStyle: .actionSheet)
         

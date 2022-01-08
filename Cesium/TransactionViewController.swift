@@ -107,7 +107,7 @@ class TransactionViewController: UIViewController {
 
             if tx.comment.isEmpty {
                 self.comment.text = "no_comment_placeholder".localized()
-                self.comment.textColor = .lightGray
+                self.comment.textColor = .white
             } else {
                 self.comment.text = tx.comment
             }
