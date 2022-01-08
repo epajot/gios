@@ -33,9 +33,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var cancelButton: UIButton!
 //    @IBOutlet var sendButton: UIButton!
     @IBOutlet var transferBtn: UIButton!
-
+    @IBOutlet var cleanUpBtn: UIButton!
     @IBOutlet var qrcodeBtn: UIButton!
-    @IBOutlet var disconnectBtn: UIButton!
     @IBOutlet var scanBtn: UIButton!
     @IBOutlet var balanceLoading: UIActivityIndicatorView!
     
@@ -353,50 +352,14 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
     }
 
-    @IBAction func disconnectBtnTapped(_ sender: Any) {
-//        printClassAndFunc(info: "Disconnect Btn Tapped !!")
+    @IBAction func cleanUpBtnTapped(_ sender: Any) {
         vibrateLight()
-        
-        // EP's TODO: fix disconnexion by logout fron firstVC
-
-        print("logout")
-        let alert = UIAlertController(title: "logout_confirm_prompt".localized(), message: "", preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "confirm_label".localized(), style: .default, handler: { _ in
-//            self.loggedOut = true
-            print("removing profile")
-            
-            if let pk = self.sender?.issuer {
-                UserDefaults.standard.removeObject(forKey: "identity-" + pk)
-            }
-            
-            Profile.remove()
-            
-            self.sender = nil
-//            print(self.viewControllers.count)
-//            if self.viewControllers.count > 1 {
-//                self.popViewController(animated: true)
-//            } else {
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let loginView = storyBoard.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
-                loginView.loginDelegate = self
-//                loginView.loginFailedDelegate = self
-            self.present(loginView, animated: true, completion: nil)
-//                self.viewControllers.insert(loginView, at: 0)
-            
-//                self.popViewController(animated: true)
-                // self.setViewControllers(vc, animated: true)
-
-            
-        }))
-        
-        alert.addAction(UIAlertAction(title: "cancel_label".localized(), style: .cancel, handler: nil))
-        
-        self.present(alert, animated: true)
-        
-//        dismiss(animated: true, completion: nil)
+        amount.text = nil
+        comment.text = "comment_placeholder".localized()
+        commentChangeColor()
+        print("Clean Up")
     }
-
+    
     @IBAction func scanBtnTapped(_ sender: Any) {
 //        printClassAndFunc(info: "Scan Btn Tapped !!")
         vibrateLight()

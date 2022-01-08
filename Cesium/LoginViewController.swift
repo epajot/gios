@@ -157,6 +157,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         blurView.removeFromSuperview()
                         if success {
                             if let savedProfile = KeyChain.load(key: "profile") {
+                                self.printClassAndFunc(info: "@ ---- Loaded Profile from Keychain")
                                 let decoder = JSONDecoder()
                                 if let loadedProfile = try? decoder.decode(Profile.self, from: savedProfile) {
                                     self.loginDelegate?.login(profile: loadedProfile)

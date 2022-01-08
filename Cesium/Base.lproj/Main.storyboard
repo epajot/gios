@@ -286,17 +286,17 @@
                                             <action selector="qrcodeBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="HwH-fC-gKA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-TH-Vrz" userLabel="Disconnect Button">
-                                        <rect key="frame" x="60" y="12" width="60" height="26"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-TH-Vrz" userLabel="CleanUp Button">
+                                        <rect key="frame" x="60" y="10" width="60" height="30.5"/>
                                         <color key="tintColor" name="EP_Blue"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <color key="titleColor" name="EP_Blue"/>
-                                            <imageReference key="image" image="escape" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="paintbrush" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="disconnectBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="hus-rR-rNU"/>
+                                            <action selector="cleanUpBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="zxY-xG-GML"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY5-ag-Tcj" userLabel="Scan Button">
@@ -354,9 +354,9 @@
                         <outlet property="amount" destination="eio-ke-Rhg" id="e6Q-ia-KUd"/>
                         <outlet property="balanceLoading" destination="uMf-1y-Qef" id="2sP-y9-Td0"/>
                         <outlet property="cancelButton" destination="9Di-Ns-K3U" id="by9-AE-3Eo"/>
+                        <outlet property="cleanUpBtn" destination="7Vj-TH-Vrz" id="JOr-ff-7V0"/>
                         <outlet property="close" destination="Xd5-1I-mrc" id="fQ5-R7-asy"/>
                         <outlet property="comment" destination="M2g-RL-IE3" id="djw-5V-ZZN"/>
-                        <outlet property="disconnectBtn" destination="7Vj-TH-Vrz" id="Osq-Yo-oUr"/>
                         <outlet property="encryptComment" destination="Ybw-LF-UUp" id="iCc-Ip-XvP"/>
                         <outlet property="encryptCommentLabel" destination="YDq-Sh-MzF" id="Zr7-kw-j6e"/>
                         <outlet property="encryptCommentSubtext" destination="0Ep-bV-Blg" id="6Jx-0q-pJy"/>
@@ -499,10 +499,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6v-q5-om1">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6v-q5-om1">
                                 <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TZ-jd-1cO">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TZ-jd-1cO">
                                         <rect key="frame" x="12" y="35" width="90" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="1qr-Ys-Izb"/>
@@ -953,7 +953,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="83b-h5-3YP">
                                         <rect key="frame" x="23" y="8.5" width="16" height="19"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="EP_Blue"/>
                                         <accessibility key="accessibilityConfiguration" hint="The public key for this account" identifier="publickey" label="Public key"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="Ntl-hH-nbI"/>
@@ -963,7 +963,7 @@
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="public key loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-dk-ydy">
                                         <rect key="frame" x="50" y="11" width="334" height="14.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                        <color key="textColor" systemColor="systemOrangeColor"/>
+                                        <color key="textColor" name="EP_Blue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1090,7 +1090,7 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="rCx-kw-TT9">
-                                <rect key="frame" x="186" y="786" width="42" height="41"/>
+                                <rect key="frame" x="184.5" y="786" width="45" height="41"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="NOU-Sr-G2P">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="41"/>
@@ -1099,8 +1099,8 @@
                                             <constraint firstAttribute="height" constant="41" id="w9P-z5-SdB"/>
                                         </constraints>
                                     </activityIndicatorView>
-                                    <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cL0-nT-0Ou">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="41"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cL0-nT-0Ou" userLabel="Escape Btn">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="41"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="1fb-ir-pLj"/>
@@ -1111,11 +1111,11 @@
                                         <inset key="imageEdgeInsets" minX="3" minY="-2" maxX="5" maxY="2"/>
                                         <state key="normal" image="xmark" catalog="system"/>
                                         <buttonConfiguration key="configuration" style="plain" imagePadding="5">
-                                            <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
+                                            <imageReference key="image" image="escape" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="createTransaction:" destination="aoc-97-fyh" eventType="touchUpInside" id="xI2-yd-Pyv"/>
+                                            <action selector="escapeBtnTap:" destination="aoc-97-fyh" eventType="touchUpInside" id="xJ4-1y-7FO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1148,12 +1148,11 @@
                         <outlet property="balance" destination="sav-B4-2wF" id="dcJ-Sd-H89"/>
                         <outlet property="balanceLoading" destination="NOU-Sr-G2P" id="hbH-eb-pnE"/>
                         <outlet property="check" destination="3PS-nb-WPD" id="mGR-vt-EQB"/>
-                        <outlet property="createTransactionButton" destination="cL0-nT-0Ou" id="Qrc-kK-W6D"/>
+                        <outlet property="escapeBtn" destination="cL0-nT-0Ou" id="GND-Hq-WxZ"/>
                         <outlet property="keyImage" destination="83b-h5-3YP" id="5Cn-DE-2Qm"/>
                         <outlet property="name" destination="Bup-PV-GuN" id="Be2-4R-ChA"/>
                         <outlet property="publicKey" destination="5Pv-dk-ydy" id="utH-vI-lhm"/>
                         <outlet property="tableView" destination="Dqt-5n-9a2" id="hyJ-FP-8fo"/>
-                        <outlet property="transactBtn" destination="cL0-nT-0Ou" id="dUw-dH-XEi"/>
                         <outlet property="view" destination="iui-Kc-Y5g" id="gqw-3v-zn9"/>
                     </connections>
                 </viewController>
@@ -1321,7 +1320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196" y="-326"/>
+            <point key="canvasLocation" x="-674" y="-1025"/>
         </scene>
         <!--First-->
         <scene sceneID="Qaz-mh-rwl">
@@ -1338,7 +1337,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nnn-iF-9c8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-619" y="-1025"/>
+            <point key="canvasLocation" x="-1539" y="-1025"/>
         </scene>
         <!--Code View Controller-->
         <scene sceneID="2ly-NF-ylm">
@@ -1378,7 +1377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWn-av-JZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="-1025"/>
+            <point key="canvasLocation" x="196" y="-316"/>
         </scene>
     </scenes>
     <resources>
@@ -1392,6 +1391,7 @@
         <image name="first" width="30" height="30"/>
         <image name="key" width="410" height="410"/>
         <image name="key.fill" catalog="system" width="83" height="128"/>
+        <image name="paintbrush" catalog="system" width="122" height="128"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="EP_Blue">

@@ -59,6 +59,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var avatar: UIImageView!
     @IBOutlet var createTransactionButton: UIButton!
     @IBOutlet var transactBtn: UIButton!
+    @IBOutlet var escapeBtn: UIButton!
     @IBOutlet var balanceLoading: UIActivityIndicatorView!
     @IBOutlet var userView: UIView!
     @IBOutlet var tempLabel: UILabel!
@@ -132,7 +133,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             avatar.layer.cornerRadius = avatar.frame.width / 2
             avatar.clipsToBounds = true
 
-            transactBtn.isHidden = true
+            escapeBtn.isHidden = true
 //            transactBtn.layer.borderWidth = 1
 //            transactBtn.layer.borderColor = UIColor.darkGray.cgColor
             balanceLoading.color = .white
@@ -141,7 +142,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             profile.getAvatar(imageView: avatar)
 
             // make key image white
-            keyImage.tintColor = UIColor.systemOrange
+            keyImage.tintColor = UIColor(named: "EP_Blue")// UIColor.systemOrange
             keyImage.image = UIImage(named: "key")?.withRenderingMode(.alwaysTemplate)
 
             // Make checkmark image white
@@ -208,28 +209,27 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         publicKey.isUserInteractionEnabled = true
         publicKey.addGestureRecognizer(tapGestureRecognizer2)
-                
-        createTransaction(UIButton())
+        imageTapped()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
         if AppDelegate.shared.g1PaymentRequested != nil {
-            createTransaction(createTransactionButton)
+            imageTapped()
         }
     }
 
     func appDidBecomeActive() {
         if AppDelegate.shared.g1PaymentRequested != nil {
-            createTransaction(createTransactionButton)
+            imageTapped()
         }
     }
 
     func balanceReceived() {
         balanceLoading.stopAnimating()
-        transactBtn.isHidden = false
-        printClassAndFunc(info: "balanceReceived -> transactBtnHidden = \(transactBtn.isHidden)")
+        escapeBtn.isHidden = false
+        printClassAndFunc(info: "balanceReceived -> transactBtnHidden = \(escapeBtn.isHidden)")
     }
     
     @objc func labelTapped() {
@@ -242,66 +242,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func imageTapped() {
-        vibrateLight()
-//        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        print("displaying avatar")
-        if displayingAvatar {
-            displayingAvatar = false
-            avatar.layer.borderWidth = 1
-            avatar.layer.masksToBounds = false
-            avatar.layer.borderColor = UIColor.white.cgColor
-            if #available(iOS 11, *) {
-                UIView.animate(withDuration: 0.15, animations: {
-                    self.avatar.layer.cornerRadius = 0
-                })
-            } else {
-                avatar.layer.cornerRadius = 0
-            }
-
-            avatar.clipsToBounds = true
-            if let data = profile?.issuer.data(using: String.Encoding.ascii) {
-                if let filter = CIFilter(name: "CIQRCodeGenerator") {
-                    filter.setValue(data, forKey: "inputMessage")
-                    let transform = CGAffineTransform(scaleX: 3, y: 3)
-
-                    if let output = filter.outputImage?.transformed(by: transform) {
-                        avatar.image = UIImage(ciImage: output)
-                    }
-                }
-            }
-        } else {
-            if let prof = profile {
-                displayingAvatar = true
-                prof.getAvatar(imageView: avatar)
-                avatar.layer.borderWidth = 1
-                avatar.layer.masksToBounds = false
-                avatar.layer.borderColor = UIColor.white.cgColor
-
-                if #available(iOS 11, *) {
-                    UIView.animate(withDuration: 0.15, animations: {
-                        self.avatar.layer.cornerRadius = self.avatar.frame.width / 2
-                    })
-                } else {
-                    avatar.layer.cornerRadius = avatar.frame.width / 2
-                }
-
-                avatar.clipsToBounds = true
-            }
-        }
-    }
-
-    @objc func goToStart() {
-        if let cnt = navigationController?.viewControllers.count {
-            if cnt >= 2 {
-                if let secondViewController = navigationController?.viewControllers[1] {
-                    navigationController?.popToViewController(secondViewController, animated: true)
-                }
-            }
-        }
-    }
-    
-        
-    @IBAction func createTransaction(_: UIButton) {
         vibrateLight()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 
@@ -320,6 +260,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         navigationController?.present(newTransactionView, animated: true, completion: nil)
         // self.navigationController?.pushViewController(transactionView, animated: true)
+    }
+
+    @objc func goToStart() {
+        if let cnt = navigationController?.viewControllers.count {
+            if cnt >= 2 {
+                if let secondViewController = navigationController?.viewControllers[1] {
+                    navigationController?.popToViewController(secondViewController, animated: true)
+                }
+            }
+        }
+    }
+    
+    @IBAction func escapeBtnTap(_ sender: Any) {
+        vibrateLight()
+        print("Escape Btn Tapped !")
+
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
