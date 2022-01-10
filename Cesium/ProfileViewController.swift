@@ -400,12 +400,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = self.tableView.cellForRow(at: indexPath) as! TransactionTableViewCell
 
-        if let profile = cell.profile {
-            
-//            changeUserDelegate?.viewUser(profile: profile)
-            
-            
-            
+        if let receiver = cell.profile {
+            presentNewTransactionVC(sender: self.profile, receiver: receiver)            
             self.tableView.deselectRow(at: indexPath, animated: true)
         }
     }
