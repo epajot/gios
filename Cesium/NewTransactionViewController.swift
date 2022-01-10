@@ -16,6 +16,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     var currency: String?
     var encryptedComentON = true
     var qrcodeDisplayed: Bool = false
+    weak var profileSelectedDelegate: ReceiverChangedDelegate?
 
     @IBOutlet var senderAvatar: UIImageView!
     @IBOutlet var receiverAvatar: UIImageView!
@@ -37,7 +38,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var qrcodeBtn: UIButton!
     @IBOutlet var scanBtn: UIButton!
     @IBOutlet var balanceLoading: UIActivityIndicatorView!
-    
+
     @IBOutlet var progress: UIProgressView!
     @IBOutlet var topBarHeight: NSLayoutConstraint!
     @IBOutlet var encryptComment: UISwitch!
@@ -63,7 +64,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     fileprivate func handleURLRequest() {
         if let g1PaymentRequested = AppDelegate.shared.g1PaymentRequested {
             logClassAndFunc(info: "payment= \(g1PaymentRequested), sender: \(String(describing: sender?.issuer)), receiver: \(String(describing: receiver?.issuer))")
-            
+
             receiver = nil
             receiverProfileFrom(pubKey: g1PaymentRequested.g1Account)
             amount.text = "\(g1PaymentRequested.g1AmountDue)"
@@ -77,6 +78,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
 
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             print("found")
@@ -86,16 +88,15 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
         balanceLoading.startAnimating()
         balanceLoading.isHidden = false
-        
+
         displayTransfertImageFliped()
         transfertBtn.clipsToBounds = true
-        transfertBtn.tintColor = .blue
+        transfertBtn.tintColor = UIColor(named: "EP_Blue")
         transfertBtn.isHidden = true
 
         amount.keyboardType = UIKeyboardType.decimalPad
-        amount.addDoneButtonToKeyboard(myAction: #selector(amount.resignFirstResponder))
-        amount.layer.backgroundColor = UIColor(named: "EP_Blue")?.cgColor //UIColor.white.cgColor
-        amount.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor //UIColor.white.cgColor
+        amount.layer.backgroundColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
+        amount.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
         amount.layer.cornerRadius = 6
         amount.layer.borderWidth = 1
         amount.attributedPlaceholder = NSAttributedString(
@@ -116,16 +117,14 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         progress.progress = 0.0
 
         comment.text = "comment_placeholder".localized()
-        
+
         handleURLRequest()
 
         commentChangeColor()
 
-        comment.addDoneButtonToKeyboard(myAction: #selector(comment.resignFirstResponder))
-
         receiverAvatar.layer.borderWidth = 1
         receiverAvatar.layer.masksToBounds = false
-        receiverAvatar.layer.borderColor = UIColor.white.cgColor
+        receiverAvatar.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
         receiverAvatar.layer.backgroundColor = .none
         receiverAvatar.layer.cornerRadius = receiverAvatar.frame.width / 2
         receiverAvatar.layer.masksToBounds = false
@@ -158,7 +157,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         if let sender = sender {
             senderAvatar.layer.borderWidth = 1
             senderAvatar.layer.masksToBounds = false
-            senderAvatar.layer.borderColor = UIColor.white.cgColor
+            senderAvatar.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
             senderAvatar.layer.cornerRadius = receiverAvatar.frame.width / 2
             senderAvatar.clipsToBounds = true
 
@@ -181,9 +180,9 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                 })
             }
         }
-        
+
         if sender?.balance != nil {
-            self.balanceReceived()
+            balanceReceived()
         }
     }
 
@@ -193,14 +192,14 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         handleURLRequest()
         commentChangeColor()
     }
-    
+
     func balanceReceived() {
         balanceLoading.stopAnimating()
         balanceLoading.isHidden = true
         transfertBtn.isHidden = false
         senderBalance.isHidden = false
     }
-    
+
     func appDidBecomeActive() {
         handleURLRequest()
     }
@@ -219,8 +218,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     }
 
     func commentChangeColor() {
-        visibleComment.tintColor = encryptedComentON ? .orange : .white
-        encryptCommentSubtext.textColor = visibleComment.tintColor
+        visibleComment.tintColor = encryptedComentON ? UIColor(named: "EP_Blue") : .white
+        encryptCommentSubtext.textColor = .darkGray // visibleComment.tintColor
         if comment.text == "comment_placeholder".localized() {
             comment.textColor = .darkGray
         } else {
@@ -251,7 +250,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             commentChangeColor()
         }
     }
-    
+
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
 
@@ -316,7 +315,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         qrcodeDisplayed.toggle()
 //        displayTransfertImageFliped()
         vibrateLight()
-        
+
         if qrcodeDisplayed {
             senderAvatar.layer.masksToBounds = false
             if #available(iOS 11, *) {
@@ -354,15 +353,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func cleanUpBtnTapped(_ sender: Any) {
         vibrateLight()
-//        amount.text = nil
-//        comment.text = "comment_placeholder".localized()
-//        commentChangeColor()
-
-        print("Clean Up")
+        cleanTransfertData()
+        
     }
-    
+
     @IBAction func scanBtnTapped(_ sender: Any) {
-//        printClassAndFunc(info: "Scan Btn Tapped !!")
         vibrateLight()
         readQRCode()
     }
@@ -619,15 +614,24 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         return nil
     }
 
+    fileprivate func cleanTransfertData() {
+        //            self.comment?.textColor = .darkGray
+        //            self.amount.text = ""
+        receiver = nil
+        receiverPubKey = nil
+        receiverAvatar.image = nil
+        receiverName.text = nil
+        amount.text = nil
+        comment.text = "comment_placeholder".localized()
+        commentChangeColor()
+    }
+
     func finish(action: UIAlertAction) {
         DispatchQueue.main.async {
             self.cancelButton.isEnabled = true
             self.transferBtn.isEnabled = true
-
             self.progress.progress = 0.0
-            self.comment?.text = "comment_placeholder".localized()
-            self.comment?.textColor = .darkGray
-            self.amount.text = ""
+            self.cleanTransfertData()
         }
     }
 

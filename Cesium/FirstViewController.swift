@@ -86,9 +86,10 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
             let profileView = storyBoard.instantiateViewController(withIdentifier: "ProfileView") as! ProfileViewController
             let backItem = UIBarButtonItem()
             backItem.title = "logout_button_label".localized()
-            backItem.tintColor = .white
+            backItem.tintColor = .clear
             backItem.action = #selector(self.logout)
             profileView.navigationItem.leftBarButtonItem = backItem
+            backItem.isEnabled = false
             
             var saving = profile
             saving.kp = nil

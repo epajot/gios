@@ -112,14 +112,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
 //        view.addSubview(networkStatusView)
 //        activateNetworkStatusView(statusView: networkStatusView)
-        //hideKeyboardWhenTappedAround()
+//        hideKeyboardWhenTappedAround()
         
         tableView.rowHeight = 64.0
 
         logClassAndFunc(info: "@ Enter")
-        
-//        view.addSubview(networkStatusView)
-//        activateNetworkStatusView(statusView: networkStatusView)
         
         if let profile = profile {
             logClassAndFunc(info: "@ Profile")

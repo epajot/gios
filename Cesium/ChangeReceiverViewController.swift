@@ -44,7 +44,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
         self.close.text = "close_label".localized()
         self.tableView.rowHeight = 64.0
 //        self.search.becomeFirstResponder()
-        
+        hideKeyboardWhenTappedAround()
         self.search.attributedPlaceholder = NSAttributedString(
             string: "search_placeholder".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
@@ -58,8 +58,6 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
             self.topBarHeight.constant = navigationController.navigationBar.frame.height
             self.view.layoutIfNeeded()
         }
-        
-        self.search.addDoneButtonToKeyboard(myAction:  #selector(self.search.resignFirstResponder))
         
         // get all members
         //https://g1.jfoucher.com/wot/lookup/jon
