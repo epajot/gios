@@ -239,15 +239,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func imageTapped() {
+        presentNewTransactionVC(sender: profile, receiver: profile)
+    }
+    
+    func presentNewTransactionVC(sender: Profile?, receiver: Profile?) {
         vibrateLight()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 
         let newTransactionView = storyBoard.instantiateViewController(withIdentifier: "NewTransactionView") as! NewTransactionViewController
 
-        newTransactionView.receiver = profile
+        newTransactionView.receiver = receiver
         let ctrl = navigationController as! FirstViewController
         ctrl.profile = profile
-        newTransactionView.sender = profile
+        newTransactionView.sender = sender
         
         newTransactionView.currency = currency
         newTransactionView.isModalInPopover = true
@@ -398,7 +402,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         if let profile = cell.profile {
             
-            changeUserDelegate?.viewUser(profile: profile)
+//            changeUserDelegate?.viewUser(profile: profile)
+            
+            
             
             self.tableView.deselectRow(at: indexPath, animated: true)
         }
