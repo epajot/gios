@@ -9,8 +9,10 @@
 import Foundation
 import Sodium
 import UIKit
+import Network
 
 class NewTransactionViewController: UIViewController, UITextViewDelegate {
+    let networkStatusView = getNetworkStatusView()
     var receiver: Profile?
     var sender: Profile?
     var currency: String?
@@ -79,6 +81,9 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+        
+        view.addSubview(networkStatusView)
+        activateNetworkStatusView(statusView: networkStatusView)
 
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             print("found")

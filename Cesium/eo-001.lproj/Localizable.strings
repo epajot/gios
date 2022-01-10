@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  Cesium
+
+  Created by Jonathan Foucher on 30/05/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+
+"password_placeholder"="Pasvorto";
+"identifier_placeholder" = "Sekreta identigilo";
+"login_button_label"="Ensalutu";
+"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"logout_button_label"="Elsaluti";
+"account_tab_label"="Konto";
+"login_tab_label"="Ensalutu";
+"public_key_label"="Publika ŝlosilo";
+"public_key_saved_in_clipboard"="Publika Ŝlosilo konservita en Clipboard";
+"account_does_not_exist_title"="Tiu ĉi konto ne ekzistas";
+"account_does_not_exist_message"="Tio povas esti ĉar vi enigis viajn akreditaĵojn malĝuste. Premu Provu denove por provi denove.";
+/* Se vi volas krei novan konton kun ĉi tiuj akreditaĵoj, premu Krei konton. */
+"account_does_not_exist_cancel"="Provu denove";
+"account_does_not_exist_create"="Krei konton";
+"balance_label"="Ekvilibro: ";
+"sent"="Sendita";
+"sending"="Sendanta";
+"received"="Ricevita";
+"receiving"="Ricevante";
+"logout_confirm_prompt"="Ĉu vi certas, ke vi volas elsaluti?";
+"confirm_label"="Elsaluti";
+"cancel_label"="Restu ensalutinta";
+"transaction_view_date_format"="Sur la %@ ĉe %@";
+"transfer_button_label"="Translokigo";
+"transfer_to_label"="Transloki al ";
+"transaction_confirm_prompt"="Bonvolu konfirmi ĉi tiun transakcion";
+"transaction_confirm_message"="Se vi vere ŝatus sendi %@ al %@ nun, premu Sendi, alie premu Nuligi";
+"transaction_confirm_button_label"="Sendu";
+"transaction_cancel_button_label"="Nuligi";
+"comment_placeholder"="Komento";
+"transaction_fail_title"="Malsukcesis sendi vian transakcion";
+"transaction_fail_text"="La kompleta erarmesaĝo estas jena: %@";
+"transaction_success_title"="Via transakcio estis sendita";
+"transaction_success_message"="Vi nun povas fermi ĉi tiun paĝon, aŭ eble sendi alian transakcion al iu alia";
+"no_internet_message"="Bonvolu provi denove post kiam vi reakiris konekteblecon";
+"no_internet_title"="Reto nedisponebla";
+"close_label"="Fermi";
+"no_amount"="Neniu kvanto";
+"no_amount_message"="Bonvolu elekti sumon por via transakcio";
+"insufficient_funds"="Nesufiĉaj fondusoj";
+"insufficient_funds_message"="Pardonu, vi ne havas sufiĉajn financojn por ĉi tiu transakcio nuntempe. Bonvolu enigi pli malaltan nombron kaj provi denove";
+"end_results"="Ne pliaj rezultoj";
+"search_placeholder"="Ricevilo";
+"no_comment_placeholder"="Neniu komento";
+"home_button_label"="Reen";
+"user_auth_prompt"="Aŭtentikigi por %@";
+"encrypt_comment_label"="Ĉifri vian komenton";
+"encrypt_comment_subtext_yes"="Nur legebla de la ricevanto";
+"encrypt_comment_subtext_no"="Legebla de ĉiuj uzantoj";
+"comment_encrypt_failed"="Pardonu, via komento ne povus esti ĉifrita. Bonvolu certigi, ke vi estas ensalutinta kaj provu denove.";
+"decrypt_comment_button_label"="Malĉifri komenton";

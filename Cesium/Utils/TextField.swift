@@ -9,13 +9,6 @@
 import Foundation
 import UIKit
 
-extension NSObject {
-    func vibrateLight() {
-        let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.impactOccurred()
-    }
-}
-
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

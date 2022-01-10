@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  Cesium
+
+  Created by Jonathan Foucher on 16/06/2019.
+  Copyright © 2019 Jonathan Foucher. All rights reserved.
+*/
+"NSFaceIDUsageDescription"="Ni uzas FaceID por aŭtentikigi vin al via konto post via unua ensaluto";

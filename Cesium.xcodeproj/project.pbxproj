@@ -43,6 +43,9 @@
 		EA6AABB727512D51005C803A /* G1URLTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB627512D51005C803A /* G1URLTest.swift */; };
 		EA6AABB927512E02005C803A /* G1URLPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB827512E02005C803A /* G1URLPayment.swift */; };
 		EA6AABBA27512E46005C803A /* G1URLPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB827512E02005C803A /* G1URLPayment.swift */; };
+		EABE62AE278CA2FF002529F3 /* NetworkStatusUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4B340276BBB9100EB88D9 /* NetworkStatusUtil.swift */; };
+		EABE62AF278CA430002529F3 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4B342276BBF5200EB88D9 /* NetworkMonitor.swift */; };
+		EABE62B5278CADB2002529F3 /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE62B4278CADB2002529F3 /* UIUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +175,11 @@
 		EA9D2F87276A188300D9F87F /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EA9D2F88276A188300D9F87F /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EA9D2F89276A188300D9F87F /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EABE62B0278CA651002529F3 /* eo-001 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "eo-001"; path = "eo-001.lproj/Main.strings"; sourceTree = "<group>"; };
+		EABE62B1278CA651002529F3 /* eo-001 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "eo-001"; path = "eo-001.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		EABE62B2278CA651002529F3 /* eo-001 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "eo-001"; path = "eo-001.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EABE62B3278CA651002529F3 /* eo-001 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "eo-001"; path = "eo-001.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		EABE62B4278CADB2002529F3 /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
 		EAD4B340276BBB9100EB88D9 /* NetworkStatusUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusUtil.swift; sourceTree = "<group>"; };
 		EAD4B342276BBF5200EB88D9 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		EAFD4F9327668516004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
@@ -308,6 +316,7 @@
 		AB1AC3C822A1574E00CDEEB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EABE62B4278CADB2002529F3 /* UIUtil.swift */,
 				EAD4B342276BBF5200EB88D9 /* NetworkMonitor.swift */,
 				EAD4B340276BBB9100EB88D9 /* NetworkStatusUtil.swift */,
 				AB1AC3BB22A05F1100CDEEB7 /* Base58.swift */,
@@ -451,6 +460,7 @@
 				el,
 				ar,
 				tr,
+				"eo-001",
 			);
 			mainGroup = AB04BF1F229F539400B1111E;
 			productRefGroup = AB04BF29229F539400B1111E /* Products */;
@@ -593,6 +603,7 @@
 				AB996F1822A06E02005966E2 /* Profile.swift in Sources */,
 				AB1AC3CA22A1575E00CDEEB7 /* Request.swift in Sources */,
 				AB1AC3C622A1490B00CDEEB7 /* Source.swift in Sources */,
+				EABE62AF278CA430002529F3 /* NetworkMonitor.swift in Sources */,
 				EA68D8552758033300E5CEE8 /* DebugExt.swift in Sources */,
 				AB1AC3CE22A1686F00CDEEB7 /* Image.swift in Sources */,
 				AB38A65D22A5AE65008D7215 /* ChangeReceiverViewController.swift in Sources */,
@@ -603,9 +614,11 @@
 				EA6AABB927512E02005C803A /* G1URLPayment.swift in Sources */,
 				ABE007D022A28D820077C9C3 /* TransactionViewController.swift in Sources */,
 				AB168A7122A3219E00952DDE /* NewTransactionViewController.swift in Sources */,
+				EABE62AE278CA2FF002529F3 /* NetworkStatusUtil.swift in Sources */,
 				ABD2E1E422A9214D001A40CD /* Duniter.swift in Sources */,
 				AB996F1E22A0847B005966E2 /* ProfileViewController.swift in Sources */,
 				ABF6251A22B5AA60008D5087 /* KeyChain.swift in Sources */,
+				EABE62B5278CADB2002529F3 /* UIUtil.swift in Sources */,
 				AB04BF2C229F539400B1111E /* AppDelegate.swift in Sources */,
 				AB04BF2E229F539400B1111E /* FirstViewController.swift in Sources */,
 			);
@@ -670,6 +683,7 @@
 				EA9D2F86276A188300D9F87F /* el */,
 				EA9B2441277D11FF00D7F346 /* ar */,
 				EA9B2445277D122200D7F346 /* tr */,
+				EABE62B0278CA651002529F3 /* eo-001 */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -691,6 +705,7 @@
 				EA9D2F87276A188300D9F87F /* el */,
 				EA9B2442277D120000D7F346 /* ar */,
 				EA9B2446277D122200D7F346 /* tr */,
+				EABE62B1278CA651002529F3 /* eo-001 */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -720,6 +735,7 @@
 				EA9D2F89276A188300D9F87F /* el */,
 				EA9B2444277D120100D7F346 /* ar */,
 				EA9B2448277D122300D7F346 /* tr */,
+				EABE62B3278CA651002529F3 /* eo-001 */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -749,6 +765,7 @@
 				EA9B2440277D0D0200D7F346 /* pl */,
 				EA9B2443277D120000D7F346 /* ar */,
 				EA9B2447277D122300D7F346 /* tr */,
+				EABE62B2278CA651002529F3 /* eo-001 */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -816,7 +833,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -873,7 +890,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -886,7 +903,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V7R356DGKL;
 				INFOPLIST_FILE = Cesium/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -906,7 +923,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V7R356DGKL;
 				INFOPLIST_FILE = Cesium/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

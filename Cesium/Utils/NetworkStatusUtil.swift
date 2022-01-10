@@ -19,12 +19,15 @@ import UIKit
 
  */
 
-@available(iOS 13.0, *)
 func getNetworkStatusView() -> UIView {
     let exclamationView: UIImageView = {
         let view = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         view.tintColor = UIColor.systemOrange
-        view.image = UIImage(systemName: "exclamationmark.triangle")
+        if #available(iOS 13.0, *) {
+            view.image = UIImage(systemName: "exclamationmark.triangle")
+        } else {
+            // Fallback on earlier versions
+        }
         return view
     }()
 
