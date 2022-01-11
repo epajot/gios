@@ -37,7 +37,7 @@ func getNetworkStatusView() -> UIView {
         label.textColor = .systemOrange
         label.backgroundColor = .clear // uncomment for visual debugging
         label.font = UIFont.preferredFont(forTextStyle: .body) // .systemFont(ofSize: 18)
-        label.text = "No Network"
+        label.text = "no_internet_title".localized()
         label.textAlignment = .center
         label.sizeToFit()
         label.isHidden = false

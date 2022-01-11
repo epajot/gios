@@ -104,8 +104,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         amount.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
         amount.layer.cornerRadius = 6
         amount.layer.borderWidth = 1
+//        amount.attributedPlaceholder = NSAttributedString(
+//            string: "no_amount".localized(),
+//            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         amount.attributedPlaceholder = NSAttributedString(
-            string: "no_amount".localized(),
+            string: "0.00 Ğ1",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
 
         refactorAmountWithDot()
@@ -390,7 +393,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         DispatchQueue.main.async {
             let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
 
-            let changeUserView = storyBoard.instantiateViewController(withIdentifier: "ChangeUserView") as! ChangeReceiverViewController
+            let changeUserView = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
 
             changeUserView.isModalInPopover = true
             changeUserView.profileSelectedDelegate = self
@@ -445,6 +448,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         let am = numberFormatter.number(from: amstring) ?? 0
 
         if am.floatValue <= 0.0 {
+//            self.alert(title: "no_amount".localized(), message: "no_amount_message".localized())
             self.alert(title: "no_amount".localized(), message: "no_amount_message".localized())
             return
         }

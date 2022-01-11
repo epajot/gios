@@ -8,9 +8,9 @@
 
 import CryptoSwift
 import Foundation
+import Network
 import Sodium
 import UIKit
-import Network
 
 struct TransactionSection: Comparable {
     var type: String
@@ -26,6 +26,7 @@ struct TransactionSection: Comparable {
 }
 
 class TransactionTableViewCell: UITableViewCell {
+//    let networkStatusView = getNetworkStatusView()
     @IBOutlet var name: UILabel!
     @IBOutlet var date: UILabel!
     @IBOutlet var amount: UIButton!
@@ -47,9 +48,10 @@ class TransactionTableViewCell: UITableViewCell {
 }
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let networkStatusView = getNetworkStatusView()
     weak var changeUserDelegate: ViewUserDelegate?
     var displayingAvatar: Bool = true
-    
+
     @IBOutlet var check: UIImageView!
     @IBOutlet var name: UILabel!
     @IBOutlet var balance: UILabel!
@@ -63,7 +65,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet var balanceLoading: UIActivityIndicatorView!
     @IBOutlet var userView: UIView!
     @IBOutlet var tempLabel: UILabel!
-    
 
     var loginProfile: Profile?
 
@@ -110,14 +111,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview(networkStatusView)
-//        activateNetworkStatusView(statusView: networkStatusView)
+        view.addSubview(networkStatusView)
+        activateNetworkStatusView(statusView: networkStatusView)
 //        hideKeyboardWhenTappedAround()
-        
+
         tableView.rowHeight = 64.0
 
         logClassAndFunc(info: "@ Enter")
-        
+
         if let profile = profile {
             logClassAndFunc(info: "@ Profile")
             name.text = profile.getName()
@@ -135,11 +136,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            transactBtn.layer.borderColor = UIColor.darkGray.cgColor
             balanceLoading.color = .white
             balanceLoading.startAnimating()
-            
+
             profile.getAvatar(imageView: avatar)
 
             // make key image white
-            keyImage.tintColor = UIColor(named: "EP_Blue")// UIColor.systemOrange
+            keyImage.tintColor = UIColor(named: "EP_Blue") // UIColor.systemOrange
             keyImage.image = UIImage(named: "key")?.withRenderingMode(.alwaysTemplate)
 
             // Make checkmark image white
@@ -174,7 +175,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     }
                 }
             }
-            
+
             profile.getBalance(callback: { total in
                 let str = String(format: "%@ %.2f %@", "balance_label".localized(), Double(total) / 100, Currency.formattedCurrency(currency: self.currency))
 
@@ -198,12 +199,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
 
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        
+
         avatar.isUserInteractionEnabled = true
         avatar.addGestureRecognizer(tapGestureRecognizer)
-        
+
         let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
-        
+
         publicKey.isUserInteractionEnabled = true
         publicKey.addGestureRecognizer(tapGestureRecognizer2)
         imageTapped()
@@ -228,7 +229,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         escapeBtn.isHidden = false
         printClassAndFunc(info: "balanceReceived -> transactBtnHidden = \(escapeBtn.isHidden)")
     }
-    
+
     @objc func labelTapped() {
         vibrateLight()
         printClassAndFunc(info: "PublicKey Tapped !")
@@ -237,11 +238,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             errorAlert(title: "public_key_label".localized(), message: "public_key_saved_in_clipboard".localized())
         }
     }
-    
+
     @objc func imageTapped() {
         presentNewTransactionVC(sender: profile, receiver: profile)
     }
-    
+
     func presentNewTransactionVC(sender: Profile?, receiver: Profile?) {
         vibrateLight()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -252,7 +253,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let ctrl = navigationController as! FirstViewController
         ctrl.profile = profile
         newTransactionView.sender = sender
-        
+
         newTransactionView.currency = currency
         newTransactionView.isModalInPopover = true
 
@@ -272,7 +273,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
-    
+
     @IBAction func escapeBtnTap(_ sender: Any) {
         vibrateLight()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "callForLogout"), object: nil)
@@ -366,7 +367,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 cell.amount?.backgroundColor = .none // .init(red: 0, green: 132 / 255.0, blue: 100 / 255.0, alpha: 1)
                 cell.amount?.layer.borderColor = UIColor.green.cgColor
                 cell.amount?.tintColor = .white
-                
+
                 // cell.amount?.titleEdgeInsets = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
             }
             if let frame = cell.amount?.frame {
@@ -401,7 +402,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = self.tableView.cellForRow(at: indexPath) as! TransactionTableViewCell
 
         if let receiver = cell.profile {
-            presentNewTransactionVC(sender: self.profile, receiver: receiver)            
+            presentNewTransactionVC(sender: profile, receiver: receiver)
             self.tableView.deselectRow(at: indexPath, animated: true)
         }
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Network
 
 class ChangeUserTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
@@ -24,6 +25,7 @@ class LoadingViewCell: UITableViewCell {
 }
 
 class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+    let networkStatusView = getNetworkStatusView()
     @IBOutlet weak var close: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var search: UITextField!
@@ -41,6 +43,8 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(networkStatusView)
+        activateNetworkStatusView(statusView: networkStatusView)
         self.close.text = "close_label".localized()
         self.tableView.rowHeight = 64.0
 //        self.search.becomeFirstResponder()
