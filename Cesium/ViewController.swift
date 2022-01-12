@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(_: Bool) {
-        presentSecondViewController()
+        presentSecondViewController(identifier: "ChangeUserView")
     }
 
     override func didReceiveMemoryWarning() {
@@ -143,11 +143,11 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 
 extension ViewController {
-    func presentSecondViewController() {
+    func presentSecondViewController(identifier: String) {
         printClassAndFunc(info: "@")
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: "ChangeUserView")
+        let secondVC = storyboard.instantiateViewController(identifier: identifier)
 
         // show(secondVC, sender: self)
         present(secondVC, animated: true)

@@ -75,7 +75,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func appDidBecomeActive() {
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
