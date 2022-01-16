@@ -13,6 +13,7 @@ import UIKit
 class ViewController: UIViewController {
     var previewView: UIView!
     var boxView: UIView!
+    var backgroundImageView: UIImageView!
     
     var profile: Profile?
 
@@ -30,7 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        printClassAndFunc(info: "@")
+        printClassAndFunc("@")
 
         previewView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
         previewView.contentMode = .scaleAspectFit
@@ -41,8 +42,16 @@ class ViewController: UIViewController {
         boxView.backgroundColor = UIColor.green
         boxView.alpha = 0.3
         view.addSubview(boxView)
+        
+        // Add a background view
+        backgroundImageView.image = UIImage(named: "SHARE_background_11_Pro Blue")
+        backgroundImageView.backgroundColor = .clear
+        backgroundImageView.alpha = 0.5
+//        backgroundImageView.clipsToBounds = view.superview.
 
         setupAVCapture()
+        
+        
     }
 
     override func viewWillAppear(_: Bool) {
@@ -144,7 +153,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 extension ViewController {
     func presentSecondViewController(identifier: String) {
-        printClassAndFunc(info: "@")
+        printClassAndFunc("@")
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: identifier)

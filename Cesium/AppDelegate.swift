@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RudifaUtilPkg
 
 let nodes = [
     "https://g1.duniter.org",
@@ -87,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             controller.present(alert, animated: true)
         } else {
-            printClassAndFunc(info: "*** window?.rootViewController == nil")
+            printClassAndFunc("*** window?.rootViewController == nil")
         }
     }
 }
