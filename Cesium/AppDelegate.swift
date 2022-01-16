@@ -33,13 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        printClassAndFunc(info: "@-----")
+        printClassAndFunc("@-----")
         return true
     }
 
     func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // this code will be replaced by code for handling the incoming URL
-        printClassAndFunc(info: "@-----")
+        printClassAndFunc("@-----")
         let message = url.absoluteString.removingPercentEncoding
         let alertController = UIAlertController(title: "Incoming Message", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        printClassAndFunc(info: "@")
+        printClassAndFunc("@")
         appDidBecomeActiveCallback?()
     }
 

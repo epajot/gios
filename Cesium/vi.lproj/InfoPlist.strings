@@ -5,5 +5,5 @@
   Created by Jonathan Foucher on 16/06/2019.
   Copyright © 2019 Jonathan Foucher. All rights reserved.
 */
-"NSFaceIDUsageDescription"="We use FaceID to authenticate you to your account after your first login";
+"NSFaceIDUsageDescription"="Chúng tôi sử dụng FaceID để xác thực tài khoản của bạn sau lần đăng nhập đầu tiên";
 

@@ -44,9 +44,9 @@ class ViewController: UIViewController {
         view.addSubview(boxView)
         
         // Add a background view
-        backgroundImageView.image = UIImage(named: "SHARE_background_11_Pro Blue")
-        backgroundImageView.backgroundColor = .clear
-        backgroundImageView.alpha = 0.5
+//        backgroundImageView.image = UIImage(named: "SHARE_background_11_Pro Blue")
+//        backgroundImageView.backgroundColor = .clear
+//        backgroundImageView.alpha = 0.5
 //        backgroundImageView.clipsToBounds = view.superview.
 
         setupAVCapture()

@@ -59,7 +59,7 @@ class NetworkMonitor: NSObject {
     /// handler, to be assigned by a client
     var handler: ((Bool) -> Void)? {
         didSet {
-            printClassAndFunc(info: "\(oldValue as Any), \(handler as Any) connected= \(connected)")
+            printClassAndFunc("\(oldValue as Any), \(handler as Any) connected= \(connected)")
             handler?(connected) // report connection status when client connects
         }
     }
@@ -72,7 +72,7 @@ class NetworkMonitor: NSObject {
         monitor.pathUpdateHandler = { path in
             self.connected = (path.status == .satisfied)
             self.handler?(self.connected) // report connection status when it changes
-            self.printClassAndFunc(info: "connected= \(self.connected)")
+            self.printClassAndFunc("connected= \(self.connected)")
         }
         let queue = DispatchQueue(label: "Monitor")
         monitor.start(queue: queue)

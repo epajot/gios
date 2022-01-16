@@ -153,7 +153,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                 receiverName.text = ""
                 // This is us, show the user choice view
                 // changeReceiver()
-                printClassAndFunc(info: "\(sender.issuer), \(receiver.issuer)")
+                printClassAndFunc("\(sender.issuer), \(receiver.issuer)")
             }
         }
 
@@ -372,7 +372,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func senderAvatarTapped(_ sender: UITapGestureRecognizer) {
         vibrateLight()
-        printClassAndFunc(info: "sender Avatar Tapped !!!")
+        printClassAndFunc("sender Avatar Tapped !!!")
         dismiss(animated: true, completion: nil)
     }
 
@@ -443,7 +443,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         let numberFormatter = NumberFormatter()
         numberFormatter.locale = Locale.current
 
-        printClassAndFunc(info: "amstring = \(amstring) !!!") // EP's Check
+        printClassAndFunc("amstring = \(amstring) !!!") // EP's Check
 
         let am = numberFormatter.number(from: amstring) ?? 0
 
@@ -485,7 +485,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
         let amountString = String(format: "%.2f %@", Float(truncating: am), Currency.formattedCurrency(currency: currency))
 
-        printClassAndFunc(info: "amountString = \(amountString) !!!") // EP's Check
+        printClassAndFunc("amountString = \(amountString) !!!") // EP's Check
 
         let msg = String(format: "transaction_confirm_message".localized(), amountString, title)
         let alert = UIAlertController(title: "transaction_confirm_prompt".localized(), message: msg, preferredStyle: .actionSheet)

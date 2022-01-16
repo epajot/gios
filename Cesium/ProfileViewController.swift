@@ -93,7 +93,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let pubkey = profile?.issuer {
             getTransactions(pubKey: pubkey, callback: {
                 DispatchQueue.main.async {
-                    self.printClassAndFunc(info: "@----- Pubkey = \(pubkey)") // EP's Test
+                    self.printClassAndFunc("@----- Pubkey = \(pubkey)") // EP's Test
                     refreshControl.endRefreshing()
                 }
             })
@@ -103,7 +103,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 DispatchQueue.main.async {
                     self.balance.text = str
                     self.profile?.balance = total
-                    self.printClassAndFunc(info: "@----- Balance = \(str)") // EP's Test
+                    self.printClassAndFunc("@----- Balance = \(str)") // EP's Test
                 }
             })
         }
@@ -182,7 +182,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 DispatchQueue.main.async {
                     self.profile?.balance = total
                     self.balance.text = str
-                    self.printClassAndFunc(info: "@----- Balance Label = \(str)")
+                    self.printClassAndFunc("@----- Balance Label = \(str)")
                     self.logClassAndFunc(info: "@----- Balance Label = \(str)")
                     self.balanceReceived()
                 }
@@ -227,12 +227,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func balanceReceived() {
         balanceLoading.stopAnimating()
         escapeBtn.isHidden = false
-        printClassAndFunc(info: "balanceReceived -> transactBtnHidden = \(escapeBtn.isHidden)")
+        printClassAndFunc("balanceReceived -> transactBtnHidden = \(escapeBtn.isHidden)")
     }
 
     @objc func labelTapped() {
         vibrateLight()
-        printClassAndFunc(info: "PublicKey Tapped !")
+        printClassAndFunc("PublicKey Tapped !")
         if let publicKeyTemp = publicKey.text {
             UIPasteboard.general.string = publicKeyTemp
             errorAlert(title: "public_key_label".localized(), message: "public_key_saved_in_clipboard".localized())
@@ -257,8 +257,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         newTransactionView.currency = currency
         newTransactionView.isModalInPopover = true
 
-        printClassAndFunc(info: "@----- sender = \(String(describing: newTransactionView.sender))")
-        printClassAndFunc(info: "@----- receiver = \(String(describing: newTransactionView.receiver))")
+        printClassAndFunc("@----- sender = \(String(describing: newTransactionView.sender))")
+        printClassAndFunc("@----- receiver = \(String(describing: newTransactionView.receiver))")
 
         navigationController?.present(newTransactionView, animated: true, completion: nil)
         // self.navigationController?.pushViewController(transactionView, animated: true)
@@ -311,17 +311,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let tx = cell.transaction {
             if tx.pubKey == profile?.issuer {
                 print("sender set")
-                printClassAndFunc(info: "sender set = \(tx.pubKey)")
+                printClassAndFunc("sender set = \(tx.pubKey)")
                 transactionView.sender = profile
             }
             if tx.to.count > 0, tx.to[0] == profile?.issuer {
                 print("receiver set")
-                printClassAndFunc(info: "reciever set = \(tx.to.count)")
+                printClassAndFunc("reciever set = \(tx.to.count)")
                 transactionView.receiver = profile
             }
             if tx.to.count > 0, tx.to[0] == loginProfile?.issuer {
                 print("receiver set from login profile")
-                printClassAndFunc(info: "reciever set from login = \(tx.to.count)")
+                printClassAndFunc("reciever set from login = \(tx.to.count)")
                 transactionView.receiver = loginProfile
             }
             transactionView.transaction = tx
