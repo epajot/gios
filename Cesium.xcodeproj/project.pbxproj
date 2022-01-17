@@ -39,7 +39,6 @@
 		ABE007D222A2CDA10077C9C3 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE007D122A2CDA10077C9C3 /* Currency.swift */; };
 		ABF6251A22B5AA60008D5087 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF6251922B5AA60008D5087 /* KeyChain.swift */; };
 		ABF6252122B5CCCB008D5087 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABF6252322B5CCCB008D5087 /* InfoPlist.strings */; };
-		EA56D7AD278DF0A300B877FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56D7AC278DF0A300B877FE /* ViewController.swift */; };
 		EA56D7AF278DF13500B877FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA56D7AE278DF13500B877FE /* SceneDelegate.swift */; };
 		EA56D7B2278DFA8D00B877FE /* RudifaUtilPkg in Frameworks */ = {isa = PBXBuildFile; productRef = EA56D7B1278DFA8D00B877FE /* RudifaUtilPkg */; };
 		EA6AABB727512D51005C803A /* G1URLTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6AABB627512D51005C803A /* G1URLTest.swift */; };
@@ -48,6 +47,7 @@
 		EABE62AE278CA2FF002529F3 /* NetworkStatusUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4B340276BBB9100EB88D9 /* NetworkStatusUtil.swift */; };
 		EABE62AF278CA430002529F3 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD4B342276BBF5200EB88D9 /* NetworkMonitor.swift */; };
 		EABE62B5278CADB2002529F3 /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABE62B4278CADB2002529F3 /* UIUtil.swift */; };
+		EAD70D312795FFE100ED33F6 /* AVCaptureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD70D302795FFE100ED33F6 /* AVCaptureHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +121,6 @@
 		EA56D7A7278DEA8700B877FE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EA56D7A9278DEAB600B877FE /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EA56D7AB278DEAC100B877FE /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		EA56D7AC278DF0A300B877FE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EA56D7AE278DF13500B877FE /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EA56D7B3278DFEA800B877FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		EA6AABB627512D51005C803A /* G1URLTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = G1URLTest.swift; sourceTree = "<group>"; };
@@ -205,6 +204,7 @@
 		EABE62B4278CADB2002529F3 /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
 		EAD4B340276BBB9100EB88D9 /* NetworkStatusUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusUtil.swift; sourceTree = "<group>"; };
 		EAD4B342276BBF5200EB88D9 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		EAD70D302795FFE100ED33F6 /* AVCaptureHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVCaptureHelper.swift; sourceTree = "<group>"; };
 		EAFD4F9327668516004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Main.strings; sourceTree = "<group>"; };
 		EAFD4F9427668516004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EAFD4F952766854E004B2B9A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -301,7 +301,6 @@
 				AB1AC3C822A1574E00CDEEB7 /* Utils */,
 				AB996F1622A06D9A005966E2 /* Models */,
 				AB04BF2B229F539400B1111E /* AppDelegate.swift */,
-				EA56D7AC278DF0A300B877FE /* ViewController.swift */,
 				AB04BF2D229F539400B1111E /* FirstViewController.swift */,
 				ABE007CE22A281370077C9C3 /* TransactionViewController.swift */,
 				AB996F1B22A08452005966E2 /* LoginViewController.swift */,
@@ -341,6 +340,7 @@
 		AB1AC3C822A1574E00CDEEB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EAD70D302795FFE100ED33F6 /* AVCaptureHelper.swift */,
 				EA56D7AE278DF13500B877FE /* SceneDelegate.swift */,
 				EABE62B4278CADB2002529F3 /* UIUtil.swift */,
 				EAD4B342276BBF5200EB88D9 /* NetworkMonitor.swift */,
@@ -646,7 +646,6 @@
 				ABB3F0A722BC31F400188D45 /* QRCodeViewController.swift in Sources */,
 				AB1AC3CC22A1600700CDEEB7 /* Identity.swift in Sources */,
 				EA6AABB927512E02005C803A /* G1URLPayment.swift in Sources */,
-				EA56D7AD278DF0A300B877FE /* ViewController.swift in Sources */,
 				ABE007D022A28D820077C9C3 /* TransactionViewController.swift in Sources */,
 				AB168A7122A3219E00952DDE /* NewTransactionViewController.swift in Sources */,
 				EABE62AE278CA2FF002529F3 /* NetworkStatusUtil.swift in Sources */,
@@ -654,6 +653,7 @@
 				AB996F1E22A0847B005966E2 /* ProfileViewController.swift in Sources */,
 				ABF6251A22B5AA60008D5087 /* KeyChain.swift in Sources */,
 				EABE62B5278CADB2002529F3 /* UIUtil.swift in Sources */,
+				EAD70D312795FFE100ED33F6 /* AVCaptureHelper.swift in Sources */,
 				AB04BF2C229F539400B1111E /* AppDelegate.swift in Sources */,
 				AB04BF2E229F539400B1111E /* FirstViewController.swift in Sources */,
 			);

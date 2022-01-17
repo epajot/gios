@@ -15,10 +15,13 @@ class FirstViewController: UINavigationController, UINavigationBarDelegate {
 
     var selectedProfile: Profile?
     var profile: Profile?
+    var avCaptureHelper = AVCaptureHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checkNode(num: 0, callback: {})
+        
+        avCaptureHelper.setupAVCaptureAndDisplay(in: view)
         
         if let profile = Profile.load() {
             self.login(profile: profile)

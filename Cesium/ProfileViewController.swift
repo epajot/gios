@@ -115,6 +115,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         activateNetworkStatusView(statusView: networkStatusView)
 //        hideKeyboardWhenTappedAround()
 
+//        avCaptureHelper.setupAVCaptureAndDisplay(in: view)
+
         tableView.rowHeight = 64.0
 
         logClassAndFunc(info: "@ Enter")
@@ -207,20 +209,20 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         publicKey.isUserInteractionEnabled = true
         publicKey.addGestureRecognizer(tapGestureRecognizer2)
-        imageTapped()
+        presentNewTransactionVC(sender: profile, receiver: profile)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
         if AppDelegate.shared.g1PaymentRequested != nil {
-            imageTapped()
+            presentNewTransactionVC(sender: profile, receiver: profile)
         }
     }
 
     func appDidBecomeActive() {
         if AppDelegate.shared.g1PaymentRequested != nil {
-            imageTapped()
+            presentNewTransactionVC(sender: profile, receiver: profile)
         }
     }
 

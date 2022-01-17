@@ -18,6 +18,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     var currency: String?
     var encryptedComentON = true
     var qrcodeDisplayed: Bool = false
+//    var avCaptureHelper = AVCaptureHelper()
     weak var profileSelectedDelegate: ReceiverChangedDelegate?
 
     @IBOutlet var senderAvatar: UIImageView!
@@ -84,6 +85,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         
         view.addSubview(networkStatusView)
         activateNetworkStatusView(statusView: networkStatusView)
+        
+//        avCaptureHelper.setupAVCaptureAndDisplay(in: view)
 
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             print("found")
@@ -393,7 +396,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         DispatchQueue.main.async {
             let storyBoard: UIStoryboard = .init(name: "Main", bundle: nil)
 
-            let changeUserView = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            let changeUserView = storyBoard.instantiateViewController(withIdentifier: "ChangeUserView") as! ChangeReceiverViewController
 
             changeUserView.isModalInPopover = true
             changeUserView.profileSelectedDelegate = self
