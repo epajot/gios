@@ -209,6 +209,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         publicKey.isUserInteractionEnabled = true
         publicKey.addGestureRecognizer(tapGestureRecognizer2)
+        
         presentNewTransactionVC(sender: profile, receiver: profile)
     }
 
@@ -258,7 +259,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         newTransactionView.currency = currency
         newTransactionView.isModalInPopover = true
-
+        newTransactionView.parentController = self
+        view.isHidden = true
+        
         printClassAndFunc("@----- sender = \(String(describing: newTransactionView.sender))")
         printClassAndFunc("@----- receiver = \(String(describing: newTransactionView.receiver))")
 

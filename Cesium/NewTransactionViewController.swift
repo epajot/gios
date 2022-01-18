@@ -18,6 +18,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     var currency: String?
     var encryptedComentON = true
     var qrcodeDisplayed: Bool = false
+    var parentController: ProfileViewController?
 //    var avCaptureHelper = AVCaptureHelper()
     weak var profileSelectedDelegate: ReceiverChangedDelegate?
 
@@ -375,7 +376,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func senderAvatarTapped(_ sender: UITapGestureRecognizer) {
         vibrateLight()
-        printClassAndFunc("sender Avatar Tapped !!!")
+        parentController?.view.isHidden = false
         dismiss(animated: true, completion: nil)
     }
 
@@ -389,6 +390,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBAction func cancel(sender: UIButton) {
         vibrateLight()
         print("cancel")
+        parentController?.view.isHidden = false
         dismiss(animated: true, completion: nil)
     }
 
@@ -399,9 +401,11 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             let changeUserView = storyBoard.instantiateViewController(withIdentifier: "ChangeUserView") as! ChangeReceiverViewController
 
             changeUserView.isModalInPopover = true
+            changeUserView.parentController = self
             changeUserView.profileSelectedDelegate = self
 
             self.present(changeUserView, animated: true, completion: nil)
+            self.view.isHidden = true
         }
     }
 

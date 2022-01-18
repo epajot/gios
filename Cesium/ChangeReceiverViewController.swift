@@ -35,6 +35,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     var page: Int = 0
     var end: Bool = true
     var loading: Bool = false
+    var parentController: NewTransactionViewController?
     weak var profileSelectedDelegate: ReceiverChangedDelegate?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -83,6 +84,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
         print("selected", indexPath)
         if let prof = cell.profile {
             self.profileSelectedDelegate?.receiverChanged(receiver: prof)
+            parentController?.view.isHidden = false
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -159,6 +161,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func backBtnTapped(_ sender: Any) {
         vibrateLight()
+        parentController?.view.isHidden = false
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -199,6 +202,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func cancel(_ sender: Any) {
         vibrateLight()
+        parentController?.view.isHidden = false
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -206,6 +210,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
 extension ChangeReceiverViewController: ReceiverChangedDelegate {
     func receiverChanged(receiver: Profile) {
         self.profileSelectedDelegate?.receiverChanged(receiver: receiver)
+        parentController?.view.isHidden = false
         self.dismiss(animated: true, completion: nil)
     }
 }
