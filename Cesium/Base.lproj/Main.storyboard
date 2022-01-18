@@ -320,6 +320,13 @@
                                     <constraint firstItem="dSr-j4-hwb" firstAttribute="centerY" secondItem="vnC-1f-SeI" secondAttribute="centerY" id="qqk-eo-SYN"/>
                                 </constraints>
                             </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.90000000000000002" minValue="0.0" maxValue="1" preferredBehavioralStyle="mac" translatesAutoresizingMaskIntoConstraints="NO" id="oHi-Gp-Qmn">
+                                <rect key="frame" x="68" y="433" width="278" height="31"/>
+                                <color key="tintColor" name="EP_Blue"/>
+                                <connections>
+                                    <action selector="opacitySliderChanged:" destination="2fi-Sn-62l" eventType="valueChanged" id="xVz-Ew-OTI"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AhG-Xz-HhB"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -330,11 +337,15 @@
                             <constraint firstItem="Pku-cx-w8V" firstAttribute="trailing" secondItem="AhG-Xz-HhB" secondAttribute="trailing" constant="-20" id="Dfx-ga-X0R"/>
                             <constraint firstItem="b45-zC-PcA" firstAttribute="top" secondItem="QVB-l5-Bi3" secondAttribute="top" id="E2A-jx-oaV"/>
                             <constraint firstItem="jGQ-vs-yKU" firstAttribute="top" secondItem="gZ6-he-wTy" secondAttribute="bottom" id="Grb-hA-fJg"/>
+                            <constraint firstItem="oHi-Gp-Qmn" firstAttribute="centerX" secondItem="QVB-l5-Bi3" secondAttribute="centerX" id="IUh-c9-2aY"/>
+                            <constraint firstItem="oHi-Gp-Qmn" firstAttribute="centerY" secondItem="QVB-l5-Bi3" secondAttribute="centerY" id="IdT-5c-J1Z"/>
                             <constraint firstItem="IjX-qa-d4F" firstAttribute="centerX" secondItem="QVB-l5-Bi3" secondAttribute="centerX" id="LWr-S0-j7N"/>
                             <constraint firstItem="AhG-Xz-HhB" firstAttribute="bottom" secondItem="b45-zC-PcA" secondAttribute="bottom" constant="-34" id="Lms-Hi-gKT"/>
                             <constraint firstItem="jGQ-vs-yKU" firstAttribute="leading" secondItem="QVB-l5-Bi3" secondAttribute="leading" id="Nk1-z2-TMG"/>
+                            <constraint firstItem="oHi-Gp-Qmn" firstAttribute="leading" secondItem="AhG-Xz-HhB" secondAttribute="leading" constant="70" id="WPW-Il-rqP"/>
                             <constraint firstItem="IjX-qa-d4F" firstAttribute="leading" secondItem="AhG-Xz-HhB" secondAttribute="leading" constant="10" id="Y43-Ji-bu9"/>
                             <constraint firstItem="gZ6-he-wTy" firstAttribute="leading" secondItem="AhG-Xz-HhB" secondAttribute="leading" id="Zik-PW-naR"/>
+                            <constraint firstItem="oHi-Gp-Qmn" firstAttribute="centerX" secondItem="vnC-1f-SeI" secondAttribute="centerX" id="agF-ce-A6Q"/>
                             <constraint firstItem="vnC-1f-SeI" firstAttribute="centerX" secondItem="QVB-l5-Bi3" secondAttribute="centerX" id="dRc-pu-k6R"/>
                             <constraint firstItem="n4w-Wg-8Po" firstAttribute="top" secondItem="IjX-qa-d4F" secondAttribute="bottom" id="dof-E2-zJn"/>
                             <constraint firstItem="b45-zC-PcA" firstAttribute="leading" secondItem="AhG-Xz-HhB" secondAttribute="leading" id="e4r-Dr-A8k"/>
@@ -349,9 +360,13 @@
                             <constraint firstItem="Pku-cx-w8V" firstAttribute="centerY" secondItem="QVB-l5-Bi3" secondAttribute="centerY" constant="60" id="zI5-E9-cSJ"/>
                             <constraint firstItem="bHe-Kd-HVU" firstAttribute="centerX" secondItem="QVB-l5-Bi3" secondAttribute="centerX" id="zhs-nQ-xJK"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="U3T-61-K5F" appends="YES" id="DpN-zS-QpG"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="amount" destination="eio-ke-Rhg" id="e6Q-ia-KUd"/>
+                        <outlet property="backgroundUIImageView" destination="b45-zC-PcA" id="eeb-sI-yoF"/>
                         <outlet property="balanceLoading" destination="uMf-1y-Qef" id="2sP-y9-Td0"/>
                         <outlet property="cancelButton" destination="9Di-Ns-K3U" id="by9-AE-3Eo"/>
                         <outlet property="cleanUpBtn" destination="7Vj-TH-Vrz" id="JOr-ff-7V0"/>
@@ -368,6 +383,7 @@
                         <outlet property="senderAvatar" destination="JqE-yj-kYt" id="Fau-BQ-XQm"/>
                         <outlet property="senderBalance" destination="bHe-Kd-HVU" id="J6d-h5-Rcp"/>
                         <outlet property="senderName" destination="g8z-kr-5pv" id="HGt-O4-3Tw"/>
+                        <outlet property="sliderOpacity" destination="oHi-Gp-Qmn" id="8GY-Zs-2hA"/>
                         <outlet property="topBarHeight" destination="eLg-cE-5BN" id="jAg-zI-DhH"/>
                         <outlet property="transferBtn" destination="7Vj-TH-Vrz" id="a1y-Et-FJi"/>
                         <outlet property="transfertBtn" destination="NII-Ed-mWZ" id="4EG-mg-0vM"/>
@@ -383,6 +399,11 @@
                 <tapGestureRecognizer id="mX3-H6-kii">
                     <connections>
                         <action selector="tapToChangeReceiver:" destination="2fi-Sn-62l" id="zj3-TG-C0l"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="U3T-61-K5F">
+                    <connections>
+                        <action selector="doubleTapRegognized:" destination="2fi-Sn-62l" id="Kci-a7-Seg"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

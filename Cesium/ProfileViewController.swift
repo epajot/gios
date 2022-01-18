@@ -260,13 +260,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         newTransactionView.currency = currency
         newTransactionView.isModalInPopover = true
         newTransactionView.parentController = self
-        view.isHidden = true
-        
         printClassAndFunc("@----- sender = \(String(describing: newTransactionView.sender))")
         printClassAndFunc("@----- receiver = \(String(describing: newTransactionView.receiver))")
 
         navigationController?.present(newTransactionView, animated: true, completion: nil)
         // self.navigationController?.pushViewController(transactionView, animated: true)
+//        view.isHidden = true
     }
 
     @objc func goToStart() {

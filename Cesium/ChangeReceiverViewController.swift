@@ -75,6 +75,12 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
         AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        parentController?.view.isHidden = true
+        printClassAndFunc("@--- viewDidAppear parentController = \(String(describing: parentController))")
+    }
+    
     func appDidBecomeActive() {
 //        self.dismiss(animated: true, completion: nil)
     }

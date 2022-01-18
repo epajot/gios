@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import Network
 import Sodium
 import UIKit
-import Network
 
 class NewTransactionViewController: UIViewController, UITextViewDelegate {
     let networkStatusView = getNetworkStatusView()
+
     var receiver: Profile?
     var sender: Profile?
     var currency: String?
@@ -25,6 +26,9 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var senderAvatar: UIImageView!
     @IBOutlet var receiverAvatar: UIImageView!
     @IBOutlet var visibleComment: UIButton!
+
+    @IBOutlet var sliderOpacity: UISlider!
+    @IBOutlet var sliderOpacityLabel: UILabel!
 
     @IBOutlet var senderBalance: UILabel!
     @IBOutlet var receiverName: UILabel!
@@ -48,6 +52,8 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var encryptComment: UISwitch!
     @IBOutlet var encryptCommentSubtext: UILabel!
     @IBOutlet var encryptCommentLabel: UILabel!
+
+    @IBOutlet var backgroundUIImageView: UIImageView!
 
     @IBAction func encryptCommentChanged(_ sender: UISwitch) {
         vibrateLight()
@@ -80,14 +86,23 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
     }
 
+    @IBAction func opacitySliderChanged(_ sender: UISlider) {
+        LocalUserDefaults.opacityBackgroundLevel = sender.value
+        backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
+        printClassAndFunc("\(sender.value)")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
-        
         view.addSubview(networkStatusView)
         activateNetworkStatusView(statusView: networkStatusView)
-        
-//        avCaptureHelper.setupAVCaptureAndDisplay(in: view)
+
+        sliderOpacity.setThumbImage(UIImage(named: "thumbSliderEP"), for: .normal)
+        sliderOpacity.isHidden = true
+
+        comment.isEditable = true
+        amount.isEnabled = true
 
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             print("found")
@@ -203,6 +218,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
         handleURLRequest()
         commentChangeColor()
+        backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
+//        backgroundUIImageView.reloadInputViews()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        parentController?.view.isHidden = true
     }
 
     func balanceReceived() {
@@ -323,6 +345,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
     }
 
+    @IBAction func doubleTapRegognized(_ sender: UITapGestureRecognizer) {
+        sliderOpacity.isHidden.toggle()
+        sliderOpacity.value = LocalUserDefaults.opacityBackgroundLevel
+        comment.isEditable.toggle()
+        amount.isEnabled.toggle()
+    }
+
     @IBAction func qrcodeBtnTapped(_ sender: Any) {
         qrcodeDisplayed.toggle()
 //        displayTransfertImageFliped()
@@ -366,7 +395,6 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBAction func cleanUpBtnTapped(_ sender: Any) {
         vibrateLight()
         cleanTransfertData()
-        
     }
 
     @IBAction func scanBtnTapped(_ sender: Any) {
@@ -405,7 +433,6 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             changeUserView.profileSelectedDelegate = self
 
             self.present(changeUserView, animated: true, completion: nil)
-            self.view.isHidden = true
         }
     }
 
