@@ -13,7 +13,6 @@ import UIKit
 
 class NewTransactionViewController: UIViewController, UITextViewDelegate {
     let networkStatusView = getNetworkStatusView()
-
     var receiver: Profile?
     var sender: Profile?
     var currency: String?
@@ -42,7 +41,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var cancelButton: UIButton!
 //    @IBOutlet var sendButton: UIButton!
     @IBOutlet var transferBtn: UIButton!
-    @IBOutlet var cleanUpBtn: UIButton!
+    @IBOutlet var backgroundDisplayBtn: UIButton!
     @IBOutlet var qrcodeBtn: UIButton!
     @IBOutlet var scanBtn: UIButton!
     @IBOutlet var balanceLoading: UIActivityIndicatorView!
@@ -86,21 +85,19 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
     }
 
-    @IBAction func opacitySliderChanged(_ sender: UISlider) {
-        LocalUserDefaults.opacityBackgroundLevel = sender.value
-        backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
-        printClassAndFunc("\(sender.value)")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         view.addSubview(networkStatusView)
         activateNetworkStatusView(statusView: networkStatusView)
+//        LocalUserDefaults.premiumDisplayed = false
 
         sliderOpacity.setThumbImage(UIImage(named: "thumbSliderEP"), for: .normal)
         sliderOpacity.isHidden = true
-
+        backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
+        
+//        checkAppareance()
+        
         comment.isEditable = true
         amount.isEnabled = true
 
@@ -109,23 +106,19 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
             topBarHeight.constant = navigationController.navigationBar.frame.height
             view.layoutIfNeeded()
         }
-
+        
         balanceLoading.startAnimating()
         balanceLoading.isHidden = false
 
         displayTransfertImageFliped()
         transfertBtn.clipsToBounds = true
-        transfertBtn.tintColor = UIColor(named: "EP_Blue")
+//        transfertBtn.tintColor = premiumColor // UIColor(named: "EP_Blue")
         transfertBtn.isHidden = true
 
         amount.keyboardType = UIKeyboardType.decimalPad
-        amount.layer.backgroundColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
-        amount.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
         amount.layer.cornerRadius = 6
-        amount.layer.borderWidth = 1
-//        amount.attributedPlaceholder = NSAttributedString(
-//            string: "no_amount".localized(),
-//            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        amount.layer.borderWidth = 0
+        
         amount.attributedPlaceholder = NSAttributedString(
             string: "0.00 Ğ1",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
@@ -149,20 +142,13 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
 
         commentChangeColor()
 
-        receiverAvatar.layer.borderWidth = 1
+//        receiverAvatar.layer.borderWidth = 0
+//        receiverAvatar.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
         receiverAvatar.layer.masksToBounds = false
-        receiverAvatar.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
         receiverAvatar.layer.backgroundColor = .none
         receiverAvatar.layer.cornerRadius = receiverAvatar.frame.width / 2
         receiverAvatar.layer.masksToBounds = false
         receiverAvatar.clipsToBounds = true
-
-//        let imv = UIImage(named: "g1")?.withRenderingMode(.alwaysTemplate)
-//        sendButton.setImage(imv?.resize(width: 18), for: .normal)
-//        sendButton.setTitle("transfer_button_label".localized(), for: .normal)
-//        sendButton.layer.borderColor = UIColor.darkGray.cgColor
-//        sendButton.layer.cornerRadius = 6
-//        sendButton.layer.borderWidth = 1
 
         if let sender = sender, let receiver = receiver {
             if sender.issuer == receiver.issuer {
@@ -170,8 +156,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
                 self.receiver = nil
                 receiverAvatar.image = nil
                 receiverName.text = ""
-                // This is us, show the user choice view
-                // changeReceiver()
+
                 printClassAndFunc("\(sender.issuer), \(receiver.issuer)")
             }
         }
@@ -182,9 +167,9 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
 
         if let sender = sender {
-            senderAvatar.layer.borderWidth = 1
+//            senderAvatar.layer.borderWidth = 0
+//            senderAvatar.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
             senderAvatar.layer.masksToBounds = false
-            senderAvatar.layer.borderColor = UIColor(named: "EP_Blue")?.cgColor // UIColor.white.cgColor
             senderAvatar.layer.cornerRadius = receiverAvatar.frame.width / 2
             senderAvatar.clipsToBounds = true
 
@@ -211,6 +196,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         if sender?.balance != nil {
             balanceReceived()
         }
+        displayColorUpdated()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -218,15 +204,50 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
         handleURLRequest()
         commentChangeColor()
+        checkAppareance()
         backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
-//        backgroundUIImageView.reloadInputViews()
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         parentController?.view.isHidden = true
+
+    }
+    
+    @IBAction func opacitySliderChanged(_ sender: UISlider) {
+        LocalUserDefaults.opacityBackgroundLevel = sender.value
+        checkAppareance()
+        backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
+        
+        printClassAndFunc("\(sender.value)")
+    }
+        
+    fileprivate func displayColorUpdated() {
+        //        checkAppareance()
+        let bluWhiYelColor = LocalUserDefaults.premiumDisplayed ? UIColor(named: "EP_Pi") : UIColor(named: "EP_Blue")
+        senderAvatar.backgroundColor = bluWhiYelColor
+        receiverAvatar.backgroundColor = bluWhiYelColor
+        amount.backgroundColor = bluWhiYelColor
+        sliderOpacity.tintColor = bluWhiYelColor
+        visibleComment.tintColor = bluWhiYelColor
+        qrcodeBtn.tintColor = bluWhiYelColor
+        backgroundDisplayBtn.tintColor = bluWhiYelColor
+        scanBtn.tintColor = bluWhiYelColor
+    }
+    
+    @IBAction func premiumDisplaySwiped(_ sender: UISwipeGestureRecognizer) {
+        
+        LocalUserDefaults.premiumDisplayed.toggle()
+        printClassAndFunc("Premium Displayed = \(LocalUserDefaults.premiumDisplayed)")
+        displayColorUpdated()
+        
     }
 
+    @IBAction func longPressGesture(_ sender: UILongPressGestureRecognizer) {
+printClassAndFunc("Long Press Done !")
+    }
+    
     func balanceReceived() {
         balanceLoading.stopAnimating()
         balanceLoading.isHidden = true
@@ -346,10 +367,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
     }
 
     @IBAction func doubleTapRegognized(_ sender: UITapGestureRecognizer) {
-        sliderOpacity.isHidden.toggle()
-        sliderOpacity.value = LocalUserDefaults.opacityBackgroundLevel
-        comment.isEditable.toggle()
-        amount.isEnabled.toggle()
+        cleanTransfertData()
     }
 
     @IBAction func qrcodeBtnTapped(_ sender: Any) {
@@ -392,9 +410,12 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         }
     }
 
-    @IBAction func cleanUpBtnTapped(_ sender: Any) {
+    @IBAction func perspectiveBtnTapped(_ sender: Any) {
         vibrateLight()
-        cleanTransfertData()
+                sliderOpacity.isHidden.toggle()
+                sliderOpacity.value = LocalUserDefaults.opacityBackgroundLevel
+                comment.isEditable.toggle()
+                amount.isEnabled.toggle()
     }
 
     @IBAction func scanBtnTapped(_ sender: Any) {

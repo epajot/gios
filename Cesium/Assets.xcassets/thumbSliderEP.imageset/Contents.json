@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "thumbSliderEP.png",
+      "filename" : "thumbSliderEP-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "thumbSliderEP-1.png",
+      "filename" : "thumbSliderEP-3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,7 +23,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "thumbSliderEPNeg-1.png",
+      "filename" : "thumbSliderEP-5.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

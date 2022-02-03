@@ -26,6 +26,8 @@ class LoadingViewCell: UITableViewCell {
 
 class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     let networkStatusView = getNetworkStatusView()
+    
+    @IBOutlet var backgroundUIImageView: UIImageView!
     @IBOutlet weak var close: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var search: UITextField!
@@ -46,6 +48,8 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         view.addSubview(networkStatusView)
         activateNetworkStatusView(statusView: networkStatusView)
+        backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
+        checkAppareance()
         self.close.text = "close_label".localized()
         self.tableView.rowHeight = 64.0
 //        self.search.becomeFirstResponder()
@@ -77,6 +81,7 @@ class ChangeReceiverViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
         parentController?.view.isHidden = true
         printClassAndFunc("@--- viewDidAppear parentController = \(String(describing: parentController))")
     }

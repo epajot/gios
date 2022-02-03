@@ -71,7 +71,8 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JqE-yj-kYt">
                                                 <rect key="frame" x="21.5" y="0.0" width="64" height="64"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="EP_Blue"/>
+                                                <color key="tintColor" name="EP_Blue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="JqE-yj-kYt" secondAttribute="height" multiplier="1:1" id="ZFt-6b-i6t"/>
                                                     <constraint firstAttribute="width" constant="64" id="l4r-II-86K"/>
@@ -88,6 +89,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="EP_Blue"/>
                                         <constraints>
                                             <constraint firstItem="g8z-kr-5pv" firstAttribute="centerX" secondItem="JqE-yj-kYt" secondAttribute="centerX" id="1bJ-RD-v14"/>
                                             <constraint firstItem="JqE-yj-kYt" firstAttribute="top" secondItem="ggf-wH-L3w" secondAttribute="top" id="5fx-7C-zAg"/>
@@ -131,7 +133,8 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ImW-VJ-Ujl">
                                                 <rect key="frame" x="21.5" y="0.0" width="64" height="64"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="EP_Blue"/>
+                                                <color key="tintColor" name="EP_Blue"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ImW-VJ-Ujl" secondAttribute="height" multiplier="1:1" id="R04-Bx-vK0"/>
@@ -148,6 +151,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <color key="tintColor" name="EP_Blue"/>
                                         <constraints>
                                             <constraint firstItem="OFu-oL-EbG" firstAttribute="centerX" secondItem="ImW-VJ-Ujl" secondAttribute="centerX" id="1cu-WR-59C"/>
                                             <constraint firstItem="OFu-oL-EbG" firstAttribute="top" secondItem="ImW-VJ-Ujl" secondAttribute="bottom" constant="8" id="6XT-m4-E6z"/>
@@ -176,23 +180,26 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="n4w-Wg-8Po">
                                 <rect key="frame" x="80" y="224" width="254" height="40"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eio-ke-Rhg">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" background="Gold" translatesAutoresizingMaskIntoConstraints="NO" id="eio-ke-Rhg">
                                         <rect key="frame" x="0.0" y="0.0" width="254" height="35"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="EP_Blue"/>
+                                        <color key="tintColor" name="EP_Blue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="EUJ-Ok-Doz"/>
                                             <constraint firstAttribute="width" constant="254" id="jcK-1h-jj4"/>
                                         </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" returnKeyType="go"/>
                                     </textField>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P5f-HI-cml">
                                         <rect key="frame" x="0.0" y="36" width="254" height="4"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="fiA-lx-BSa"/>
                                         </constraints>
+                                        <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </progressView>
                                 </subviews>
                             </stackView>
@@ -286,17 +293,17 @@
                                             <action selector="qrcodeBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="HwH-fC-gKA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-TH-Vrz" userLabel="CleanUp Button">
-                                        <rect key="frame" x="60" y="10" width="60" height="30.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vj-TH-Vrz" userLabel="Perspective Button">
+                                        <rect key="frame" x="60" y="10.5" width="60" height="29.5"/>
                                         <color key="tintColor" name="EP_Blue"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <color key="titleColor" name="EP_Blue"/>
-                                            <imageReference key="image" image="paintbrush" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="perspective" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                         </state>
                                         <connections>
-                                            <action selector="cleanUpBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="zxY-xG-GML"/>
+                                            <action selector="perspectiveBtnTapped:" destination="2fi-Sn-62l" eventType="touchUpInside" id="AF0-h9-c9e"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY5-ag-Tcj" userLabel="Scan Button">
@@ -320,7 +327,7 @@
                                     <constraint firstItem="dSr-j4-hwb" firstAttribute="centerY" secondItem="vnC-1f-SeI" secondAttribute="centerY" id="qqk-eo-SYN"/>
                                 </constraints>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.90000000000000002" minValue="0.0" maxValue="1" preferredBehavioralStyle="mac" translatesAutoresizingMaskIntoConstraints="NO" id="oHi-Gp-Qmn">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.90000000000000002" minValue="0.40000000000000002" maxValue="1" preferredBehavioralStyle="mac" translatesAutoresizingMaskIntoConstraints="NO" id="oHi-Gp-Qmn">
                                 <rect key="frame" x="68" y="433" width="278" height="31"/>
                                 <color key="tintColor" name="EP_Blue"/>
                                 <connections>
@@ -362,14 +369,16 @@
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="U3T-61-K5F" appends="YES" id="DpN-zS-QpG"/>
+                            <outletCollection property="gestureRecognizers" destination="zlm-JK-X1o" appends="YES" id="2Ie-BN-aw7"/>
+                            <outletCollection property="gestureRecognizers" destination="0rT-2K-bAa" appends="YES" id="ehf-TN-SFN"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="amount" destination="eio-ke-Rhg" id="e6Q-ia-KUd"/>
+                        <outlet property="backgroundDisplayBtn" destination="7Vj-TH-Vrz" id="JOr-ff-7V0"/>
                         <outlet property="backgroundUIImageView" destination="b45-zC-PcA" id="eeb-sI-yoF"/>
                         <outlet property="balanceLoading" destination="uMf-1y-Qef" id="2sP-y9-Td0"/>
                         <outlet property="cancelButton" destination="9Di-Ns-K3U" id="by9-AE-3Eo"/>
-                        <outlet property="cleanUpBtn" destination="7Vj-TH-Vrz" id="JOr-ff-7V0"/>
                         <outlet property="close" destination="Xd5-1I-mrc" id="fQ5-R7-asy"/>
                         <outlet property="comment" destination="M2g-RL-IE3" id="djw-5V-ZZN"/>
                         <outlet property="encryptComment" destination="Ybw-LF-UUp" id="iCc-Ip-XvP"/>
@@ -385,7 +394,6 @@
                         <outlet property="senderName" destination="g8z-kr-5pv" id="HGt-O4-3Tw"/>
                         <outlet property="sliderOpacity" destination="oHi-Gp-Qmn" id="8GY-Zs-2hA"/>
                         <outlet property="topBarHeight" destination="eLg-cE-5BN" id="jAg-zI-DhH"/>
-                        <outlet property="transferBtn" destination="7Vj-TH-Vrz" id="a1y-Et-FJi"/>
                         <outlet property="transfertBtn" destination="NII-Ed-mWZ" id="4EG-mg-0vM"/>
                         <outlet property="visibleComment" destination="t0u-j1-50o" id="Am1-oc-dqZ"/>
                     </connections>
@@ -406,6 +414,16 @@
                         <action selector="doubleTapRegognized:" destination="2fi-Sn-62l" id="Kci-a7-Seg"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="zlm-JK-X1o">
+                    <connections>
+                        <action selector="premiumDisplaySwiped:" destination="2fi-Sn-62l" id="Rx8-Yn-AQr"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="49" minimumPressDuration="0.69999999999999996" id="0rT-2K-bAa">
+                    <connections>
+                        <action selector="longPressGesture:" destination="2fi-Sn-62l" id="OuG-qB-ZFF"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="196" y="-1025"/>
         </scene>
@@ -738,15 +756,15 @@
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lzt-bR-Jar">
                                 <rect key="frame" x="80" y="151" width="254" height="35"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="EP_Blue"/>
+                                <color key="tintColor" name="EP_Blue"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" searchField="YES"/>
                                 </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="RH5-Jk-xtQ"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 <connections>
@@ -922,6 +940,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundUIImageView" destination="49K-Ec-J5u" id="Bmf-7k-GSF"/>
                         <outlet property="close" destination="qcF-it-S9L" id="tin-Je-ySB"/>
                         <outlet property="search" destination="lzt-bR-Jar" id="sEU-9Z-M9N"/>
                         <outlet property="tableView" destination="X8I-mv-D1X" id="zp4-c8-BLt"/>
@@ -949,6 +968,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zNL-vG-hky" userLabel="avatar">
                                         <rect key="frame" x="23" y="40" width="64" height="64"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="EP_Blue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="KuJ-yD-Ohh"/>
                                             <constraint firstAttribute="width" constant="64" id="q1S-en-Jrb"/>
@@ -986,6 +1006,7 @@
                                     </imageView>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="public key loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Pv-dk-ydy">
                                         <rect key="frame" x="50" y="11" width="334" height="14.5"/>
+                                        <color key="tintColor" name="EP_Blue"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <color key="textColor" name="EP_Blue"/>
                                         <nil key="highlightedColor"/>
@@ -1118,10 +1139,11 @@
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="NOU-Sr-G2P">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="41"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="EP_Blue"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="w9P-z5-SdB"/>
                                         </constraints>
+                                        <color key="color" name="EP_Blue"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cL0-nT-0Ou" userLabel="Escape Btn">
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="41"/>
@@ -1169,6 +1191,7 @@
                     </view>
                     <connections>
                         <outlet property="avatar" destination="zNL-vG-hky" id="QG1-dZ-E6I"/>
+                        <outlet property="backgroundUIImageView" destination="Xau-Lw-eqv" id="2ew-Rp-za9"/>
                         <outlet property="balance" destination="sav-B4-2wF" id="dcJ-Sd-H89"/>
                         <outlet property="balanceLoading" destination="NOU-Sr-G2P" id="hbH-eb-pnE"/>
                         <outlet property="check" destination="3PS-nb-WPD" id="mGR-vt-EQB"/>
@@ -1433,6 +1456,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Gold" width="612" height="408"/>
         <image name="SHARE_background_11_Pro Blue" width="1125" height="2436"/>
         <image name="arrow-right" width="358" height="353"/>
         <image name="barcode.viewfinder" catalog="system" width="128" height="115"/>
@@ -1443,11 +1467,11 @@
         <image name="first" width="30" height="30"/>
         <image name="key" width="410" height="410"/>
         <image name="key.fill" catalog="system" width="83" height="128"/>
-        <image name="paintbrush" catalog="system" width="122" height="128"/>
+        <image name="perspective" catalog="system" width="128" height="114"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="EP_Blue">
-            <color red="0.20600000023841858" green="0.59899997711181641" blue="0.86000001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

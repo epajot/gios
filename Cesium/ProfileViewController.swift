@@ -52,6 +52,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     weak var changeUserDelegate: ViewUserDelegate?
     var displayingAvatar: Bool = true
 
+    @IBOutlet var backgroundUIImageView: UIImageView!
     @IBOutlet var check: UIImageView!
     @IBOutlet var name: UILabel!
     @IBOutlet var balance: UILabel!
@@ -113,10 +114,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         view.addSubview(networkStatusView)
         activateNetworkStatusView(statusView: networkStatusView)
-//        hideKeyboardWhenTappedAround()
-
-//        avCaptureHelper.setupAVCaptureAndDisplay(in: view)
-
+        backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
+        checkAppareance()
         tableView.rowHeight = 64.0
 
         logClassAndFunc(info: "@ Enter")
@@ -129,20 +128,20 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
             avatar.layer.borderWidth = 1
             avatar.layer.masksToBounds = false
-            avatar.layer.borderColor = UIColor.white.cgColor
+//            avatar.layer.borderColor = UIColor.white.cgColor
             avatar.layer.cornerRadius = avatar.frame.width / 2
             avatar.clipsToBounds = true
 
             escapeBtn.isHidden = true
 //            transactBtn.layer.borderWidth = 1
 //            transactBtn.layer.borderColor = UIColor.darkGray.cgColor
-            balanceLoading.color = .white
+//            balanceLoading.color = .white
             balanceLoading.startAnimating()
 
             profile.getAvatar(imageView: avatar)
 
             // make key image white
-            keyImage.tintColor = UIColor(named: "EP_Blue") // UIColor.systemOrange
+//            keyImage.tintColor = UIColor(named: "EP_Blue") // UIColor.systemOrange
             keyImage.image = UIImage(named: "key")?.withRenderingMode(.alwaysTemplate)
 
             // Make checkmark image white
@@ -166,7 +165,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Make back button white
             let backItem = UIBarButtonItem()
             backItem.title = profile.getName()
-            backItem.tintColor = .white
+            backItem.tintColor = UIColor(named: "EP_Blue")
             navigationItem.backBarButtonItem = backItem
 
             check.isHidden = true
@@ -215,6 +214,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        checkAppareance()
+        backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel
         AppDelegate.shared.appDidBecomeActiveCallback = appDidBecomeActive
         if AppDelegate.shared.g1PaymentRequested != nil {
             presentNewTransactionVC(sender: profile, receiver: profile)
@@ -248,6 +249,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     func presentNewTransactionVC(sender: Profile?, receiver: Profile?) {
         vibrateLight()
+        checkAppareance()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 
         let newTransactionView = storyBoard.instantiateViewController(withIdentifier: "NewTransactionView") as! NewTransactionViewController

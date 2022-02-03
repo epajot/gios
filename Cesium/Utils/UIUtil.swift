@@ -37,6 +37,10 @@ extension UIViewController {
 
         present(alert, animated: true, completion: nil)
     }
+    
+    func checkAppareance() {
+            self.overrideUserInterfaceStyle = LocalUserDefaults.opacityBackgroundLevel < 0.7 ? .light : .dark
+    }
 }
 
 // https://www.hackingwithswift.com/example-code/uicolor/how-to-convert-a-hex-color-to-a-uicolor

@@ -15,8 +15,13 @@ enum LocalUserDefaults {
     // define keys to defaults
     enum Key: String {
         case opacityBackgroundLevel
+        
+        case premiumDisplayed
     }
 
     @CodableUserDefault(key: Key.opacityBackgroundLevel, defaultValue: 0.9)
     static var opacityBackgroundLevel: Float
+    
+    @CodableUserDefault(key: Key.premiumDisplayed, defaultValue: false)
+    static var premiumDisplayed: Bool
 }
