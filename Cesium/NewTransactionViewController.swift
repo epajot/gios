@@ -92,6 +92,7 @@ class NewTransactionViewController: UIViewController, UITextViewDelegate {
         activateNetworkStatusView(statusView: networkStatusView)
 //        LocalUserDefaults.premiumDisplayed = false
 
+        sliderOpacity.semanticContentAttribute = .forceRightToLeft
         sliderOpacity.setThumbImage(UIImage(named: "thumbSliderEP"), for: .normal)
         sliderOpacity.isHidden = true
         backgroundUIImageView.layer.opacity = LocalUserDefaults.opacityBackgroundLevel

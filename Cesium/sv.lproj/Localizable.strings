@@ -9,7 +9,7 @@
 "password_placeholder"="Lösenord";
 "identifier_placeholder" = "Hemlig identifierare";
 "login_button_label"="Logga in";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="Logga ut";
 "account_tab_label"="Konto";
 "login_tab_label"="Logga in";

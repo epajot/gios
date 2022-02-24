@@ -9,7 +9,7 @@
 "password_placeholder"="パスワード";
 "identifier_placeholder"="秘密の識別子";
 "login_button_label"="ログイン";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="ログアウト";
 "account_tab_label"="アカウント";
 "login_tab_label"="ログイン";

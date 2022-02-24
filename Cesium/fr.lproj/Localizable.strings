@@ -9,7 +9,7 @@
 "password_placeholder"="Mot de passe";
 "identifier_placeholder" = "Identifiant secret";
 "login_button_label"="Connexion";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="Déconnexion";
 "account_tab_label"="Compte";
 "login_tab_label"="Connexion";

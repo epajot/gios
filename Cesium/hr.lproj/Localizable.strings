@@ -9,7 +9,7 @@
 "password_placeholder"="Lozinka";
 "identifier_placeholder" = "Tajni identifikator";
 "login_button_label"="Prijava";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="Odjava";
 "account_tab_label"="Račun";
 "login_tab_label"="Prijava";

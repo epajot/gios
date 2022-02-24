@@ -9,7 +9,7 @@
 "password_placeholder"="Parola";
 "identifier_placeholder" = "Gizli Tanımlayıcı";
 "login_button_label"="Giriş";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="Çıkış";
 "account_tab_label"="Hesap";
 "login_tab_label"="Giriş";

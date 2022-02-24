@@ -9,7 +9,7 @@
 "password_placeholder"="Κωδικός πρόσβασης";
 "identifier_placeholder" = "Μυστικό αναγνωριστικό";
 "login_button_label"="Σύνδεση";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="Αποσύνδεση";
 "account_tab_label"="Λογαριασμός";
 "login_tab_label"="Σύνδεση";

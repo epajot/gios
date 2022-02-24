@@ -9,7 +9,7 @@
 "password_placeholder"="סיסמה";
 "identifier_placeholder" = "מזהה סודי";
 "login_button_label"="כניסה";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="יציאה";
 "account_tab_label"="חשבון";
 "login_tab_label"="כניסה";

@@ -9,7 +9,7 @@
 "password_placeholder"="Лозинка";
 "identifier_placeholder"="Тајни идентификатор";
 "login_button_label"="Пријава";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="Одјава";
 "account_tab_label"="Налог";
 "login_tab_label"="Пријава";

@@ -9,7 +9,7 @@
 "password_placeholder"="Pasvorto";
 "identifier_placeholder" = "Sekreta identigilo";
 "login_button_label"="Ensalutu";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="Elsaluti";
 "account_tab_label"="Konto";
 "login_tab_label"="Ensalutu";

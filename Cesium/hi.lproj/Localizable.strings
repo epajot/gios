@@ -9,7 +9,7 @@
 "password_placeholder"="पासवर्ड";
 "identifier_placeholder"="गुप्त पहचानकर्ता";
 "login_button_label"="लॉगिन";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="लॉगआउट";
 "account_tab_label"="खाता";
 "login_tab_label"="लॉगिन";

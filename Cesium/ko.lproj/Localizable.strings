@@ -9,7 +9,7 @@
 "password_placeholder"="비밀번호";
 "identifier_placeholder" = "비밀 식별자";
 "login_button_label"="로그인";
-"default_data_host"="https://g1.data.e-is.pro"; // g1.data.duniter.org
+"default_data_host"="https://g1.data.presles.fr"; // g1.data.duniter.org
 "logout_button_label"="로그아웃";
 "account_tab_label"="계정";
 "login_tab_label"="로그인";
